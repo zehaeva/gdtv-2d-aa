@@ -1,17 +1,11 @@
 extends CharacterBody2D
+class_name Player
 
 @export var move_speed: float = 100.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	var score: int = 200
-	var money: float = 15.5
-	var username: String = "Bob"
-	var is_player_alive: bool = true
-	var first_name: String = "Howard"
-	var damage: float = 7.5
-	
-	print("first_name: ", first_name, " damage: ", damage)
+	position = SceneManager.player_spawn_position
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.

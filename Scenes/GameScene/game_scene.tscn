@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=4 uid="uid://du4ovd7otudde"]
+[gd_scene load_steps=11 format=4 uid="uid://du4ovd7otudde"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://buitco15uc5x5" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
 [ext_resource type="Texture2D" uid="uid://b6tobqvkacmc6" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
-[ext_resource type="Script" uid="uid://bv4o8ewuxg7sa" path="res://Scenes/GameScene/SceneEntrance/cave_entrance.gd" id="4_kr7le"]
+[ext_resource type="Texture2D" uid="uid://bvrr43a5nv01s" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetReliefDetail.png" id="3_oi8ly"]
+[ext_resource type="PackedScene" uid="uid://b03ugi404sju5" path="res://Scenes/SceneEntrance/cave_entrance.tscn" id="5_oi8ly"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("1_l6yvh")
@@ -771,12 +772,17 @@ texture = ExtResource("2_04h35")
 2:0/0/texture_origin = Vector2i(0, 14)
 2:0/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -4, -8, -8, -8, -8, 8, -8, 8, -4)
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_12ovb"]
+texture = ExtResource("3_oi8ly")
+0:7/size_in_atlas = Vector2i(3, 3)
+0:7/0 = 0
+0:7/0/texture_origin = Vector2i(0, 10)
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, 4, -20, 4, -20, -20, 20, -20, 20, 4, 8, 4, 8, -12, -8, -12)
+
 [sub_resource type="TileSet" id="TileSet_oi8ly"]
 physics_layer_0/collision_layer = 1
 sources/0 = SubResource("TileSetAtlasSource_kr7le")
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_oi8ly"]
-size = Vector2(34, 34)
+sources/2 = SubResource("TileSetAtlasSource_12ovb")
 
 [node name="GameScene" type="Node2D"]
 
@@ -790,7 +796,7 @@ tile_set = SubResource("TileSet_kr7le")
 
 [node name="ObsticleLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
-tile_map_data = PackedByteArray("AAABAAEAAAACAAAAAAACAAAAAAACAAAAAAADAAEAAAACAAAAAAACAAIAAAACAAAAAAAAAAMAAAACAAAAAAAAAAIAAAACAAAAAAA=")
+tile_map_data = PackedByteArray("AAABAAEAAAACAAAAAAACAAAAAAACAAAAAAADAAEAAAACAAAAAAACAAIAAAACAAAAAAAAAAMAAAACAAAAAAAAAAIAAAACAAAAAAD7////AgAAAAcAAAA=")
 tile_set = SubResource("TileSet_oi8ly")
 
 [node name="Player" parent="ObsticleLayer" instance=ExtResource("1_2p8i2")]
@@ -798,12 +804,5 @@ tile_set = SubResource("TileSet_oi8ly")
 [node name="Camera2D" type="Camera2D" parent="ObsticleLayer/Player"]
 zoom = Vector2(5, 5)
 
-[node name="CaveEntrance" type="Area2D" parent="."]
-script = ExtResource("4_kr7le")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CaveEntrance"]
-position = Vector2(-70, -11)
-shape = SubResource("RectangleShape2D_oi8ly")
-
-[connection signal="body_entered" from="CaveEntrance" to="CaveEntrance" method="_on_body_entered"]
-[connection signal="body_exited" from="CaveEntrance" to="CaveEntrance" method="_on_body_exited"]
+[node name="CaveEntrance" parent="." instance=ExtResource("5_oi8ly")]
+position = Vector2(-72, -16)
