@@ -2,7 +2,7 @@ extends CharacterBody2D
 class_name Player
 
 @export var move_speed: float = 100.0
-@export var push_strength: float = 140.0
+@export var push_strength: float = 300.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:

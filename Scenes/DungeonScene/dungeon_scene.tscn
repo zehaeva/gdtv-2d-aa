@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=4 uid="uid://btwkqnq8f1qf8"]
+[gd_scene load_steps=16 format=4 uid="uid://btwkqnq8f1qf8"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_okyhq"]
 [ext_resource type="Texture2D" uid="uid://bx8qhj02k0yy6" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="1_sx8ki"]
@@ -813,6 +813,11 @@ terrain_set_0/terrain_0/name = "DungeonWalls"
 terrain_set_0/terrain_0/color = Color(0.8821054, 0.13574797, 0.7325667, 1)
 sources/0 = SubResource("TileSetAtlasSource_sx8ki")
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_n5fck"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_u35dq"]
+size = Vector2(64, 30)
+
 [node name="dungeon_scene" type="Node2D"]
 
 [node name="FloorLayer" type="TileMapLayer" parent="."]
@@ -854,6 +859,19 @@ position = Vector2(-40, 12)
 
 [node name="IceBlock" parent="." instance=ExtResource("8_odg1s")]
 position = Vector2(8, -88)
+
+[node name="PuzzleWalls" type="StaticBody2D" parent="."]
+collision_layer = 8
+collision_mask = 4
+physics_material_override = SubResource("PhysicsMaterial_n5fck")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PuzzleWalls"]
+position = Vector2(8, -64)
+shape = SubResource("RectangleShape2D_u35dq")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="PuzzleWalls"]
+position = Vector2(9, 97)
+shape = SubResource("RectangleShape2D_u35dq")
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
