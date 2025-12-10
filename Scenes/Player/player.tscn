@@ -4,8 +4,8 @@
 [ext_resource type="Texture2D" uid="uid://pgk7kgglxt83" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/Walk.png" id="2_a3d8c"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3d8c"]
-radius = 7.0
-height = 16.0
+radius = 6.5
+height = 13.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3d8c"]
 atlas = ExtResource("2_a3d8c")

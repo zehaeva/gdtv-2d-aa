@@ -1,10 +1,13 @@
-[gd_scene load_steps=11 format=4 uid="uid://du4ovd7otudde"]
+[gd_scene load_steps=14 format=4 uid="uid://du4ovd7otudde"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://buitco15uc5x5" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
 [ext_resource type="Texture2D" uid="uid://b6tobqvkacmc6" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetNature.png" id="2_04h35"]
+[ext_resource type="PackedScene" uid="uid://dyequxxr6p4cy" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="2_ohrk8"]
 [ext_resource type="Texture2D" uid="uid://bvrr43a5nv01s" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetReliefDetail.png" id="3_oi8ly"]
 [ext_resource type="PackedScene" uid="uid://b03ugi404sju5" path="res://Scenes/SceneEntrance/cave_entrance.tscn" id="5_oi8ly"]
+[ext_resource type="PackedScene" uid="uid://ct2bphudyuta4" path="res://Scenes/Block/block.tscn" id="6_12ovb"]
+[ext_resource type="PackedScene" uid="uid://dhyujutqn8wlw" path="res://Scenes/LockedDoor/locked_door.tscn" id="7_elpgg"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("1_l6yvh")
@@ -794,6 +797,9 @@ tile_set = SubResource("TileSet_kr7le")
 tile_map_data = PackedByteArray("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AAD8//T/AAANAAcAAAD6//P/AAANAAcAAAD3//P/AAAQAAkAAAD3//L/AAANAAcAAAD2//L/AAAMAAcAAAD1//L/AAAMAAcAAAD1//P/AAAOAAsAAAD2//P/AAAMAAgAAAD2//T/AAAOAAsAAAD1//T/AAARAAgAAAD0//T/AAAMAAkAAAD0//P/AAAMAAgAAADz//T/AAAMAAkAAAD0//L/AAAMAAcAAADz//L/AAAMAAcAAADy//L/AAAMAAcAAADx//L/AAALAAcAAADx//P/AAALAAgAAADy//P/AAAMAAgAAADz//P/AAAMAAgAAADy//T/AAAMAAkAAADx//T/AAALAAkAAAD2//X/AAAMAAkAAAD1//X/AAALAAkAAAD2/wgAAAAMAAcAAAD1/wkAAAAQAAgAAAD0/wkAAAARAAkAAADz/wkAAAAMAAcAAADy/wkAAAAMAAcAAADx/wkAAAALAAcAAAD1/wgAAAAMAAcAAAD0/wgAAAALAAcAAAD0/woAAAAQAAgAAAD2/wkAAAAMAAkAAADz/woAAAAMAAgAAADy/woAAAAMAAgAAADz/wsAAAAQAAgAAADy/wsAAAAMAAgAAADx/wsAAAALAAgAAAD0/wsAAAANAAkAAAD1/woAAAANAAkAAADz/wwAAAANAAkAAADy/wwAAAAMAAkAAADx/wwAAAALAAkAAADx/woAAAALAAgAAAD3/wkAAAAMAAkAAAA=")
 tile_set = SubResource("TileSet_kr7le")
 
+[node name="PuzzleButton" parent="." instance=ExtResource("2_ohrk8")]
+position = Vector2(-120, 21)
+
 [node name="ObsticleLayer" type="TileMapLayer" parent="."]
 y_sort_enabled = true
 tile_map_data = PackedByteArray("AAABAAEAAAACAAAAAAACAAAAAAACAAAAAAADAAEAAAACAAAAAAACAAIAAAACAAAAAAAAAAMAAAACAAAAAAAAAAIAAAACAAAAAAD7////AgAAAAcAAAA=")
@@ -806,3 +812,12 @@ zoom = Vector2(5, 5)
 
 [node name="CaveEntrance" parent="." instance=ExtResource("5_oi8ly")]
 position = Vector2(-72, -16)
+
+[node name="LockedDoor" parent="." instance=ExtResource("7_elpgg")]
+position = Vector2(-72, -12)
+
+[node name="Block" parent="." instance=ExtResource("6_12ovb")]
+position = Vector2(-73, 21)
+
+[connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
+[connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]

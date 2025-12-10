@@ -19,6 +19,10 @@ config/icon="res://icon.svg"
 
 SceneManager="*res://Scenes/SceneManager/scene_manager.tscn"
 
+[display]
+
+window/stretch/mode="canvas_items"
+
 [dotnet]
 
 project/assembly_name="gdtv-2d-aa"
@@ -29,6 +33,11 @@ folder_colors={
 "res://Scenes/": "blue",
 "res://assets/": "green"
 }
+
+[global_group]
+
+wall="Wall Tile Map Layer"
+pushable="A pushable object"
 
 [input]
 

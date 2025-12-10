@@ -2,14 +2,16 @@ extends CharacterBody2D
 class_name Player
 
 @export var move_speed: float = 100.0
+@export var push_strength: float = 140.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	position = SceneManager.player_spawn_position
+	Engine.max_fps = 60
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
+func _physics_process(delta: float) -> void:
 	var move_vector = Input.get_vector("move_left", "move_right", "move_up","move_down")
 	
 	velocity = move_vector * move_speed
@@ -24,5 +26,15 @@ func _process(delta: float) -> void:
 		$AnimatedSprite2D.play("move_left")
 	else:
 		$AnimatedSprite2D.stop()
+	
+	# Get the last collision
+	# Check if it's a block and if it's a block then push it
+	var collision: KinematicCollision2D = get_last_slide_collision()
+	if collision:
+		var collider_node = collision.get_collider()
+			
+		if collider_node.is_in_group("pushable"):
+			var collision_normal: Vector2 = collision.get_normal()
+			collider_node.apply_central_force(collision_normal * -1 * push_strength)
 		
 	move_and_slide()
