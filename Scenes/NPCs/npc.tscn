@@ -1,0 +1,75 @@
+[gd_scene load_steps=10 format=3 uid="uid://cgrlvp725savl"]
+
+[ext_resource type="Script" uid="uid://dbju1c2xmvsw8" path="res://Scenes/NPCs/npc.gd" id="1_53m4h"]
+[ext_resource type="Texture2D" uid="uid://b7378p75d2ugp" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaDark/SpriteSheet.png" id="1_uepqs"]
+[ext_resource type="Texture2D" uid="uid://dd1f2ganqdhom" path="res://assets/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_7vx50"]
+[ext_resource type="Texture2D" uid="uid://cyiatxd8uwulf" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaDark/Faceset.png" id="4_6wj7b"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_53m4h"]
+size = Vector2(13, 13)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_7vx50"]
+atlas = ExtResource("1_uepqs")
+region = Rect2(1, 1, 15, 15)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6epdo"]
+atlas = ExtResource("4_6wj7b")
+
+[sub_resource type="LabelSettings" id="LabelSettings_7vx50"]
+font_size = 48
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_bsvs8"]
+
+[node name="NPC" type="StaticBody2D" groups=["interactable"]]
+script = ExtResource("1_53m4h")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, 0.5)
+shape = SubResource("RectangleShape2D_53m4h")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = SubResource("AtlasTexture_7vx50")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="DialogueBoxTexture" type="TextureRect" parent="CanvasLayer"]
+anchors_preset = -1
+anchor_top = 0.80300003
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 50.00003
+offset_top = -78.343994
+offset_right = -802.0
+offset_bottom = -148.0
+grow_horizontal = 2
+grow_vertical = 0
+scale = Vector2(3.5, 3.5)
+size_flags_vertical = 8
+texture = ExtResource("3_7vx50")
+
+[node name="NPCIcon" type="TextureRect" parent="CanvasLayer/DialogueBoxTexture"]
+layout_mode = 0
+offset_left = 4.8571377
+offset_top = 11.714281
+offset_right = 44.85714
+offset_bottom = 51.71428
+texture = SubResource("AtlasTexture_6epdo")
+
+[node name="DialogueLabel" type="Label" parent="CanvasLayer"]
+offset_left = 225.0
+offset_top = 488.0
+offset_right = 1079.0
+offset_bottom = 624.0
+text = "Hello World"
+label_settings = SubResource("LabelSettings_7vx50")
+autowrap_mode = 3
+
+[node name="NameLabel" type="Label" parent="CanvasLayer"]
+offset_left = 69.0
+offset_top = 449.0
+offset_right = 288.0
+offset_bottom = 472.0
+text = "NPC Name"
+label_settings = SubResource("LabelSettings_bsvs8")
+horizontal_alignment = 1

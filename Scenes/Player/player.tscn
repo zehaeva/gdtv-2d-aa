@@ -1,11 +1,7 @@
-[gd_scene load_steps=21 format=3 uid="uid://dujoynrn0xsex"]
+[gd_scene load_steps=22 format=3 uid="uid://dujoynrn0xsex"]
 
 [ext_resource type="Script" uid="uid://brc4umo4gr8gi" path="res://Scenes/Player/player.gd" id="1_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://pgk7kgglxt83" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/Walk.png" id="2_a3d8c"]
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3d8c"]
-radius = 6.5
-height = 13.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_a3d8c"]
 atlas = ExtResource("2_a3d8c")
@@ -142,6 +138,13 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_a3d8c"]
+radius = 6.5
+height = 13.0
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_a3d8c"]
+size = Vector2(10, 10)
+
 [node name="Player" type="CharacterBody2D"]
 collision_layer = 2
 collision_mask = 7
@@ -149,9 +152,19 @@ motion_mode = 1
 script = ExtResource("1_a3d8c")
 move_speed = 60.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-shape = SubResource("CapsuleShape2D_a3d8c")
-
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_74mp2")
 animation = &"move_up"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CapsuleShape2D_a3d8c")
+
+[node name="InteractArea2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D"]
+light_mask = 2
+shape = SubResource("RectangleShape2D_a3d8c")
+debug_color = Color(1.9974261e-06, 0.64872324, 0.18153256, 0.41960785)
+
+[connection signal="body_entered" from="InteractArea2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="InteractArea2D" to="." method="_on_area_2d_body_exited"]

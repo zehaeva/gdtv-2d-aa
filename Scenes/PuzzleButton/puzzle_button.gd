@@ -17,7 +17,6 @@ func _process(delta: float) -> void:
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("pushable") or body is Player:
 		bodies_on_top += 1
-		print("button has been pushed")
 		$AnimatedSprite2D.play("pressed")
 		pressed.emit()
 
@@ -26,6 +25,5 @@ func _on_body_exited(body: Node2D) -> void:
 	if body.is_in_group("pushable") or body is Player:
 		bodies_on_top -= 1
 		if bodies_on_top == 0:
-			print("button has been UNpushed")
 			$AnimatedSprite2D.play("unpressed")
 			unpressed.emit()
