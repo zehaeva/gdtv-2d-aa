@@ -44,7 +44,7 @@ shape = SubResource("RectangleShape2D_c66ud")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s5max")
-animation = &"unpressed"
+animation = &"pressed"
 autoplay = "unpressed"
 
 [connection signal="body_entered" from="." to="." method="_on_body_entered"]

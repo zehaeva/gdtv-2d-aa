@@ -6,6 +6,8 @@ class_name Player
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
+	update_treasure_label()
+	
 	position = SceneManager.player_spawn_position
 	Engine.max_fps = 60
 
@@ -15,6 +17,8 @@ func _physics_process(delta: float) -> void:
 	move_player()
 	
 	push_blocks()
+	
+	update_treasure_label()
 	
 	move_and_slide()
 
@@ -60,3 +64,6 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("interactable"):
 		body.can_interact = true
+
+func update_treasure_label():
+	$%TreasureLabel.text = str(SceneManager.opened_chests.size())
