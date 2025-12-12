@@ -14,6 +14,7 @@ func _process(delta: float) -> void:
 func disable_secret_wall():
 	visible = false
 	collision_enabled = false
+	$AudioStreamPlayer2D.play()
 
 
 func enable_secret_wall():

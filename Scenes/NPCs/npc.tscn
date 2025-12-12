@@ -1,9 +1,10 @@
-[gd_scene load_steps=10 format=3 uid="uid://cgrlvp725savl"]
+[gd_scene load_steps=11 format=3 uid="uid://cgrlvp725savl"]
 
 [ext_resource type="Script" uid="uid://dbju1c2xmvsw8" path="res://Scenes/NPCs/npc.gd" id="1_53m4h"]
 [ext_resource type="Texture2D" uid="uid://b7378p75d2ugp" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaDark/SpriteSheet.png" id="1_uepqs"]
 [ext_resource type="Texture2D" uid="uid://dd1f2ganqdhom" path="res://assets/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_7vx50"]
 [ext_resource type="Texture2D" uid="uid://cyiatxd8uwulf" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaDark/Faceset.png" id="4_6wj7b"]
+[ext_resource type="AudioStream" uid="uid://cw3on7ulqn2rn" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/MiniImpact.wav" id="5_8207q"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53m4h"]
 size = Vector2(13, 13)
@@ -73,3 +74,6 @@ offset_bottom = 472.0
 text = "NPC Name"
 label_settings = SubResource("LabelSettings_bsvs8")
 horizontal_alignment = 1
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_8207q")

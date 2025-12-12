@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://dgmrljrjthh1a"]
+[gd_scene load_steps=8 format=3 uid="uid://dgmrljrjthh1a"]
 
 [ext_resource type="Texture2D" uid="uid://did8fvkj36spw" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="1_8xfvn"]
 [ext_resource type="Script" uid="uid://w3thg85u625q" path="res://Scenes/SwitchScene/switch.gd" id="1_fwp7u"]
+[ext_resource type="AudioStream" uid="uid://ctqi568j6ys8n" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Magic1.wav" id="3_buuy0"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_fwp7u"]
 atlas = ExtResource("1_8xfvn")
@@ -43,6 +44,10 @@ autoplay = "deactivated"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_8xfvn")
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("3_buuy0")
+volume_db = -5.0
 
 [connection signal="switch_activated" from="." to="." method="_on_switch_activated"]
 [connection signal="switch_deactivated" from="." to="." method="_on_switch_deactivated"]

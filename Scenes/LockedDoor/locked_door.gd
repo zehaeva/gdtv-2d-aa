@@ -19,8 +19,6 @@ func _on_puzzle_button_pressed() -> void:
 	if buttons_needed == buttons_pressed:
 		visible = false
 		$CollisionShape2D.set_deferred("disabled", true)
-	else:
-		print("buttons_needed: ", buttons_needed, " buttons_pressed: ", buttons_pressed)
 
 
 func _on_puzzle_button_unpressed() -> void:

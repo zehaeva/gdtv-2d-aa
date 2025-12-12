@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=4 uid="uid://btwkqnq8f1qf8"]
+[gd_scene load_steps=29 format=4 uid="uid://btwkqnq8f1qf8"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_okyhq"]
 [ext_resource type="Texture2D" uid="uid://bx8qhj02k0yy6" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/Interior/TilesetWallSimple.png" id="1_sx8ki"]
@@ -17,6 +17,8 @@
 [ext_resource type="PackedScene" uid="uid://dgmrljrjthh1a" path="res://Scenes/SwitchScene/switch.tscn" id="14_r5l8u"]
 [ext_resource type="Script" uid="uid://cy1qhmidd7puf" path="res://Scenes/DungeonScene/switch_puzzle_manager.gd" id="15_mv4ck"]
 [ext_resource type="PackedScene" uid="uid://bk3i3nq8xjsdr" path="res://Scenes/TreasureChestScene/treasure_chest.tscn" id="17_3lfkx"]
+[ext_resource type="AudioStream" uid="uid://bvce72gldi8h5" path="res://assets/Ninja Adventure - Asset Pack/Musics/2 - The Cave.ogg" id="18_in6yy"]
+[ext_resource type="AudioStream" uid="uid://b33xumuouuxca" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Secret1.wav" id="18_tqcsa"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_102mq"]
 texture = ExtResource("2_6f4q3")
@@ -855,6 +857,9 @@ tile_map_data = PackedByteArray("AAD6//3/AAABAAgAAAD6//7/AAABAAgAAAD7//7/AAABAAg
 tile_set = SubResource("TileSet_okyhq")
 script = ExtResource("3_x00t5")
 
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="SecretWallLayer"]
+stream = ExtResource("18_tqcsa")
+
 [node name="SingleUsePuzzleButton" parent="." instance=ExtResource("9_n5fck")]
 position = Vector2(-25, -170)
 
@@ -937,6 +942,12 @@ position = Vector2(88, -312)
 position = Vector2(6, -308)
 script = ExtResource("15_mv4ck")
 target_score = 2
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("18_in6yy")
+volume_db = -10.0
+autoplay = true
+parameters/looping = false
 
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]

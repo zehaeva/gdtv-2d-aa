@@ -22,6 +22,7 @@ func _process(delta: float) -> void:
 func open_chest():
 	if !is_open:
 		is_open = true
+		$AudioStreamPlayer2D.play()
 		$AnimatedSprite2D.play("open")
 		$ScrollEmpty.visible = true
 		$Timer.start()

@@ -14,19 +14,11 @@ func _ready() -> void:
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
 	if Input.is_action_just_pressed("interact") && can_interact:
-		print("switched!")
+		$AudioStreamPlayer2D.play()
 		if is_activated:
 			deactivate_swtich()
 		else:
 			activate_swtich()
-
-
-func _on_switch_activated() -> void:
-	print("the switch is activated by signal")
-
-
-func _on_switch_deactivated() -> void:
-	print("the switch is DEactivated by signal")
 
 
 func activate_swtich():
