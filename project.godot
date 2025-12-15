@@ -13,7 +13,7 @@ config_version=5
 config/name="gdtv-2d-aa"
 run/main_scene="uid://du4ovd7otudde"
 config/features=PackedStringArray("4.5", "Forward Plus")
-config/icon="res://icon.svg"
+config/icon="uid://ej2cl5oehe7n"
 
 [autoload]
 
