@@ -14,7 +14,7 @@ func _ready() -> void:
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") && can_interact:
+	if Input.is_action_just_pressed("Interact") && can_interact:
 		if !is_open:
 			open_chest()
 

@@ -33,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	
 	move_and_slide()
 	
-	if Input.is_action_just_pressed("interact") && can_attack:
+	if Input.is_action_just_pressed("Interact") && can_attack:
 		attack()
 
 

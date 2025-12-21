@@ -1,0 +1,33 @@
+using Godot;
+using System;
+
+public partial class PlayerIdleState : PlayerState
+{
+    public override void _PhysicsProcess(double delta)
+    {
+        if (characterNode.direction != Vector2.Zero)
+        {
+            characterNode.StateMachineNode.SwitchState<PlayerMoveState>();
+        }
+
+    }
+
+    public override void _Input(InputEvent @event)
+    {
+        CheckForAttackInput();
+
+        if (Input.IsActionJustPressed(GameConstants.INPUT_DASH))
+        {
+            characterNode.StateMachineNode.SwitchState<PlayerDashState>();
+        }
+        else if (Input.IsActionJustPressed(GameConstants.INPUT_INTERACT))
+        {
+            characterNode.StateMachineNode.SwitchState<PlayerAttackState>();
+        }
+    }
+
+    protected override void EnterState()
+    {
+        characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_IDLE + DirectionFacing);
+    }
+}

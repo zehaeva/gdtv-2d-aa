@@ -6,14 +6,10 @@ var is_activated: bool = false
 signal switch_activated
 signal switch_deactivated
 
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:
-	if Input.is_action_just_pressed("interact") && can_interact:
+	if Input.is_action_just_pressed("Interact") && can_interact:
 		$AudioStreamPlayer2D.play()
 		if is_activated:
 			deactivate_swtich()
