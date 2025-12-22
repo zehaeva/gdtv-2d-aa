@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://du4ovd7otudde"]
+[gd_scene load_steps=36 format=4 uid="uid://du4ovd7otudde"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://buitco15uc5x5" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -13,6 +13,7 @@
 [ext_resource type="PackedScene" uid="uid://dhyujutqn8wlw" path="res://Scenes/LockedDoor/locked_door.tscn" id="7_elpgg"]
 [ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="8_air7h"]
 [ext_resource type="PackedScene" uid="uid://dgmrljrjthh1a" path="res://Scenes/SwitchScene/switch.tscn" id="9_6qy3m"]
+[ext_resource type="Texture2D" uid="uid://cikp7a380mmdi" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/SeparateAnim/Idle.png" id="9_jaj74"]
 [ext_resource type="AudioStream" uid="uid://ddxokq4oym3xf" path="res://assets/Ninja Adventure - Asset Pack/Musics/11 - Clearing.ogg" id="13_njm7v"]
 [ext_resource type="PackedScene" uid="uid://pg8me1r73klb" path="res://Scenes/Enemies/slime_enemy.tscn" id="14_bkvnf"]
 [ext_resource type="PackedScene" uid="uid://bk3i3nq8xjsdr" path="res://Scenes/TreasureChestScene/treasure_chest.tscn" id="15_rpdpv"]
@@ -797,7 +798,7 @@ texture = ExtResource("3_oi8ly")
 0:7/size_in_atlas = Vector2i(3, 3)
 0:7/0 = 0
 0:7/0/texture_origin = Vector2i(0, 10)
-0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-8, -8, 8, -8, 8, 8, -8, 8)
+0:7/0/physics_layer_0/polygon_0/points = PackedVector2Array(-16, 0, -16, -20, 16, -20, 16, 0, 12, 0, 12, -16, -12, -16, -12, 0)
 
 [sub_resource type="TileSet" id="TileSet_oi8ly"]
 physics_layer_0/collision_layer = 1
@@ -837,6 +838,21 @@ script = ExtResource("8_air7h")
 StatValue = 2.0
 metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_pyj2o"]
+atlas = ExtResource("9_jaj74")
+region = Rect2(0, 0, 16, 16)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_coono"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pyj2o")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 5.0
+}]
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qy3m"]
 atlas = ExtResource("7_dc78n")
 
@@ -873,92 +889,99 @@ y_sort_enabled = true
 tile_map_data = PackedByteArray("AAABAAEAAAACAAAAAAACAAAAAAACAAAAAAADAAEAAAACAAAAAAACAAIAAAACAAAAAAAAAAMAAAACAAAAAAAAAAIAAAACAAAAAAD7////AgAAAAcAAAAjAOf/AAASAAkAAAAjAOj/AAASAAkAAAAjAOn/AAASAAkAAAAjAOr/AAASAAkAAAAjAOv/AAASAAkAAAAjAOz/AAASAAkAAAAjAO3/AAASAAkAAAAjAO7/AAASAAkAAAAjAO//AAASAAkAAAAjAPD/AAASAAkAAAAjAPH/AAASAAkAAAAjAPL/AAASAAkAAAAjAPP/AAASAAkAAAAjAPT/AAASAAkAAAAjAPX/AAASAAkAAAAjAPb/AAASAAkAAAAjAPf/AAASAAkAAAAjAPj/AAASAAkAAAAjAPn/AAASAAkAAAAjAPr/AAASAAkAAAAjAPv/AAASAAkAAAAjAPz/AAASAAkAAAAjAP3/AAASAAkAAAAjAP7/AAASAAkAAAAjAP//AAASAAkAAAAjAAAAAAASAAkAAAAjAAEAAAASAAkAAAAjAAIAAAASAAkAAAAjAAMAAAASAAkAAAAjAAQAAAASAAkAAAAjAAUAAAASAAkAAAAjAAYAAAASAAkAAAAjAAcAAAASAAkAAAAjAAgAAAASAAkAAAAjAAkAAAASAAkAAAAjAAoAAAASAAkAAAAjAAsAAAASAAkAAAAjAAwAAAASAAkAAAAjAA0AAAASAAkAAAAjAA4AAAASAAkAAAAjAA8AAAASAAkAAAAjABAAAAASAAkAAAAjABEAAAASAAkAAAAjABIAAAASAAkAAAAjABMAAAASAAkAAAAjABQAAAASAAkAAAAiABQAAAASAAkAAAAhABQAAAASAAkAAAAgABQAAAASAAkAAAAfABQAAAASAAkAAAAeABQAAAASAAkAAAAdABQAAAASAAkAAAAcABQAAAASAAkAAAAbABQAAAASAAkAAAAaABQAAAASAAkAAAAZABQAAAASAAkAAAAYABQAAAASAAkAAAAXABQAAAASAAkAAAAWABQAAAASAAkAAAAVABQAAAASAAkAAAAUABQAAAASAAkAAAATABQAAAASAAkAAAASABQAAAASAAkAAAARABQAAAASAAkAAAAQABQAAAASAAkAAAAPABQAAAASAAkAAAAOABQAAAASAAkAAAANABQAAAASAAkAAAAMABQAAAASAAkAAAALABQAAAASAAkAAAAKABQAAAASAAkAAAAJABQAAAASAAkAAAAIABQAAAASAAkAAAAHABQAAAASAAkAAAAGABQAAAASAAkAAAAFABQAAAASAAkAAAAEABQAAAASAAkAAAADABQAAAASAAkAAAACABQAAAASAAkAAAABABQAAAASAAkAAAAAABQAAAASAAkAAAD//xQAAAASAAkAAAD+/xQAAAASAAkAAAD9/xQAAAASAAkAAAD8/xQAAAASAAkAAAD7/xQAAAASAAkAAAD6/xQAAAASAAkAAAD5/xQAAAASAAkAAAD4/xQAAAASAAkAAAD3/xQAAAASAAkAAAD2/xQAAAASAAkAAAD1/xQAAAASAAkAAAD0/xQAAAASAAkAAADz/xQAAAASAAkAAADy/xQAAAASAAkAAADx/xQAAAASAAkAAADw/xQAAAASAAkAAADv/xQAAAASAAkAAADu/xQAAAASAAkAAADt/xQAAAASAAkAAADs/xQAAAASAAkAAADr/xQAAAASAAkAAADq/xQAAAASAAkAAADp/xQAAAASAAkAAADo/xQAAAASAAkAAADn/xQAAAASAAkAAADm/xQAAAASAAkAAADl/xQAAAASAAkAAADk/xQAAAASAAkAAADj/xQAAAASAAkAAADi/xQAAAASAAkAAADh/xQAAAASAAkAAADg/xQAAAASAAkAAADf/xQAAAASAAkAAADe/xQAAAASAAkAAADd/xQAAAASAAkAAADc/xQAAAASAAkAAADb/xQAAAASAAkAAADb/xMAAAASAAkAAADb/xIAAAASAAkAAADb/xEAAAASAAkAAADb/xAAAAASAAkAAADb/w8AAAASAAkAAADb/w4AAAASAAkAAADb/w0AAAASAAkAAADb/wwAAAASAAkAAADb/wsAAAASAAkAAADb/woAAAASAAkAAADb/wkAAAASAAkAAADb/wgAAAASAAkAAADb/wcAAAASAAkAAADb/wYAAAASAAkAAADb/wUAAAASAAkAAADb/wQAAAASAAkAAADb/wMAAAASAAkAAADb/wIAAAASAAkAAADb/wEAAAASAAkAAADb/wAAAAASAAkAAADb////AAASAAkAAADb//7/AAASAAkAAADb//3/AAASAAkAAADb//z/AAASAAkAAADb//v/AAASAAkAAADb//r/AAASAAkAAADb//n/AAASAAkAAADb//j/AAASAAkAAADb//f/AAASAAkAAADb//b/AAASAAkAAADb//X/AAASAAkAAADb//T/AAASAAkAAADb//P/AAASAAkAAADb//L/AAASAAkAAADb//H/AAASAAkAAADb//D/AAASAAkAAADb/+//AAASAAkAAADb/+7/AAASAAkAAADb/+3/AAASAAkAAADb/+z/AAASAAkAAADb/+v/AAASAAkAAADb/+r/AAASAAkAAADb/+n/AAASAAkAAADb/+j/AAASAAkAAADb/+f/AAASAAkAAAAjAOb/AAASAAkAAAAiAOb/AAAAAAIAAAAhAOb/AAAAAAIAAAAgAOb/AAASAAkAAAAfAOb/AAASAAkAAAAeAOb/AAASAAkAAAAdAOb/AAASAAkAAAAcAOb/AAASAAkAAAAbAOb/AAASAAkAAAAaAOb/AAASAAkAAAAZAOb/AAASAAkAAAAYAOb/AAASAAkAAAAXAOb/AAASAAkAAAAWAOb/AAASAAkAAAAVAOb/AAASAAkAAAAUAOb/AAASAAkAAAATAOb/AAASAAkAAAASAOb/AAASAAkAAAARAOb/AAASAAkAAAAQAOb/AAASAAkAAAAPAOb/AAASAAkAAAAOAOb/AAASAAkAAAANAOb/AAASAAkAAAAMAOb/AAASAAkAAAALAOb/AAASAAkAAAAKAOb/AAAAAAIAAAAJAOb/AAASAAkAAAAIAOb/AAASAAkAAAAHAOb/AAASAAkAAAAGAOb/AAASAAkAAAAFAOb/AAASAAkAAAAEAOb/AAASAAkAAAADAOb/AAASAAkAAAACAOb/AAASAAkAAAABAOb/AAASAAkAAAAAAOb/AAASAAkAAAD//+b/AAASAAkAAAD+/+b/AAASAAkAAAD9/+b/AAASAAkAAAD8/+b/AAASAAkAAAD7/+b/AAASAAkAAAD6/+b/AAASAAkAAAD5/+b/AAASAAkAAAD4/+b/AAASAAkAAAD3/+b/AAASAAkAAAD2/+b/AAASAAkAAAD1/+b/AAASAAkAAAD0/+b/AAASAAkAAADz/+b/AAASAAkAAADy/+b/AAASAAkAAADx/+b/AAASAAkAAADw/+b/AAASAAkAAADv/+b/AAASAAkAAADu/+b/AAASAAkAAADt/+b/AAASAAkA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AAALAOf/AAAAAAIAAAAPAOf/AAAAAAIAAAD6//D/AAAAAAIAAAD6/+//AAAAAAIAAAD5/+//AAAAAAIAAAD5/+7/AAAAAAIAAAD5/+3/AAAAAAIAAAD4/+3/AAAAAAIAAAD4/+z/AAAAAAIAAAD3/+z/AAAAAAIAAAD2/+z/AAAAAAIAAAD1/+v/AAAAAAIAAADw/+v/AAAAAAIAAADv/+v/AAAAAAIAAADv/+r/AAAAAAIAAADu/+r/AAAAAAIAAADt/+r/AAAAAAIAAADs/+r/AAAAAAIAAADr/+r/AAAAAAIAAADq/+r/AAAAAAIAAADp/+r/AAAAAAIAAADo/+r/AAAAAAIAAADn/+r/AAAAAAIAAADp/+z/AAAAAAIAAADs/+z/AAAAAAIAAADt/+z/AAAAAAIAAADs/+3/AAAAAAIAAADr/+3/AAAAAAIAAADr/+z/AAAAAAIAAADq/+z/AAAAAAIAAADq/+v/AAAAAAIAAADn/+v/AAAAAAIAAADn/+z/AAAAAAIAAADn/+3/AAAAAAIAAADs/+7/AAAAAAIAAADv/+7/AAAAAAIAAADp/+//AAAAAAIAAADk/+3/AAAAAAIAAADl/+v/AAAAAAIAAADk/+n/AAAAAAIAAADo/+j/AAAAAAIAAADr/+j/AAAAAAIAAADv/+j/AAAAAAIAAADt/+n/AAAAAAIAAADq/+j/AAAAAAIAAADq/+n/AAAAAAIAAADl//P/AAAAAAIAAADm//P/AAAAAAIAAADl//T/AAAAAAIAAADk//T/AAAAAAIAAADj//T/AAAAAAIAAADi//T/AAAAAAIAAADi/+//AAAAAAIAAADh/+//AAAAAAIAAADh//D/AAAAAAIAAADe//T/AAAAAAIAAADh/wEAAAAAAAIAAADh/wIAAAAAAAIAAADh/wMAAAAAAAIAAADi/wMAAAAAAAIAAADn////AAAAAAIAAADl/wAAAAAAAAIAAADl/wEAAAAAAAIAAADk/wEAAAAAAAIAAADp//3/AAAAAAIAAADq//z/AAAAAAIAAADs/wsAAAAAAAIAAADr/wsAAAAAAAIAAADr/wwAAAAAAAIAAADq/wwAAAAAAAIAAADp/w0AAAAAAAIAAADo/w0AAAAAAAIAAADm/w4AAAAAAAIAAADl/w4AAAAAAAIAAADl/w8AAAAAAAIAAADl/xAAAAAAAAIAAADm/xAAAAAAAAIAAADm/xEAAAAAAAIAAADr/xAAAAAAAAIAAADs/w0AAAAAAAIAAADr/w4AAAAAAAIAAADq/w8AAAAAAAIAAADr/w8AAAAAAAIAAADs/xAAAAAAAAIAAADv/w8AAAAAAAIAAADw/xAAAAAAAAIAAADu/xAAAAAAAAIAAADt/xAAAAAAAAIAAADs/xEAAAAAAAIAAADp/xEAAAAAAAIAAADw/xEAAAAAAAIAAAD1/xAAAAAAAAIAAAD2/w8AAAAAAAIAAAD1/w4AAAAAAAIAAADf/wsAAAAAAAIAAADf/wwAAAAAAAIAAADf/w0AAAAAAAIAAADf/w4AAAAAAAIAAADe/w4AAAAAAAIAAADi/woAAAAAAAIAAADg/wsAAAAAAAIAAADg/wgAAAAAAAIAAADl/wgAAAAAAAIAAADk/wkAAAAAAAIAAADn/wAAAAAAAAIAAADo//7/AAAAAAIAAADo////AAAAAAIAAADj/wEAAAAAAAIAAADi/wIAAAAAAAIAAADq////AAAAAAIAAADr//3/AAAAAAIAAADs//z/AAAAAAIAAADh/wUAAAAAAAIAAAA=")
 tile_set = SubResource("TileSet_oi8ly")
 
-[node name="Path2D" type="Path2D" parent="ObsticleLayer"]
+[node name="Slimes" type="Node" parent="ObsticleLayer"]
+
+[node name="Path2D" type="Path2D" parent="ObsticleLayer/Slimes"]
 curve = SubResource("Curve2D_6dkqd")
 
-[node name="SlimeEnemy" parent="ObsticleLayer/Path2D" node_paths=PackedStringArray("PathNode") instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy" parent="ObsticleLayer/Slimes/Path2D" node_paths=PackedStringArray("PathNode") instance=ExtResource("14_bkvnf")]
 position = Vector2(-62, -79)
 stats = Array[Object]([SubResource("Resource_up7ow"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
 PathNode = NodePath("..")
 
-[node name="StateMachine" parent="ObsticleLayer/Path2D/SlimeEnemy" index="8"]
+[node name="StateMachine" parent="ObsticleLayer/Slimes/Path2D/SlimeEnemy" index="8"]
 DebugState = true
 
-[node name="SlimeEnemy2" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy2" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-172, -106)
 stats = Array[Object]([SubResource("Resource_6dkqd"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
 
-[node name="SlimeEnemy3" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy3" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-265, -28)
 stats = Array[Object]([SubResource("Resource_glqu0"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
 
-[node name="SlimeEnemy4" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy4" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-260, 82)
 
-[node name="SlimeEnemy5" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy5" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-328, 32)
 
-[node name="SlimeEnemy6" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy6" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-311, -130)
 
-[node name="SlimeEnemy7" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy7" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-428, -83)
 
-[node name="SlimeEnemy8" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy8" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-329, 110)
 
-[node name="SlimeEnemy9" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy9" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-376, 78)
 
-[node name="SlimeEnemy10" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy10" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(238, -200)
 
-[node name="SlimeEnemy11" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy11" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(362, -175)
 
-[node name="SlimeEnemy12" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy12" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(387, -284)
 
-[node name="SlimeEnemy13" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy13" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-42, -362)
 
-[node name="SlimeEnemy14" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy14" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-79, -367)
 
-[node name="SlimeEnemy15" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy15" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(526, 14)
 
-[node name="SlimeEnemy16" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy16" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(521, 242)
 
-[node name="SlimeEnemy17" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy17" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(492, 294)
 
-[node name="SlimeEnemy18" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy18" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(344, 55)
 
-[node name="SlimeEnemy19" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy19" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-515, -381)
 
-[node name="SlimeEnemy20" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy20" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-539, -353)
 
-[node name="SlimeEnemy21" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy21" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-533, -301)
 
-[node name="SlimeEnemy22" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy22" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-477, -320)
 
-[node name="SlimeEnemy23" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
+[node name="SlimeEnemy23" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-529, 290)
 
 [node name="NinjaDarkNPC" parent="ObsticleLayer" instance=ExtResource("5_nr542")]
 position = Vector2(-10, -56)
 npc_name = "Dark Ninja"
+dialogue_lines = PackedStringArray("I was here before time", "and then time forgot me", "there is nothing here", "just some slimes")
 
 [node name="NPC" parent="ObsticleLayer" instance=ExtResource("5_nr542")]
 position = Vector2(39, -56)
 npc_name = "Cave Girl"
+dialogue_lines = PackedStringArray("There is a case to the West!")
+
+[node name="Sprite2D" parent="ObsticleLayer/NPC" index="1"]
+sprite_frames = SubResource("SpriteFrames_coono")
 
 [node name="NPCIcon" parent="ObsticleLayer/NPC/CanvasLayer/DialogueBoxTexture" index="0"]
 texture = SubResource("AtlasTexture_6qy3m")
@@ -979,7 +1002,8 @@ limit_bottom = 320
 position = Vector2(77, -32)
 
 [node name="CaveEntrance" parent="." instance=ExtResource("5_oi8ly")]
-position = Vector2(-72, -16)
+position = Vector2(-72, -14)
+collision_mask = 3
 
 [node name="LockedDoor" parent="." instance=ExtResource("7_elpgg")]
 position = Vector2(-72, -12)
@@ -1034,5 +1058,5 @@ navigation_layers = 31
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 
-[editable path="ObsticleLayer/Path2D/SlimeEnemy"]
+[editable path="ObsticleLayer/Slimes/Path2D/SlimeEnemy"]
 [editable path="ObsticleLayer/NPC"]

@@ -27,7 +27,7 @@ metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
 [sub_resource type="Resource" id="Resource_7g0yx"]
 script = ExtResource("2_oikmp")
 StatType = 1
-StatValue = 15.0
+StatValue = 300.0
 metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
 
 [sub_resource type="Resource" id="Resource_dey5f"]
@@ -1076,6 +1076,7 @@ autoplay = "MoveDown"
 shape = SubResource("CapsuleShape2D_a3d8c")
 
 [node name="InteractArea2D" type="Area2D" parent="."]
+collision_layer = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D"]
 light_mask = 2
@@ -1155,6 +1156,7 @@ volume_db = 10.0
 script = ExtResource("12_06tpx")
 currentState = NodePath("IdleState")
 states = [NodePath("AttackState"), NodePath("IdleState"), NodePath("MoveState"), NodePath("DeathState"), NodePath("InteractState")]
+DebugState = true
 
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("13_7g0yx")

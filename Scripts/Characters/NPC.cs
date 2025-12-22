@@ -3,12 +3,13 @@ using System;
 
 public partial class NPC : Character
 {
-    [Export] protected string npc_name = "";
-    [Export] protected string[] dialogue_lines;
+    [Export] public string npc_name { get; private set; } = "";
+    [Export] public string[] dialogue_lines { get; private set; }
     [Export] protected int hp = 10;
-    [Export] protected Label DialogueLabel;
-    [Export] protected CanvasLayer DialogueLayer;
-    [Export] protected Label NameLabel;
-    protected int dialogue_index = 0;
-    protected bool can_interact = false;
+    [Export] public Label DialogueLabel { get; private set; }
+    [Export] public CanvasLayer DialogueLayer { get; private set; }
+    [Export] public Label NameLabel { get; private set; }
+
+    public int dialogue_index { get; private set; } = 0;
+    public bool can_interact { get; private set; } = false;
 }

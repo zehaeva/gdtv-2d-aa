@@ -44,7 +44,7 @@ public partial class Player : Character
         //    move_player();
         //}
 
-        push_blocks();
+        //push_blocks();
 
         update_treasure_label();
 
@@ -196,7 +196,7 @@ public partial class Player : Character
     {
         switch (GetStatResource(Stat.HP).StatValue)
         {
-            case 3:
+            case >=3:
                 HPBar.Play("3_hp");
                 break;
             case 2:

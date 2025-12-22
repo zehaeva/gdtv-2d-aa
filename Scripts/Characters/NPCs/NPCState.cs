@@ -3,13 +3,20 @@ using System;
 
 public abstract partial class NPCState : CharacterState
 {
+    protected new NPC characterNode;
     protected Vector2 destination;
 
     public override void _Ready()
     {
         base._Ready();
 
-        characterNode.GetStatResource(Stat.HP).OnZero += HandleZeroHealth;
+        characterNode = GetOwner<NPC>();
+
+        // only listen to the even if we have the resource
+        if (characterNode.GetStatResource(Stat.HP) != null)
+        {
+            characterNode.GetStatResource(Stat.HP).OnZero += HandleZeroHealth;
+        }
     }
 
     private void HandleZeroHealth()

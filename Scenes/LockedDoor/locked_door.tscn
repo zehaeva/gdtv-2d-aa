@@ -11,9 +11,11 @@ atlas = ExtResource("1_vst31")
 region = Rect2(32, 0, 16, 15)
 
 [node name="LockedDoor" type="StaticBody2D"]
+collision_mask = 2
 script = ExtResource("1_aukdc")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
 shape = SubResource("RectangleShape2D_aukdc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]

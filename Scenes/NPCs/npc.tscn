@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=3 uid="uid://cgrlvp725savl"]
+[gd_scene load_steps=24 format=3 uid="uid://cgrlvp725savl"]
 
 [ext_resource type="Script" uid="uid://cnu4jofv4ajh5" path="res://Scripts/Characters/NPCs/Villager/Villager.cs" id="1_8207q"]
 [ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="2_wwphw"]
@@ -8,6 +8,7 @@
 [ext_resource type="AudioStream" uid="uid://cw3on7ulqn2rn" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/MiniImpact.wav" id="5_8207q"]
 [ext_resource type="Script" uid="uid://jrdt74am74k0" path="res://Scripts/Characters/StateMachine.cs" id="7_w84jp"]
 [ext_resource type="Script" uid="uid://cumbuh7owdoxe" path="res://Scripts/Characters/NPCs/Villager/VillagerIdleState.cs" id="8_vk7so"]
+[ext_resource type="Script" uid="uid://c6xjupy7dcxsm" path="res://Scripts/Characters/NPCs/Villager/VillagerInteractState.cs" id="9_dr070"]
 
 [sub_resource type="Resource" id="Resource_w84jp"]
 script = ExtResource("2_wwphw")
@@ -76,14 +77,15 @@ _data = {
 &"RESET": SubResource("Animation_dr070")
 }
 
-[node name="NPC" type="CharacterBody2D" node_paths=PackedStringArray("DialogueLabel", "DialogueLayer", "NameLabel", "AnimationPlayerNode", "Sprite2DNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX") groups=["interactable"]]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vk7so"]
+
+[node name="NPC" type="CharacterBody2D" node_paths=PackedStringArray("DialogueLabel", "DialogueLayer", "NameLabel", "AnimationPlayerNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX", "InteractArea2D") groups=["interactable"]]
 script = ExtResource("1_8207q")
 DialogueLabel = NodePath("CanvasLayer/DialogueLabel")
 DialogueLayer = NodePath("CanvasLayer")
 NameLabel = NodePath("CanvasLayer/NameLabel")
 stats = Array[Object]([SubResource("Resource_w84jp"), SubResource("Resource_vk7so")])
 AnimationPlayerNode = NodePath("AnimationPlayer")
-Sprite2DNode = NodePath("")
 StateMachineNode = NodePath("StateMachine")
 HurtBoxNode = NodePath("HurtBoxArea")
 HitBoxNode = NodePath("HitBoxArea")
@@ -91,6 +93,7 @@ CollisionShape2DNode = NodePath("HurtBoxArea/CollisionShape2D")
 HitBoxShapeNode = NodePath("HitBoxArea/CollisionShape2D")
 HitFlashTimer = NodePath("HitBoxArea/HitFlashTimer")
 DamageSFX = NodePath("AudioStreamPlayer2D")
+InteractArea2D = NodePath("InteractArea2D")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(-0.5, 0.5)
@@ -101,6 +104,7 @@ sprite_frames = SubResource("SpriteFrames_w84jp")
 animation = &"Idle"
 
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
 
 [node name="DialogueBoxTexture" type="TextureRect" parent="CanvasLayer"]
 anchors_preset = -1
@@ -161,12 +165,21 @@ shape = SubResource("RectangleShape2D_w84jp")
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState", "states")]
 script = ExtResource("7_w84jp")
 currentState = NodePath("IdleState")
-states = [NodePath("IdleState")]
+states = [NodePath("IdleState"), NodePath("InteractionState")]
 
 [node name="IdleState" type="Node" parent="StateMachine"]
 script = ExtResource("8_vk7so")
+
+[node name="InteractionState" type="Node" parent="StateMachine"]
+script = ExtResource("9_dr070")
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 libraries = {
 &"": SubResource("AnimationLibrary_tdvfv")
 }
+
+[node name="InteractArea2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D"]
+shape = SubResource("CircleShape2D_vk7so")
