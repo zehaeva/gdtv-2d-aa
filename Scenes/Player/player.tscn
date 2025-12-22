@@ -1,4 +1,4 @@
-[gd_scene load_steps=99 format=3 uid="uid://dujoynrn0xsex"]
+[gd_scene load_steps=101 format=3 uid="uid://dujoynrn0xsex"]
 
 [ext_resource type="Script" uid="uid://cj4usr2jdsc2l" path="res://Scripts/Characters/Player/Player.cs" id="1_74mp2"]
 [ext_resource type="Texture2D" uid="uid://pgk7kgglxt83" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/Walk.png" id="2_a3d8c"]
@@ -7,6 +7,7 @@
 [ext_resource type="AudioStream" uid="uid://h6moqrek37bj" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Sword.wav" id="3_gk6dx"]
 [ext_resource type="Texture2D" uid="uid://f1tepvhwxc7a" path="res://assets/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="3_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://mgle7gj51vxo" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Boy/SpriteSheet.png" id="4_0u5uq"]
+[ext_resource type="Script" uid="uid://bhl1my011kev4" path="res://Scripts/Characters/AttackHitBox.cs" id="4_ks1b7"]
 [ext_resource type="Texture2D" uid="uid://vyrtpih53dco" path="res://assets/Ninja Adventure - Asset Pack/Ui/LifeReceptacle/heart_2.png" id="4_mtuoh"]
 [ext_resource type="Texture2D" uid="uid://c75pwoygysh5" path="res://assets/Ninja Adventure - Asset Pack/Items/Weapons/BigSword/Sprite.png" id="5_htcer"]
 [ext_resource type="Texture2D" uid="uid://ddbicc447fxeu" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/Idle.png" id="7_dey5f"]
@@ -16,6 +17,7 @@
 [ext_resource type="Script" uid="uid://20nlkrc7mt6k" path="res://Scripts/Characters/Player/PlayerIdleState.cs" id="14_7g0yx"]
 [ext_resource type="Script" uid="uid://qlv6jhpuautl" path="res://Scripts/Characters/Player/PlayerMoveState.cs" id="16_r5xpd"]
 [ext_resource type="Script" uid="uid://c5whcxfa70bgm" path="res://Scripts/Characters/Player/PlayerDeathState.cs" id="17_ks1b7"]
+[ext_resource type="Script" uid="uid://pg6kko2w12uy" path="res://Scripts/Characters/Player/PlayerInteractState.cs" id="18_hnuln"]
 
 [sub_resource type="Resource" id="Resource_06tpx"]
 script = ExtResource("2_oikmp")
@@ -363,51 +365,12 @@ animations = [{
 "speed": 5.0
 }]
 
-[sub_resource type="Animation" id="Animation_0u5uq"]
-length = 0.001
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sword:rotation")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [0.0]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sword:position")
-tracks/1/interp = 1
-tracks/1/loop_wrap = true
-tracks/1/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 0,
-"values": [Vector2(-3, -9)]
-}
-tracks/2/type = "value"
-tracks/2/imported = false
-tracks/2/enabled = true
-tracks/2/path = NodePath("Sprite2D:texture")
-tracks/2/interp = 1
-tracks/2/loop_wrap = true
-tracks/2/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [null]
-}
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_4no11"]
+[sub_resource type="AtlasTexture" id="AtlasTexture_ejxfg"]
 atlas = ExtResource("2_dd0ac")
-region = Rect2(16, 0, 16, 16)
+region = Rect2(0, 0, 16, 16)
 
-[sub_resource type="Animation" id="Animation_dd0ac"]
-resource_name = "AttackUp"
+[sub_resource type="Animation" id="Animation_r5xpd"]
+resource_name = "Attack"
 length = 0.2
 step = 1.0
 tracks/0/type = "value"
@@ -420,7 +383,7 @@ tracks/0/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [-1.5707964, 1.5707964]
+"values": [2.0804324, 4.288274]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -432,7 +395,7 @@ tracks/1/keys = {
 "times": PackedFloat32Array(0, 0.2),
 "transitions": PackedFloat32Array(1, 1),
 "update": 0,
-"values": [Vector2(-3, -9), Vector2(-2, -7)]
+"values": [Vector2(0, 10), Vector2(0, 10)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -444,12 +407,34 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [SubResource("AtlasTexture_4no11")]
+"values": [SubResource("AtlasTexture_ejxfg")]
 }
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ejxfg"]
-atlas = ExtResource("2_dd0ac")
-region = Rect2(0, 0, 16, 16)
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.00029999999, 0.0004, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true, true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine/AttackState")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
+}
 
 [sub_resource type="Animation" id="Animation_gk6dx"]
 resource_name = "AttackDown"
@@ -490,6 +475,32 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [SubResource("AtlasTexture_ejxfg")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine/AttackState")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_pcwjh"]
@@ -536,6 +547,32 @@ tracks/2/keys = {
 "update": 1,
 "values": [SubResource("AtlasTexture_pcwjh")]
 }
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine/AttackState")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
+}
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_5omc3"]
 atlas = ExtResource("2_dd0ac")
@@ -544,7 +581,7 @@ region = Rect2(48, 0, 16, 16)
 [sub_resource type="Animation" id="Animation_jlvik"]
 resource_name = "AttackRight"
 length = 0.2
-step = 1.0
+step = 0.2
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -580,6 +617,103 @@ tracks/2/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [SubResource("AtlasTexture_5omc3")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.0001, 0.0002, 0.00029999999, 0.2),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1),
+"update": 1,
+"values": [true, true, true, true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine/AttackState")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
+}
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4no11"]
+atlas = ExtResource("2_dd0ac")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="Animation" id="Animation_dd0ac"]
+resource_name = "AttackUp"
+length = 0.2
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sword:rotation")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [-1.5707964, 1.5707964]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sword:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(-3, -9), Vector2(-2, -7)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("Sprite2D:texture")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_4no11")]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0, 0.2),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
+tracks/4/type = "method"
+tracks/4/imported = false
+tracks/4/enabled = true
+tracks/4/path = NodePath("StateMachine/AttackState")
+tracks/4/interp = 1
+tracks/4/loop_wrap = true
+tracks/4/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_1agin"]
@@ -624,27 +758,6 @@ tracks/0/keys = {
 "values": [SubResource("AtlasTexture_2jnj1")]
 }
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_mwii3"]
-atlas = ExtResource("7_dey5f")
-region = Rect2(48, 0, 16, 16)
-
-[sub_resource type="Animation" id="Animation_2aanf"]
-resource_name = "IdleRight"
-loop_mode = 1
-step = 1.0
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [SubResource("AtlasTexture_mwii3")]
-}
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_m6ahd"]
 atlas = ExtResource("7_dey5f")
 region = Rect2(32, 0, 16, 16)
@@ -666,6 +779,27 @@ tracks/0/keys = {
 "values": [SubResource("AtlasTexture_m6ahd")]
 }
 
+[sub_resource type="AtlasTexture" id="AtlasTexture_mwii3"]
+atlas = ExtResource("7_dey5f")
+region = Rect2(48, 0, 16, 16)
+
+[sub_resource type="Animation" id="Animation_2aanf"]
+resource_name = "IdleRight"
+loop_mode = 1
+step = 1.0
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [SubResource("AtlasTexture_mwii3")]
+}
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_fcwna"]
 atlas = ExtResource("7_dey5f")
 region = Rect2(16, 0, 16, 16)
@@ -685,39 +819,6 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [SubResource("AtlasTexture_fcwna")]
-}
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_enij7"]
-atlas = ExtResource("2_a3d8c")
-region = Rect2(16, 0, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_2aanf"]
-atlas = ExtResource("2_a3d8c")
-region = Rect2(16, 16, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ogmfp"]
-atlas = ExtResource("2_a3d8c")
-region = Rect2(16, 32, 16, 16)
-
-[sub_resource type="AtlasTexture" id="AtlasTexture_ixrbb"]
-atlas = ExtResource("2_a3d8c")
-region = Rect2(16, 48, 16, 16)
-
-[sub_resource type="Animation" id="Animation_ei2r2"]
-resource_name = "MoveUp"
-loop_mode = 1
-step = 0.25
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:texture")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
-"transitions": PackedFloat32Array(1, 1, 1, 1),
-"update": 1,
-"values": [SubResource("AtlasTexture_enij7"), SubResource("AtlasTexture_2aanf"), SubResource("AtlasTexture_ogmfp"), SubResource("AtlasTexture_ixrbb")]
 }
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_ei2r2"]
@@ -819,10 +920,41 @@ tracks/0/keys = {
 "values": [SubResource("AtlasTexture_qflxp"), SubResource("AtlasTexture_0pk7v"), SubResource("AtlasTexture_rblve"), SubResource("AtlasTexture_fn4qh")]
 }
 
-[sub_resource type="Animation" id="Animation_r5xpd"]
-resource_name = "Attack"
-length = 0.2
-step = 1.0
+[sub_resource type="AtlasTexture" id="AtlasTexture_enij7"]
+atlas = ExtResource("2_a3d8c")
+region = Rect2(16, 0, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_2aanf"]
+atlas = ExtResource("2_a3d8c")
+region = Rect2(16, 16, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ogmfp"]
+atlas = ExtResource("2_a3d8c")
+region = Rect2(16, 32, 16, 16)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ixrbb"]
+atlas = ExtResource("2_a3d8c")
+region = Rect2(16, 48, 16, 16)
+
+[sub_resource type="Animation" id="Animation_ei2r2"]
+resource_name = "MoveUp"
+loop_mode = 1
+step = 0.25
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.25, 0.5, 0.75),
+"transitions": PackedFloat32Array(1, 1, 1, 1),
+"update": 1,
+"values": [SubResource("AtlasTexture_enij7"), SubResource("AtlasTexture_2aanf"), SubResource("AtlasTexture_ogmfp"), SubResource("AtlasTexture_ixrbb")]
+}
+
+[sub_resource type="Animation" id="Animation_0u5uq"]
+length = 0.001
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -830,10 +962,10 @@ tracks/0/path = NodePath("Sword:rotation")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [2.0804324, 4.288274]
+"values": [0.0]
 }
 tracks/1/type = "value"
 tracks/1/imported = false
@@ -842,10 +974,10 @@ tracks/1/path = NodePath("Sword:position")
 tracks/1/interp = 1
 tracks/1/loop_wrap = true
 tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.2),
-"transitions": PackedFloat32Array(1, 1),
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
 "update": 0,
-"values": [Vector2(0, 10), Vector2(0, 10)]
+"values": [Vector2(-3, -9)]
 }
 tracks/2/type = "value"
 tracks/2/imported = false
@@ -857,7 +989,19 @@ tracks/2/keys = {
 "times": PackedFloat32Array(0),
 "transitions": PackedFloat32Array(1),
 "update": 1,
-"values": [SubResource("AtlasTexture_ejxfg")]
+"values": [null]
+}
+tracks/3/type = "value"
+tracks/3/imported = false
+tracks/3/enabled = true
+tracks/3/path = NodePath("Sword:visible")
+tracks/3/interp = 1
+tracks/3/loop_wrap = true
+tracks/3/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_jlvik"]
@@ -894,14 +1038,15 @@ stats = Array[Object]([SubResource("Resource_06tpx"), SubResource("Resource_7g0y
 AnimationPlayerNode = NodePath("AnimationPlayer")
 StateMachineNode = NodePath("StateMachine")
 HurtBoxNode = NodePath("HurtboxArea")
-HitBoxNode = NodePath("HitboxArea2D")
+HitBoxNode = NodePath("Sword/SwordArea2D")
 CollisionShape2DNode = NodePath("CollisionShape2D")
-HitBoxShapeNode = NodePath("HitboxArea2D/CollisionShape2D")
+HitBoxShapeNode = NodePath("Sword/SwordArea2D/CollisionShape2D")
 HitFlashTimer = NodePath("HitFlashTimer")
 DamageSFX = NodePath("DamageSFX")
 InteractArea2D = NodePath("InteractArea2D")
 
 [node name="Sword" type="Sprite2D" parent="."]
+visible = false
 position = Vector2(-3, -9)
 texture = ExtResource("5_htcer")
 offset = Vector2(0, -5)
@@ -909,7 +1054,7 @@ offset = Vector2(0, -5)
 [node name="SwordArea2D" type="Area2D" parent="Sword"]
 collision_layer = 2
 collision_mask = 16
-monitoring = false
+script = ExtResource("4_ks1b7")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/SwordArea2D"]
 position = Vector2(0, -5)
@@ -1009,8 +1154,7 @@ volume_db = 10.0
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState", "states")]
 script = ExtResource("12_06tpx")
 currentState = NodePath("IdleState")
-states = [NodePath("AttackState"), NodePath("IdleState"), NodePath("MoveState"), NodePath("DeathState")]
-DebugState = true
+states = [NodePath("AttackState"), NodePath("IdleState"), NodePath("MoveState"), NodePath("DeathState"), NodePath("InteractState")]
 
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("13_7g0yx")
@@ -1024,12 +1168,7 @@ script = ExtResource("16_r5xpd")
 [node name="DeathState" type="Node" parent="StateMachine"]
 script = ExtResource("17_ks1b7")
 
-[node name="HitFlashTimer" type="Timer" parent="."]
+[node name="InteractState" type="Node" parent="StateMachine"]
+script = ExtResource("18_hnuln")
 
-[connection signal="body_entered" from="Sword/SwordArea2D" to="." method="_on_sword_area_2d_body_entered"]
-[connection signal="body_entered" from="InteractArea2D" to="." method="_on_area_2d_body_entered"]
-[connection signal="body_exited" from="InteractArea2D" to="." method="_on_area_2d_body_exited"]
-[connection signal="body_entered" from="HitboxArea2D" to="." method="_on_hitbox_area_2d_body_entered"]
-[connection signal="body_entered" from="HurtboxArea" to="." method="_on_hitbox_area_2d_body_entered"]
-[connection signal="timeout" from="AttackDurationTimer" to="." method="_on_attack_duration_timer_timeout"]
-[connection signal="timeout" from="DeathTimer" to="." method="reset_scene"]
+[node name="HitFlashTimer" type="Timer" parent="."]

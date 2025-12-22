@@ -42,6 +42,7 @@ public partial class SlimeAttackState : SlimeState
         
     }
 
+    // Called from the AnimationPlayerNode
     protected void PerformHit()
     {
         characterNode.ToggleHitBox(false);

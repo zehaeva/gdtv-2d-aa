@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://du4ovd7otudde"]
+[gd_scene load_steps=33 format=4 uid="uid://du4ovd7otudde"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://buitco15uc5x5" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -11,7 +11,7 @@
 [ext_resource type="PackedScene" uid="uid://ct2bphudyuta4" path="res://Scenes/Block/block.tscn" id="6_12ovb"]
 [ext_resource type="Texture2D" uid="uid://cf2bv3pbv32hr" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/Faceset.png" id="7_dc78n"]
 [ext_resource type="PackedScene" uid="uid://dhyujutqn8wlw" path="res://Scenes/LockedDoor/locked_door.tscn" id="7_elpgg"]
-[ext_resource type="Texture2D" uid="uid://cikp7a380mmdi" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/SeparateAnim/Idle.png" id="8_6dkqd"]
+[ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="8_air7h"]
 [ext_resource type="PackedScene" uid="uid://dgmrljrjthh1a" path="res://Scenes/SwitchScene/switch.tscn" id="9_6qy3m"]
 [ext_resource type="AudioStream" uid="uid://ddxokq4oym3xf" path="res://assets/Ninja Adventure - Asset Pack/Musics/11 - Clearing.ogg" id="13_njm7v"]
 [ext_resource type="PackedScene" uid="uid://pg8me1r73klb" path="res://Scenes/Enemies/slime_enemy.tscn" id="14_bkvnf"]
@@ -810,20 +810,32 @@ _data = {
 }
 point_count = 1
 
-[sub_resource type="AtlasTexture" id="AtlasTexture_jaj74"]
-atlas = ExtResource("8_6dkqd")
-region = Rect2(0, 0, 16, 16)
+[sub_resource type="Resource" id="Resource_up7ow"]
+script = ExtResource("8_air7h")
+StatValue = 2.0
+metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_pyj2o"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": SubResource("AtlasTexture_jaj74")
-}],
-"loop": true,
-"name": &"Idle",
-"speed": 5.0
-}]
+[sub_resource type="Resource" id="Resource_1u7tg"]
+script = ExtResource("8_air7h")
+StatType = 3
+StatValue = 30.0
+metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
+
+[sub_resource type="Resource" id="Resource_jwhlm"]
+script = ExtResource("8_air7h")
+StatType = 4
+StatValue = 15.0
+metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
+
+[sub_resource type="Resource" id="Resource_6dkqd"]
+script = ExtResource("8_air7h")
+StatValue = 2.0
+metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
+
+[sub_resource type="Resource" id="Resource_glqu0"]
+script = ExtResource("8_air7h")
+StatValue = 2.0
+metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qy3m"]
 atlas = ExtResource("7_dc78n")
@@ -866,13 +878,19 @@ curve = SubResource("Curve2D_6dkqd")
 
 [node name="SlimeEnemy" parent="ObsticleLayer/Path2D" node_paths=PackedStringArray("PathNode") instance=ExtResource("14_bkvnf")]
 position = Vector2(-62, -79)
+stats = Array[Object]([SubResource("Resource_up7ow"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
 PathNode = NodePath("..")
 
+[node name="StateMachine" parent="ObsticleLayer/Path2D/SlimeEnemy" index="8"]
+DebugState = true
+
 [node name="SlimeEnemy2" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
-position = Vector2(-190, -120)
+position = Vector2(-172, -106)
+stats = Array[Object]([SubResource("Resource_6dkqd"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
 
 [node name="SlimeEnemy3" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
 position = Vector2(-265, -28)
+stats = Array[Object]([SubResource("Resource_glqu0"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
 
 [node name="SlimeEnemy4" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
 position = Vector2(-260, 82)
@@ -934,17 +952,13 @@ position = Vector2(-477, -320)
 [node name="SlimeEnemy23" parent="ObsticleLayer" instance=ExtResource("14_bkvnf")]
 position = Vector2(-529, 290)
 
-[node name="NinjaDarkNPC" parent="ObsticleLayer" node_paths=PackedStringArray("AnimatedSprite2DNode") instance=ExtResource("5_nr542")]
+[node name="NinjaDarkNPC" parent="ObsticleLayer" instance=ExtResource("5_nr542")]
 position = Vector2(-10, -56)
 npc_name = "Dark Ninja"
-AnimatedSprite2DNode = NodePath("../NPC/Sprite2D")
 
 [node name="NPC" parent="ObsticleLayer" instance=ExtResource("5_nr542")]
 position = Vector2(39, -56)
 npc_name = "Cave Girl"
-
-[node name="Sprite2D" parent="ObsticleLayer/NPC" index="1"]
-sprite_frames = SubResource("SpriteFrames_pyj2o")
 
 [node name="NPCIcon" parent="ObsticleLayer/NPC/CanvasLayer/DialogueBoxTexture" index="0"]
 texture = SubResource("AtlasTexture_6qy3m")
@@ -1020,4 +1034,5 @@ navigation_layers = 31
 [connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
 [connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 
+[editable path="ObsticleLayer/Path2D/SlimeEnemy"]
 [editable path="ObsticleLayer/NPC"]

@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=3 uid="uid://pg8me1r73klb"]
+[gd_scene load_steps=51 format=3 uid="uid://pg8me1r73klb"]
 
 [ext_resource type="Script" uid="uid://cj05hnkpukkm0" path="res://Scripts/Characters/NPCs/Slime/Slime.cs" id="1_1u7tg"]
 [ext_resource type="Texture2D" uid="uid://6qi75vsaoxpj" path="res://assets/Ninja Adventure - Asset Pack/Actor/Monsters/Slime3/Slime3.png" id="1_p6sbt"]
@@ -175,6 +175,11 @@ animations = [{
 "name": &"AttackUp",
 "speed": 10.0
 }, {
+"frames": [],
+"loop": true,
+"name": &"Death",
+"speed": 5.0
+}, {
 "frames": [{
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_sv1en")
@@ -282,8 +287,8 @@ scale_min = 2.0
 scale_max = 4.0
 color = Color(0.4745098, 0.72156864, 0.80784315, 1)
 
-[sub_resource type="Animation" id="Animation_6qitd"]
-resource_name = "MoveDown"
+[sub_resource type="Animation" id="Animation_33pvu"]
+resource_name = "AttackDown"
 step = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -299,12 +304,87 @@ tracks/0/keys = {
 "method": &"play"
 }]
 }
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
+}
 
-[sub_resource type="Animation" id="Animation_lvc1q"]
-length = 0.001
+[sub_resource type="Animation" id="Animation_hiyn6"]
+resource_name = "AttackLeft"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"MoveLeft", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
+}
 
-[sub_resource type="Animation" id="Animation_nqitv"]
-resource_name = "MoveUp"
+[sub_resource type="Animation" id="Animation_gmqne"]
+resource_name = "AttackRight"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"MoveRight", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_mek6i"]
+resource_name = "AttackUp"
 step = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -317,6 +397,74 @@ tracks/0/keys = {
 "transitions": PackedFloat32Array(1),
 "values": [{
 "args": [&"MoveUp", 1.0, false],
+"method": &"play"
+}]
+}
+tracks/1/type = "method"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("StateMachine/AttackState")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [],
+"method": &"PerformHit"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_vx8ge"]
+resource_name = "Death"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Death", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_n2bhi"]
+resource_name = "Idle"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"Idle", 1.0, false],
+"method": &"play"
+}]
+}
+
+[sub_resource type="Animation" id="Animation_6qitd"]
+resource_name = "MoveDown"
+step = 0.1
+tracks/0/type = "method"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"values": [{
+"args": [&"MoveDown", 1.0, false],
 "method": &"play"
 }]
 }
@@ -357,44 +505,8 @@ tracks/0/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_n2bhi"]
-resource_name = "Idle"
-step = 0.1
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"Idle", 1.0, false],
-"method": &"play"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_33pvu"]
-resource_name = "AttackDown"
-step = 0.1
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"MoveDown", 1.0, false],
-"method": &"play"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_mek6i"]
-resource_name = "AttackUp"
+[sub_resource type="Animation" id="Animation_nqitv"]
+resource_name = "MoveUp"
 step = 0.1
 tracks/0/type = "method"
 tracks/0/imported = false
@@ -411,41 +523,8 @@ tracks/0/keys = {
 }]
 }
 
-[sub_resource type="Animation" id="Animation_hiyn6"]
-resource_name = "AttackLeft"
-step = 0.1
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"MoveLeft", 1.0, false],
-"method": &"play"
-}]
-}
-
-[sub_resource type="Animation" id="Animation_gmqne"]
-resource_name = "AttackRight"
-step = 0.1
-tracks/0/type = "method"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("AnimatedSprite2D")
-tracks/0/interp = 1
-tracks/0/loop_wrap = true
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"values": [{
-"args": [&"MoveRight", 1.0, false],
-"method": &"play"
-}]
-}
+[sub_resource type="Animation" id="Animation_lvc1q"]
+length = 0.001
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_bnysn"]
 _data = {
@@ -453,6 +532,7 @@ _data = {
 &"AttackLeft": SubResource("Animation_hiyn6"),
 &"AttackRight": SubResource("Animation_gmqne"),
 &"AttackUp": SubResource("Animation_mek6i"),
+&"Death": SubResource("Animation_vx8ge"),
 &"Idle": SubResource("Animation_n2bhi"),
 &"MoveDown": SubResource("Animation_6qitd"),
 &"MoveLeft": SubResource("Animation_gf5l7"),
@@ -461,11 +541,12 @@ _data = {
 &"RESET": SubResource("Animation_lvc1q")
 }
 
-[node name="SlimeEnemy" type="CharacterBody2D" node_paths=PackedStringArray("GPUParticles2DNode", "AnimationPlayerNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
+[node name="SlimeEnemy" type="CharacterBody2D" node_paths=PackedStringArray("GPUParticles2DNode", "AnimatedSprite2DNode", "AnimationPlayerNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
 collision_layer = 16
 motion_mode = 1
 script = ExtResource("1_1u7tg")
 GPUParticles2DNode = NodePath("GPUParticles2D")
+AnimatedSprite2DNode = NodePath("AnimatedSprite2D")
 hp = 2
 stats = Array[Object]([SubResource("Resource_rh62s"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
 AnimationPlayerNode = NodePath("AnimationPlayer")
@@ -485,8 +566,7 @@ shape = SubResource("CapsuleShape2D_5uyk1")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_1u7tg")
-animation = &"Idle"
-frame_progress = 0.84004325
+animation = &"Death"
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 

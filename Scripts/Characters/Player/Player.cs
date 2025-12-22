@@ -28,6 +28,8 @@ public partial class Player : Character
         //Position = SceneManager.player_spawn_position;
 
         Engine.MaxFps = 60;
+
+        ToggleHitBox(true);
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -46,7 +48,7 @@ public partial class Player : Character
 
         update_treasure_label();
 
-        MoveAndSlide();
+        //MoveAndSlide();
 
         //if (Input.IsActionJustPressed(GameConstants.INPUT_INTERACT) && can_attack)
         //{ attack(); }
@@ -54,11 +56,14 @@ public partial class Player : Character
 
     public override void _Input(InputEvent @event)
     {
-        this.lastDirection = this.direction;
         this.direction = Input.GetVector(GameConstants.INPUT_MOVE_LEFT,
                                          GameConstants.INPUT_MOVE_RIGHT,
                                          GameConstants.INPUT_MOVE_UP,
                                          GameConstants.INPUT_MOVE_DOWN);
+        if (this.direction != Vector2.Zero)
+        {
+            this.lastDirection = this.direction;
+        }
 
     }
 

@@ -3,6 +3,8 @@ using System;
 
 public partial class PlayerIdleState : PlayerState
 {
+    private bool can_interact = false;
+
     public override void _PhysicsProcess(double delta)
     {
         if (characterNode.direction != Vector2.Zero)
@@ -10,6 +12,8 @@ public partial class PlayerIdleState : PlayerState
             characterNode.StateMachineNode.SwitchState<PlayerMoveState>();
         }
 
+        characterNode.InteractArea2D.BodyEntered += InteractArea2D_BodyEntered;
+        characterNode.InteractArea2D.BodyExited += InteractArea2D_BodyExited;
     }
 
     public override void _Input(InputEvent @event)
@@ -20,14 +24,35 @@ public partial class PlayerIdleState : PlayerState
         {
             characterNode.StateMachineNode.SwitchState<PlayerDashState>();
         }
-        else if (Input.IsActionJustPressed(GameConstants.INPUT_INTERACT))
+        else if (Input.IsActionJustPressed(GameConstants.INPUT_INTERACT) && !can_interact)
         {
             characterNode.StateMachineNode.SwitchState<PlayerAttackState>();
+        }
+        else if (Input.IsActionJustPressed(GameConstants.INPUT_INTERACT) && can_interact)
+        {
+            characterNode.StateMachineNode.SwitchState<PlayerInteractState>();
         }
     }
 
     protected override void EnterState()
     {
         characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_IDLE + DirectionFacing);
+    }
+
+    private void InteractArea2D_BodyExited(Node2D body)
+    {
+        can_interact = false;
+    }
+
+    private void InteractArea2D_BodyEntered(Node2D body)
+    {
+        if (body.IsInGroup("interactable"))
+        {
+            can_interact = true;
+        }
+        else
+        {
+            can_interact = false;
+        }
     }
 }

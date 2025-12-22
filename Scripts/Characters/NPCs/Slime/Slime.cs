@@ -6,6 +6,7 @@ public partial class Slime : NPC
     [Export] private int speed = 30;
     [Export] private float acceleration = 15;
     [Export] public GpuParticles2D GPUParticles2DNode { get; set; }
+    [Export] public AnimatedSprite2D AnimatedSprite2DNode { get; set; }
 
     public override void _Ready()
     {

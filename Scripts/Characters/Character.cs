@@ -50,16 +50,47 @@ public abstract partial class Character : CharacterBody2D
 
     private void HandleHurtBoxEntered(Area2D area)
     {
-        //if (area is not IHitBox hitbox) { return; }
+        if (area is not IHitBox hitbox) { return; }
 
         StatResource health = GetStatResource(Stat.HP);
 
-        //float damage = hitbox.GetDamage();
+        float damage = hitbox.GetDamage();
 
-        //health.StatValue -= damage;
+        health.StatValue -= damage;
 
         //shader.SetShaderParameter("active", true);
         HitFlashTimer.Start();
+
+        // ------------------------------------
+
+        DamageSFX.Play();
+
+        GetStatResource(Stat.HP).StatValue -= damage;
+
+        if (GetStatResource(Stat.HP).StatValue <= 0)
+        {
+            StateMachineNode.SwitchState<IDeathState>();
+        }
+
+        #region handle knockback
+        Vector2 distance_to_enemy = GlobalPosition - area.GlobalPosition;
+
+        Vector2 distance_normalized = distance_to_enemy.Normalized();
+
+        float knockback_strength = 150;
+
+        Velocity += distance_normalized * knockback_strength;
+
+        Color flash_white_color = new Color(50, 50, 50);
+
+        Modulate = flash_white_color;
+
+        GetTree().CreateTimer(0.2);
+
+        Color original_color = new Color(1, 1, 1);
+
+        Modulate = original_color;
+        #endregion
     }
 
     public StatResource GetStatResource(Stat stat)
