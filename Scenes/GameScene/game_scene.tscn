@@ -1005,8 +1005,9 @@ position = Vector2(77, -32)
 position = Vector2(-72, -14)
 collision_mask = 3
 
-[node name="LockedDoor" parent="." instance=ExtResource("7_elpgg")]
+[node name="LockedDoor" parent="." node_paths=PackedStringArray("PuzzleButtonNode") instance=ExtResource("7_elpgg")]
 position = Vector2(-72, -12)
+PuzzleButtonNode = [NodePath("../PuzzleButton")]
 
 [node name="Block" parent="." instance=ExtResource("6_12ovb")]
 position = Vector2(-73, 21)
@@ -1054,9 +1055,6 @@ chest_name = "chest4"
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_6dkqd")
 navigation_layers = 31
-
-[connection signal="pressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_pressed"]
-[connection signal="unpressed" from="PuzzleButton" to="LockedDoor" method="_on_puzzle_button_unpressed"]
 
 [editable path="ObsticleLayer/Slimes/Path2D/SlimeEnemy"]
 [editable path="ObsticleLayer/NPC"]

@@ -1,8 +1,8 @@
 extends Area2D
 
 var bodies_on_top: int = 0
-signal pressed
-signal unpressed
+#signal pressed
+#signal unpressed
 
 
 func _on_body_entered(body: Node2D) -> void:
@@ -11,7 +11,7 @@ func _on_body_entered(body: Node2D) -> void:
 		$AnimatedSprite2D.play("pressed")
 		$AudioStreamPlayer2D.pitch_scale = 1.0
 		$AudioStreamPlayer2D.play()
-		pressed.emit()
+		#pressed.emit()
 
 
 func _on_body_exited(body: Node2D) -> void:
@@ -21,4 +21,4 @@ func _on_body_exited(body: Node2D) -> void:
 			$AudioStreamPlayer2D.pitch_scale = 0.8
 			$AudioStreamPlayer2D.play()
 			$AnimatedSprite2D.play("unpressed")
-			unpressed.emit()
+			#unpressed.emit()

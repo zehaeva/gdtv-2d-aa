@@ -23,6 +23,7 @@
     public const string ANIM_STUN = "Stun";
     public const string ANIM_ACTIVATED = "Activated";
     public const string ANIM_DEACTIVATED = "Deactivated";
+    public const string ANIM_OPEN = "Open";
 
 
     public const string INPUT_MOVE_UP = "MoveUp";

@@ -1,6 +1,6 @@
 [gd_scene load_steps=5 format=3 uid="uid://dhyujutqn8wlw"]
 
-[ext_resource type="Script" uid="uid://dsswuoboxn11q" path="res://Scenes/LockedDoor/locked_door.gd" id="1_aukdc"]
+[ext_resource type="Script" uid="uid://ba2i2pd0jcnth" path="res://Scripts/Environment/LockedDoor/LockedDoor.cs" id="1_aukdc"]
 [ext_resource type="Texture2D" uid="uid://bvrr43a5nv01s" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetReliefDetail.png" id="1_vst31"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_aukdc"]
@@ -10,12 +10,13 @@ size = Vector2(16, 16)
 atlas = ExtResource("1_vst31")
 region = Rect2(32, 0, 16, 15)
 
-[node name="LockedDoor" type="StaticBody2D"]
+[node name="LockedDoor" type="StaticBody2D" node_paths=PackedStringArray("CollisionShape2DNode", "PuzzleButtonNode")]
 collision_mask = 2
 script = ExtResource("1_aukdc")
+CollisionShape2DNode = NodePath("CollisionShape2D")
+PuzzleButtonNode = []
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 shape = SubResource("RectangleShape2D_aukdc")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
