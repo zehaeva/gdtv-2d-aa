@@ -1156,7 +1156,6 @@ volume_db = 10.0
 script = ExtResource("12_06tpx")
 currentState = NodePath("IdleState")
 states = [NodePath("AttackState"), NodePath("IdleState"), NodePath("MoveState"), NodePath("DeathState"), NodePath("InteractState")]
-DebugState = true
 
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("13_7g0yx")

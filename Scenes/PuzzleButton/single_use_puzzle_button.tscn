@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://dyequxxr6p4cy" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="1_ifhfw"]
 [ext_resource type="Texture2D" uid="uid://did8fvkj36spw" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="2_b63pp"]
-[ext_resource type="Script" uid="uid://1w3uw6ko3s7e" path="res://Scenes/PuzzleButton/single_use_puzzle_button.gd" id="2_wo7tx"]
+[ext_resource type="Script" uid="uid://cls1axfp4am60" path="res://Scripts/Environment/SingleUsePuzzleButton/SingleUsePuzzleButton.cs" id="2_wo7tx"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_wo7tx"]
 atlas = ExtResource("2_b63pp")
@@ -19,7 +19,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_wo7tx")
 }],
 "loop": true,
-"name": &"pressed",
+"name": &"Pressed",
 "speed": 5.0
 }, {
 "frames": [{
@@ -27,7 +27,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_jo60n")
 }],
 "loop": true,
-"name": &"unpressed",
+"name": &"Unpressed",
 "speed": 5.0
 }]
 
@@ -36,4 +36,3 @@ script = ExtResource("2_wo7tx")
 
 [node name="AnimatedSprite2D" parent="." index="1"]
 sprite_frames = SubResource("SpriteFrames_abj6e")
-animation = &"pressed"

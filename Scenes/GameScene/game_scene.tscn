@@ -1,4 +1,4 @@
-[gd_scene load_steps=36 format=4 uid="uid://du4ovd7otudde"]
+[gd_scene load_steps=37 format=4 uid="uid://du4ovd7otudde"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://buitco15uc5x5" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -16,6 +16,7 @@
 [ext_resource type="Texture2D" uid="uid://cikp7a380mmdi" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/SeparateAnim/Idle.png" id="9_jaj74"]
 [ext_resource type="AudioStream" uid="uid://ddxokq4oym3xf" path="res://assets/Ninja Adventure - Asset Pack/Musics/11 - Clearing.ogg" id="13_njm7v"]
 [ext_resource type="PackedScene" uid="uid://pg8me1r73klb" path="res://Scenes/Enemies/slime_enemy.tscn" id="14_bkvnf"]
+[ext_resource type="Script" uid="uid://evmjl6gglqlk" path="res://Scripts/Scenes/Part01/Overland01/CaveEntrance.cs" id="14_pyj2o"]
 [ext_resource type="PackedScene" uid="uid://bk3i3nq8xjsdr" path="res://Scenes/TreasureChestScene/treasure_chest.tscn" id="15_rpdpv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
@@ -1004,6 +1005,9 @@ position = Vector2(77, -32)
 [node name="CaveEntrance" parent="." instance=ExtResource("5_oi8ly")]
 position = Vector2(-72, -14)
 collision_mask = 3
+script = ExtResource("14_pyj2o")
+NextScene = "res://Scenes/DungeonScene/dungeon_scene.tscn"
+PlayerSpawnPosition = Vector2(0, 0)
 
 [node name="LockedDoor" parent="." node_paths=PackedStringArray("PuzzleButtonNode") instance=ExtResource("7_elpgg")]
 position = Vector2(-72, -12)

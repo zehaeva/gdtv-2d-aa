@@ -26,7 +26,7 @@ public partial class PuzzleButton : Area2D
         this.BodyExited -= _on_body_exited;
     }
 
-    public void _on_body_entered(Node2D body)
+    protected virtual void _on_body_entered(Node2D body)
     {
         if (body.IsInGroup(GameConstants.GROUP_PUSHABLE) || body is CharacterBody2D)
         {
@@ -38,8 +38,8 @@ public partial class PuzzleButton : Area2D
             RaisePressed();
         }
     }
-    
-    public void _on_body_exited(Node2D body)
+
+    protected virtual void _on_body_exited(Node2D body)
     {
         if (body.IsInGroup(GameConstants.GROUP_PUSHABLE) || body is CharacterBody2D)
         {
