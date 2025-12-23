@@ -1,6 +1,5 @@
 ﻿using System;
 using Godot;
-using static Godot.WebSocketPeer;
 
 [GlobalClass]
 public partial class StatResource : Resource

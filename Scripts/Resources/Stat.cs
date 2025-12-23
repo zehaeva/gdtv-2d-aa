@@ -4,8 +4,22 @@ using Godot;
 public enum Stat
 {
     HP,
-    Strength,
     OpenedChests,
     Speed,
-    Acceleration
+    Acceleration,
+    Strength,
+    Intellect,
+    Dexterity,
+    Wisdom,
+
+    #region Virtues
+    Honesty, 
+    Compassion, 
+    Valor, 
+    Justice, 
+    Sacrifice, 
+    Honor, 
+    Spirituality, 
+    Humility
+    #endregion
 }
