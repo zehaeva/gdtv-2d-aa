@@ -1,10 +1,8 @@
 using Godot;
-using System;
-using System.Text.RegularExpressions;
 
 public partial class PlayerIdleState : PlayerState
 {
-    private bool can_interact = false;
+    private bool canInteract = false;
 
     public override void _PhysicsProcess(double delta)
     {
@@ -22,11 +20,11 @@ public partial class PlayerIdleState : PlayerState
         {
             characterNode.StateMachineNode.SwitchState<PlayerDashState>();
         }
-        else if (Input.IsActionJustPressed(GameConstants.INPUT_INTERACT) && !can_interact)
+        else if (Input.IsActionJustPressed(GameConstants.INPUT_INTERACT) && !canInteract)
         {
             characterNode.StateMachineNode.SwitchState<PlayerAttackState>();
         }
-        else if (Input.IsActionJustPressed(GameConstants.INPUT_INTERACT) && can_interact)
+        else if (Input.IsActionJustPressed(GameConstants.INPUT_INTERACT) && canInteract)
         {
             //characterNode.StateMachineNode.SwitchState<PlayerInteractState>();
         }
@@ -34,6 +32,8 @@ public partial class PlayerIdleState : PlayerState
 
     protected override void EnterState()
     {
+        canInteract = false;
+
         characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_IDLE + DirectionFacing);
 
         characterNode.InteractArea2D.BodyEntered += InteractArea2D_BodyEntered;
@@ -45,7 +45,7 @@ public partial class PlayerIdleState : PlayerState
             {
                 if (node.IsInGroup(GameConstants.GROUP_INTERACTABLE))
                 {
-                    can_interact = true;
+                    canInteract = true;
                 }
             }
         }
@@ -59,18 +59,18 @@ public partial class PlayerIdleState : PlayerState
 
     private void InteractArea2D_BodyExited(Node2D body)
     {
-        can_interact = false;
+        canInteract = false;
     }
 
     private void InteractArea2D_BodyEntered(Node2D body)
     {
         if (body.IsInGroup(GameConstants.GROUP_INTERACTABLE))
         {
-            can_interact = true;
+            canInteract = true;
         }
         else
         {
-            can_interact = false;
+            canInteract = false;
         }
     }
 }

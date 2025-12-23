@@ -34,12 +34,12 @@ animations = [{
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8xfvn"]
 size = Vector2(16, 16)
 
-[node name="Switch" type="StaticBody2D" node_paths=PackedStringArray("AudioStreamPlayer2DNode", "AnimatedSprite2DNode", "Area2DNode") groups=["interactable"]]
+[node name="Switch" type="StaticBody2D" node_paths=PackedStringArray("AudioStreamPlayer2DNode", "AnimatedSprite2DNode", "InteractableTriggerArea") groups=["interactable"]]
 collision_mask = 3
 script = ExtResource("1_buuy0")
 AudioStreamPlayer2DNode = NodePath("AudioStreamPlayer2D")
 AnimatedSprite2DNode = NodePath("AnimatedSprite2D")
-Area2DNode = NodePath("Area2D")
+InteractableTriggerArea = NodePath("Area2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_fgy71")

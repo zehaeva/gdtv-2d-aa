@@ -2,8 +2,8 @@
 
 public static class SceneManager
 {
-    [Export] static Vector2 player_spawn_position;
+    [Export] public static Vector2 player_spawn_position;
     [Export] public static int player_hp;
 
-    public static string[] OpenedChests;
+    public static string[] OpenedChests = [];
 }

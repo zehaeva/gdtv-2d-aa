@@ -1,7 +1,7 @@
 [gd_scene load_steps=9 format=3 uid="uid://bk3i3nq8xjsdr"]
 
 [ext_resource type="Texture2D" uid="uid://p735ke6j313b" path="res://assets/Ninja Adventure - Asset Pack/Items/Treasure/BigTreasureChest.png" id="1_fkgv7"]
-[ext_resource type="Script" uid="uid://vhwu47j7fhy7" path="res://Scenes/TreasureChestScene/treasure_chest.gd" id="1_wcodp"]
+[ext_resource type="Script" uid="uid://c5udylmcgrxfo" path="res://Scripts/Environment/TreasureChest/TreasureChest.cs" id="1_ps433"]
 [ext_resource type="Texture2D" uid="uid://f1tepvhwxc7a" path="res://assets/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="3_821gv"]
 [ext_resource type="AudioStream" uid="uid://mlnq43gs2arf" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Coin.wav" id="4_ps433"]
 
@@ -20,7 +20,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_wcodp")
 }],
 "loop": true,
-"name": &"closed",
+"name": &"Closed",
 "speed": 5.0
 }, {
 "frames": [{
@@ -28,22 +28,22 @@ animations = [{
 "texture": SubResource("AtlasTexture_821gv")
 }],
 "loop": true,
-"name": &"open",
+"name": &"Open",
 "speed": 5.0
 }]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_rx581"]
 size = Vector2(16, 12)
 
-[node name="TreasureChest" type="StaticBody2D" groups=["interactable"]]
+[node name="TreasureChest" type="StaticBody2D" node_paths=PackedStringArray("InteractableTriggerArea") groups=["interactable"]]
 collision_mask = 15
-script = ExtResource("1_wcodp")
+script = ExtResource("1_ps433")
+InteractableTriggerArea = NodePath("Area2D")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_rx581")
-animation = &"closed"
-autoplay = "closed"
-frame_progress = 0.81592476
+animation = &"Closed"
+autoplay = "Closed"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 1)
@@ -58,5 +58,12 @@ texture = ExtResource("3_821gv")
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("4_ps433")
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(0, 1)
+shape = SubResource("RectangleShape2D_rx581")
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

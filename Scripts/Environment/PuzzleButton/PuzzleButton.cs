@@ -31,7 +31,7 @@ public partial class PuzzleButton : Area2D
         if (body.IsInGroup(GameConstants.GROUP_PUSHABLE) || body is CharacterBody2D)
         {
             bodies_on_top += 1;
-            AnimatedSprite2DNode.Play("pressed");
+            AnimatedSprite2DNode.Play(GameConstants.ANIM_PRESSED);
             AudioStreamPlayer2DNode.PitchScale = 1.0f;
             AudioStreamPlayer2DNode.Play();
 
@@ -48,7 +48,7 @@ public partial class PuzzleButton : Area2D
             {
                 AudioStreamPlayer2DNode.PitchScale = 0.8f;
                 AudioStreamPlayer2DNode.Play();
-                AnimatedSprite2DNode.Play("unpressed");
+                AnimatedSprite2DNode.Play(GameConstants.ANIM_UNPRESSED);
 
                 RaiseUnPressed();
             }

@@ -1041,15 +1041,15 @@ parameters/looping = false
 
 [node name="TreasureChest" parent="." instance=ExtResource("15_rpdpv")]
 position = Vector2(-480, -392)
-chest_name = "chest2"
+ChestName = "chest1"
 
 [node name="TreasureChest2" parent="." instance=ExtResource("15_rpdpv")]
 position = Vector2(-377, 31)
-chest_name = "chest3"
+ChestName = "chest2"
 
 [node name="TreasureChest3" parent="." instance=ExtResource("15_rpdpv")]
 position = Vector2(467, 221)
-chest_name = "chest4"
+ChestName = "chest3"
 
 [node name="NavigationRegion2D" type="NavigationRegion2D" parent="."]
 visible = false

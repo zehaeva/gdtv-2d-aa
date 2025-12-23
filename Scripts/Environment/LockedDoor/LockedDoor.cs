@@ -13,7 +13,6 @@ public partial class LockedDoor : StaticBody2D
     {
         foreach (PuzzleButton pb in PuzzleButtonNode)
         {
-            GD.Print("linking!");
             pb.Pressed += Area2DNode_AreaEntered;
             pb.UnPressed += Area2DNode_AreaExited;
         }

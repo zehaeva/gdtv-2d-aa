@@ -24,6 +24,9 @@
     public const string ANIM_ACTIVATED = "Activated";
     public const string ANIM_DEACTIVATED = "Deactivated";
     public const string ANIM_OPEN = "Open";
+    public const string ANIM_CLOSED = "Closed";
+    public const string ANIM_PRESSED = "Pressed";
+    public const string ANIM_UNPRESSED = "Unpressed";
 
 
     public const string INPUT_MOVE_UP = "MoveUp";

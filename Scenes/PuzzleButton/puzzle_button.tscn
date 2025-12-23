@@ -22,7 +22,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_n7725")
 }],
 "loop": true,
-"name": &"pressed",
+"name": &"Pressed",
 "speed": 5.0
 }, {
 "frames": [{
@@ -30,7 +30,7 @@ animations = [{
 "texture": SubResource("AtlasTexture_7ang4")
 }],
 "loop": true,
-"name": &"unpressed",
+"name": &"Unpressed",
 "speed": 5.0
 }]
 
@@ -47,8 +47,8 @@ shape = SubResource("RectangleShape2D_c66ud")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_s5max")
-animation = &"pressed"
-autoplay = "unpressed"
+animation = &"Unpressed"
+autoplay = "Unpressed"
 
 [node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
 stream = ExtResource("3_lffmm")
