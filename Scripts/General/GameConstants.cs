@@ -39,9 +39,20 @@
     public const string INPUT_ATTACK = "Attack";
     public const string INPUT_PAUSE = "Pause";
     public const string INPUT_INTERACT = "Interact";
+    public const string INPUT_INVENTORY = "Inventory";
+    public const string INPUT_ESC = "Esc";
 
     public const string GROUP_PUSHABLE = "pushable";
     public const string GROUP_INTERACTABLE = "interactable";
+
+    public const string RESOURCE_STAT = "Stat";
+    public const string RESOURCE_CLASS = "Class";
+    public const string RESOURCE_ACHIEVEMENT = "Achievement";
+
+    public const string CLASS_WARRIOR = "Warrior";
+    public const string CLASS_CLERIC = "Cleric";
+    public const string CLASS_WIZARD = "Wizard";
+    public const string CLASS_THIEF = "Thief";
 
     public const int NOTIFICATION_ENTER_STATE = 5001;
     public const int NOTIFICATION_EXIT_STATE = 5002;

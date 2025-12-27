@@ -1,0 +1,29 @@
+[gd_scene load_steps=8 format=3 uid="uid://dsgi0dcf6pox0"]
+
+[ext_resource type="Script" uid="uid://bbno4yktlmmh" path="res://Scripts/Classes/Wizard/Wizard.cs" id="1_s3u00"]
+[ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="2_1nhtt"]
+[ext_resource type="Script" uid="uid://bdt7b00830gci" path="res://Scripts/General/Constraints/GreaterThanOrEqualsConstraint.cs" id="3_xggv6"]
+[ext_resource type="Script" uid="uid://be7nr10eaogdi" path="res://Scripts/Classes/ClassConstraint.cs" id="4_2opih"]
+
+[sub_resource type="Resource" id="Resource_0ilvx"]
+script = ExtResource("2_1nhtt")
+StatType = 5
+metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
+
+[sub_resource type="Resource" id="Resource_yd2fd"]
+script = ExtResource("3_xggv6")
+MinValue = 5
+Resource = SubResource("Resource_0ilvx")
+metadata/_custom_type_script = "uid://bdt7b00830gci"
+
+[sub_resource type="Resource" id="Resource_j7e2m"]
+script = ExtResource("4_2opih")
+Constraint = SubResource("Resource_yd2fd")
+metadata/_custom_type_script = "uid://be7nr10eaogdi"
+
+[node name="Wizard" type="Node"]
+script = ExtResource("1_s3u00")
+Description = "A magic based class"
+MaxLevel = 10
+ClassConstraints = Array[Object]([SubResource("Resource_j7e2m")])
+XPTable = PackedInt32Array(10, 20, 40, 80, 160, 320, 640, 1280, 2560, 5120)

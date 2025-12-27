@@ -1,7 +1,4 @@
-﻿using System;
-using Godot;
-
-public enum Stat
+﻿public enum Stat
 {
     HP,
     OpenedChests,

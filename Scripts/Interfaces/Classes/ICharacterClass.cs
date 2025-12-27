@@ -1,8 +1,9 @@
 ﻿using Godot;
 
-internal interface ICharacterClass
+public interface ICharacterClass
 {
-    [Export] public string Name { get; }
-    [Export] public int Level { get; }
+    [Export] public string ClassName { get; }
+    [Export] public string Description { get; }
     [Export] public Stat[] PrimaryStats { get; }
+    [Export] public int MaxLevel { get; }
 }

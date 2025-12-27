@@ -1,4 +1,4 @@
-[gd_scene load_steps=37 format=4 uid="uid://du4ovd7otudde"]
+[gd_scene load_steps=33 format=4 uid="uid://du4ovd7otudde"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://buitco15uc5x5" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -11,12 +11,12 @@
 [ext_resource type="PackedScene" uid="uid://ct2bphudyuta4" path="res://Scenes/Block/block.tscn" id="6_12ovb"]
 [ext_resource type="Texture2D" uid="uid://cf2bv3pbv32hr" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/Faceset.png" id="7_dc78n"]
 [ext_resource type="PackedScene" uid="uid://dhyujutqn8wlw" path="res://Scenes/LockedDoor/locked_door.tscn" id="7_elpgg"]
-[ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="8_air7h"]
 [ext_resource type="PackedScene" uid="uid://dgmrljrjthh1a" path="res://Scenes/SwitchScene/switch.tscn" id="9_6qy3m"]
 [ext_resource type="Texture2D" uid="uid://cikp7a380mmdi" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/SeparateAnim/Idle.png" id="9_jaj74"]
+[ext_resource type="PackedScene" uid="uid://dsgi0dcf6pox0" path="res://Scenes/Classes/Wizard/wizard.tscn" id="11_pyj2o"]
+[ext_resource type="Script" uid="uid://c4rfh7oyeho44" path="res://Scripts/Resources/ClassesResource.cs" id="12_coono"]
 [ext_resource type="AudioStream" uid="uid://ddxokq4oym3xf" path="res://assets/Ninja Adventure - Asset Pack/Musics/11 - Clearing.ogg" id="13_njm7v"]
 [ext_resource type="PackedScene" uid="uid://pg8me1r73klb" path="res://Scenes/Enemies/slime_enemy.tscn" id="14_bkvnf"]
-[ext_resource type="Script" uid="uid://evmjl6gglqlk" path="res://Scripts/Scenes/Part01/Overland01/CaveEntrance.cs" id="14_pyj2o"]
 [ext_resource type="PackedScene" uid="uid://bk3i3nq8xjsdr" path="res://Scenes/TreasureChestScene/treasure_chest.tscn" id="15_rpdpv"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
@@ -812,33 +812,6 @@ _data = {
 }
 point_count = 1
 
-[sub_resource type="Resource" id="Resource_up7ow"]
-script = ExtResource("8_air7h")
-StatValue = 2.0
-metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
-
-[sub_resource type="Resource" id="Resource_1u7tg"]
-script = ExtResource("8_air7h")
-StatType = 3
-StatValue = 30.0
-metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
-
-[sub_resource type="Resource" id="Resource_jwhlm"]
-script = ExtResource("8_air7h")
-StatType = 4
-StatValue = 15.0
-metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
-
-[sub_resource type="Resource" id="Resource_6dkqd"]
-script = ExtResource("8_air7h")
-StatValue = 2.0
-metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
-
-[sub_resource type="Resource" id="Resource_glqu0"]
-script = ExtResource("8_air7h")
-StatValue = 2.0
-metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
-
 [sub_resource type="AtlasTexture" id="AtlasTexture_pyj2o"]
 atlas = ExtResource("9_jaj74")
 region = Rect2(0, 0, 16, 16)
@@ -856,6 +829,13 @@ animations = [{
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qy3m"]
 atlas = ExtResource("7_dc78n")
+
+[sub_resource type="Resource" id="Resource_auf0h"]
+script = ExtResource("12_coono")
+ClassType = 3
+Class = ExtResource("11_pyj2o")
+ClassLevel = 1
+metadata/_custom_type_script = "uid://c4rfh7oyeho44"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elpgg"]
 size = Vector2(105, 20)
@@ -897,7 +877,6 @@ curve = SubResource("Curve2D_6dkqd")
 
 [node name="SlimeEnemy" parent="ObsticleLayer/Slimes/Path2D" node_paths=PackedStringArray("PathNode") instance=ExtResource("14_bkvnf")]
 position = Vector2(-62, -79)
-stats = Array[Object]([SubResource("Resource_up7ow"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
 PathNode = NodePath("..")
 
 [node name="StateMachine" parent="ObsticleLayer/Slimes/Path2D/SlimeEnemy" index="8"]
@@ -905,11 +884,9 @@ DebugState = true
 
 [node name="SlimeEnemy2" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-172, -106)
-stats = Array[Object]([SubResource("Resource_6dkqd"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
 
 [node name="SlimeEnemy3" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-265, -28)
-stats = Array[Object]([SubResource("Resource_glqu0"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
 
 [node name="SlimeEnemy4" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-260, 82)
@@ -987,10 +964,8 @@ sprite_frames = SubResource("SpriteFrames_coono")
 [node name="NPCIcon" parent="ObsticleLayer/NPC/CanvasLayer/DialogueBoxTexture" index="0"]
 texture = SubResource("AtlasTexture_6qy3m")
 
-[node name="DialogueLabel" parent="ObsticleLayer/NPC/CanvasLayer" index="1"]
-text = "There is a cave to the west!"
-
 [node name="Player" parent="ObsticleLayer" instance=ExtResource("1_2p8i2")]
+Classes = Array[Object]([SubResource("Resource_auf0h")])
 
 [node name="Camera2D" type="Camera2D" parent="ObsticleLayer/Player"]
 zoom = Vector2(5, 5)
@@ -1005,9 +980,7 @@ position = Vector2(77, -32)
 [node name="CaveEntrance" parent="." instance=ExtResource("5_oi8ly")]
 position = Vector2(-72, -14)
 collision_mask = 3
-script = ExtResource("14_pyj2o")
 NextScene = "res://Scenes/DungeonScene/dungeon_scene.tscn"
-PlayerSpawnPosition = Vector2(0, 0)
 
 [node name="LockedDoor" parent="." node_paths=PackedStringArray("PuzzleButtonNode") instance=ExtResource("7_elpgg")]
 position = Vector2(-72, -12)

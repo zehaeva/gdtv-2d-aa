@@ -8,6 +8,7 @@ public partial class NPCDeathState : NPCState
 		characterNode.AnimationPlayerNode.Play(GameConstants.ANIM_DEATH);
 
 		characterNode.AnimationPlayerNode.AnimationFinished += AnimationPlayerNode_AnimationFinished;
+		GameEvents.RaiseNPCDied(characterNode);
 	}
 
 	private void AnimationPlayerNode_AnimationFinished(StringName animName)

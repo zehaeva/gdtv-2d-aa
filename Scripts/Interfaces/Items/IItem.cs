@@ -2,9 +2,9 @@
 
 public partial interface IItem
 {
-    //[Export] string Name { get; }
+    string ItemName { get; }
     string Description { get; }
-    Sprite2D Icon { get; }
-
+    Texture2D Icon { get; }
+    bool IsStackable { get; }
 }
 

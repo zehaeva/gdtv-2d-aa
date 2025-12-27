@@ -1,12 +1,14 @@
-[gd_scene load_steps=101 format=3 uid="uid://dujoynrn0xsex"]
+[gd_scene load_steps=106 format=3 uid="uid://dujoynrn0xsex"]
 
 [ext_resource type="Script" uid="uid://cj4usr2jdsc2l" path="res://Scripts/Characters/Player/Player.cs" id="1_74mp2"]
 [ext_resource type="Texture2D" uid="uid://pgk7kgglxt83" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/Walk.png" id="2_a3d8c"]
 [ext_resource type="Texture2D" uid="uid://dehcmvcd8b8cd" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/Attack.png" id="2_dd0ac"]
 [ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="2_oikmp"]
+[ext_resource type="PackedScene" uid="uid://dsgi0dcf6pox0" path="res://Scenes/Classes/Wizard/wizard.tscn" id="3_eksi1"]
 [ext_resource type="AudioStream" uid="uid://h6moqrek37bj" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Sword.wav" id="3_gk6dx"]
 [ext_resource type="Texture2D" uid="uid://f1tepvhwxc7a" path="res://assets/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="3_xpcdj"]
 [ext_resource type="Texture2D" uid="uid://mgle7gj51vxo" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Boy/SpriteSheet.png" id="4_0u5uq"]
+[ext_resource type="Script" uid="uid://c4rfh7oyeho44" path="res://Scripts/Resources/ClassesResource.cs" id="4_jincj"]
 [ext_resource type="Script" uid="uid://bhl1my011kev4" path="res://Scripts/Characters/AttackHitBox.cs" id="4_ks1b7"]
 [ext_resource type="Texture2D" uid="uid://vyrtpih53dco" path="res://assets/Ninja Adventure - Asset Pack/Ui/LifeReceptacle/heart_2.png" id="4_mtuoh"]
 [ext_resource type="Texture2D" uid="uid://c75pwoygysh5" path="res://assets/Ninja Adventure - Asset Pack/Items/Weapons/BigSword/Sprite.png" id="5_htcer"]
@@ -18,34 +20,43 @@
 [ext_resource type="Script" uid="uid://qlv6jhpuautl" path="res://Scripts/Characters/Player/PlayerMoveState.cs" id="16_r5xpd"]
 [ext_resource type="Script" uid="uid://c5whcxfa70bgm" path="res://Scripts/Characters/Player/PlayerDeathState.cs" id="17_ks1b7"]
 [ext_resource type="Script" uid="uid://pg6kko2w12uy" path="res://Scripts/Characters/Player/PlayerInteractState.cs" id="18_hnuln"]
+[ext_resource type="PackedScene" uid="uid://dllh5045hsi5p" path="res://Scenes/UI/Inventory/inventoy.tscn" id="19_aqm4k"]
+[ext_resource type="Script" uid="uid://bvouim2f1c1qi" path="res://Scripts/Characters/Player/PlayerInventoryState.cs" id="19_rcvs5"]
 
-[sub_resource type="Resource" id="Resource_06tpx"]
+[sub_resource type="Resource" id="Resource_eksi1"]
 script = ExtResource("2_oikmp")
-StatValue = 100.0
+StatValue = 10.0
 metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
 
-[sub_resource type="Resource" id="Resource_7g0yx"]
-script = ExtResource("2_oikmp")
-StatType = 1
-StatValue = 300.0
-metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
-
-[sub_resource type="Resource" id="Resource_dey5f"]
+[sub_resource type="Resource" id="Resource_jincj"]
 script = ExtResource("2_oikmp")
 StatType = 2
-metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
-
-[sub_resource type="Resource" id="Resource_ks1b7"]
-script = ExtResource("2_oikmp")
-StatType = 3
 StatValue = 60.0
 metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
 
-[sub_resource type="Resource" id="Resource_hnuln"]
+[sub_resource type="Resource" id="Resource_rqdc0"]
 script = ExtResource("2_oikmp")
 StatType = 4
+StatValue = 300.0
+metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
+
+[sub_resource type="Resource" id="Resource_qr1w5"]
+script = ExtResource("2_oikmp")
+StatType = 3
 StatValue = 15.0
 metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
+
+[sub_resource type="Resource" id="Resource_ythyg"]
+script = ExtResource("2_oikmp")
+StatType = 1
+metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
+
+[sub_resource type="Resource" id="Resource_bmb2s"]
+script = ExtResource("4_jincj")
+ClassType = 3
+Class = ExtResource("3_eksi1")
+ClassLevel = 1
+metadata/_custom_type_script = "uid://c4rfh7oyeho44"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_htcer"]
 size = Vector2(8, 20)
@@ -1023,7 +1034,7 @@ _data = {
 &"RESET": SubResource("Animation_0u5uq")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("DeathTimer", "AttackDurationTimer", "Sword", "TreasureLabel", "HPBar", "AnimationPlayerNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX", "InteractArea2D")]
+[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("DeathTimer", "AttackDurationTimer", "Sword", "TreasureLabel", "HPBar", "AnimationPlayerNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX", "InteractArea2D", "Inventory")]
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
@@ -1034,7 +1045,8 @@ Sword = NodePath("Sword")
 TreasureLabel = NodePath("CanvasLayer/Panel/TreasureLabel")
 HPBar = NodePath("CanvasLayer/HPBar")
 move_speed = 60.0
-stats = Array[Object]([SubResource("Resource_06tpx"), SubResource("Resource_7g0yx"), SubResource("Resource_dey5f"), SubResource("Resource_ks1b7"), SubResource("Resource_hnuln")])
+Stats = Array[Object]([SubResource("Resource_eksi1"), SubResource("Resource_jincj"), SubResource("Resource_rqdc0"), SubResource("Resource_qr1w5"), SubResource("Resource_ythyg")])
+Classes = Array[Object]([SubResource("Resource_bmb2s")])
 AnimationPlayerNode = NodePath("AnimationPlayer")
 StateMachineNode = NodePath("StateMachine")
 HurtBoxNode = NodePath("HurtboxArea")
@@ -1044,6 +1056,7 @@ HitBoxShapeNode = NodePath("Sword/SwordArea2D/CollisionShape2D")
 HitFlashTimer = NodePath("HitFlashTimer")
 DamageSFX = NodePath("DamageSFX")
 InteractArea2D = NodePath("InteractArea2D")
+Inventory = NodePath("InventoryCanvasLayer/Inventoy")
 
 [node name="Sword" type="Sprite2D" parent="."]
 visible = false
@@ -1155,7 +1168,8 @@ volume_db = 10.0
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState", "states")]
 script = ExtResource("12_06tpx")
 currentState = NodePath("IdleState")
-states = [NodePath("AttackState"), NodePath("IdleState"), NodePath("MoveState"), NodePath("DeathState"), NodePath("InteractState")]
+states = [NodePath("AttackState"), NodePath("IdleState"), NodePath("MoveState"), NodePath("DeathState"), NodePath("InteractState"), NodePath("InventoryState")]
+DebugState = true
 
 [node name="AttackState" type="Node" parent="StateMachine"]
 script = ExtResource("13_7g0yx")
@@ -1172,4 +1186,23 @@ script = ExtResource("17_ks1b7")
 [node name="InteractState" type="Node" parent="StateMachine"]
 script = ExtResource("18_hnuln")
 
+[node name="InventoryState" type="Node" parent="StateMachine"]
+script = ExtResource("19_rcvs5")
+
 [node name="HitFlashTimer" type="Timer" parent="."]
+
+[node name="InventoryCanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Inventoy" parent="InventoryCanvasLayer" instance=ExtResource("19_aqm4k")]
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2

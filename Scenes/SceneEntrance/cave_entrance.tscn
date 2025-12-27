@@ -1,14 +1,13 @@
 [gd_scene load_steps=3 format=3 uid="uid://b03ugi404sju5"]
 
-[ext_resource type="Script" uid="uid://bv4o8ewuxg7sa" path="res://Scenes/SceneEntrance/cave_entrance.gd" id="1_feddf"]
+[ext_resource type="Script" uid="uid://evmjl6gglqlk" path="res://Scripts/Scenes/Part01/Overland01/CaveEntrance.cs" id="1_4o7qr"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oi8ly"]
 size = Vector2(21, 18)
 
 [node name="CaveEntrance" type="Area2D"]
 collision_mask = 2
-script = ExtResource("1_feddf")
-next_scene = "res://Scenes/DungeonScene/dungeon_scene.tscn"
+script = ExtResource("1_4o7qr")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_oi8ly")

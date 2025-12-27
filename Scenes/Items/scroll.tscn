@@ -1,0 +1,19 @@
+[gd_scene load_steps=4 format=3 uid="uid://bsfv3wg4lv1uu"]
+
+[ext_resource type="Script" uid="uid://d1mvkkaqadp6h" path="res://Scripts/Items/Misc/Scroll.cs" id="1_84tcs"]
+[ext_resource type="Texture2D" uid="uid://f1tepvhwxc7a" path="res://assets/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="2_7aqc4"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_5de0t"]
+
+[node name="Scroll" type="Area2D"]
+script = ExtResource("1_84tcs")
+ItemName = "Scroll"
+Description = "One of the Scrolls of power"
+Icon = ExtResource("2_7aqc4")
+IsStackable = true
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_7aqc4")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource("CircleShape2D_5de0t")

@@ -1,4 +1,5 @@
 ﻿using Godot;
+using System;
 using System.Text.RegularExpressions;
 
 public partial class Player : Character
@@ -30,6 +31,8 @@ public partial class Player : Character
         Engine.MaxFps = 60;
 
         ToggleHitBox(true);
+
+        GameEvents.NPCDied += HandleNPCDied;
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -180,6 +183,11 @@ public partial class Player : Character
         Color original_color = new Color(1, 1, 1);
 
         Modulate = original_color;
+    }
+
+    private void HandleNPCDied(NPC npc)
+    {
+        
     }
 
     private void die()

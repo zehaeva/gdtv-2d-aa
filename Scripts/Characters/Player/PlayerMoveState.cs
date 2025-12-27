@@ -7,6 +7,7 @@ public partial class PlayerMoveState : PlayerState
     [Export(PropertyHint.Range, "0,20,0.1")] public float speed = 5;
     private bool can_interact = false;
 
+    #region Overrides
     public override void _PhysicsProcess(double delta)
     {
         if (characterNode.direction == Vector2.Zero)
@@ -87,6 +88,10 @@ public partial class PlayerMoveState : PlayerState
         {
             characterNode.StateMachineNode.SwitchState<PlayerInteractState>();
         }
+        else if (Input.IsActionJustPressed(GameConstants.INPUT_INVENTORY))
+        {
+            characterNode.StateMachineNode.SwitchState<PlayerInventoryState>();
+        }
     }
 
     protected override void EnterState()
@@ -103,7 +108,9 @@ public partial class PlayerMoveState : PlayerState
         characterNode.InteractArea2D.BodyEntered -= InteractArea2D_BodyEntered;
         characterNode.InteractArea2D.BodyExited -= InteractArea2D_BodyExited;
     }
+    #endregion
 
+    #region Event Handlers
     private void InteractArea2D_BodyExited(Node2D body)
     {
         can_interact = false;
@@ -120,4 +127,5 @@ public partial class PlayerMoveState : PlayerState
             can_interact = false;
         }
     }
+    #endregion
 }

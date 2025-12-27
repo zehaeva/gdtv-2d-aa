@@ -69,8 +69,8 @@ public partial class Slime : NPC
 
     private void _on_player_detect_area_2d_body_entered(Node2D body)
     {
-        if (body is Player)
-        { target = body; }
+        //if (body is Player)
+        //{ target = body; }
     }
 
     private async void take_hit(int damage, Vector2 knockback)
@@ -96,12 +96,12 @@ public partial class Slime : NPC
 
     private async void die()
     {
-        GPUParticles2DNode.Emitting = true;
-        //AnimationPlayerNode.Visible = false;
-        CollisionShape2DNode.SetDeferred("disabled", true);
+        //GPUParticles2DNode.Emitting = true;
+        ////AnimationPlayerNode.Visible = false;
+        //CollisionShape2DNode.SetDeferred("disabled", true);
 
-        await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
+        //await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
 
-        QueueFree();
+        //QueueFree();
     }
 }

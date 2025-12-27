@@ -19,4 +19,7 @@ public class GameEvents
 
     public static void RaiseSwitchActivated() => SwitchActivated?.Invoke();
     public static void RaiseSwitchDectivated() => SwitchDeactivated?.Invoke();
+
+    public static event Action<NPC> NPCDied;
+    public static void RaiseNPCDied(NPC npc) => NPCDied?.Invoke(npc);
 }

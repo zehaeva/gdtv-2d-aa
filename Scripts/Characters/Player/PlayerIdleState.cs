@@ -28,6 +28,10 @@ public partial class PlayerIdleState : PlayerState
         {
             //characterNode.StateMachineNode.SwitchState<PlayerInteractState>();
         }
+        else if (Input.IsActionJustPressed(GameConstants.INPUT_INVENTORY))
+        {
+            characterNode.StateMachineNode.SwitchState<PlayerInventoryState>();
+        }
     }
 
     protected override void EnterState()

@@ -12,6 +12,8 @@ public partial class SlimeDeathState : SlimeState, IDeathState
 
         await ToSignal(GetTree().CreateTimer(1.0f), SceneTreeTimer.SignalName.Timeout);
 
+        GameEvents.RaiseNPCDied(characterNode);
+
         if (characterNode.PathNode != null)
         {
             characterNode.PathNode.QueueFree();

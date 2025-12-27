@@ -2,14 +2,17 @@
 using Godot;
 
 [GlobalClass]
-public partial class StatResource : Resource
+public partial class StatResource : GameResource
 {
     public event Action OnZero;
     public event Action OnUpdate;
 
+    public new string ResourceType { get => GameConstants.RESOURCE_STAT; }
+
     [Export] public Stat StatType { get; private set; }
 
     private float _statValue;
+
     [Export]
     public float StatValue
     {
@@ -27,5 +30,5 @@ public partial class StatResource : Resource
         }
     }
 
-
+    
 }

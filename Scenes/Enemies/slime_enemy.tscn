@@ -1,9 +1,11 @@
-[gd_scene load_steps=51 format=3 uid="uid://pg8me1r73klb"]
+[gd_scene load_steps=54 format=3 uid="uid://pg8me1r73klb"]
 
 [ext_resource type="Script" uid="uid://cj05hnkpukkm0" path="res://Scripts/Characters/NPCs/Slime/Slime.cs" id="1_1u7tg"]
 [ext_resource type="Texture2D" uid="uid://6qi75vsaoxpj" path="res://assets/Ninja Adventure - Asset Pack/Actor/Monsters/Slime3/Slime3.png" id="1_p6sbt"]
 [ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="2_jwhlm"]
+[ext_resource type="PackedScene" uid="uid://dsgi0dcf6pox0" path="res://Scenes/Classes/Wizard/wizard.tscn" id="3_1xypq"]
 [ext_resource type="AudioStream" uid="uid://dg4gva61tmtv3" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Hit1.wav" id="3_sv1en"]
+[ext_resource type="Script" uid="uid://c4rfh7oyeho44" path="res://Scripts/Resources/ClassesResource.cs" id="4_n2bhi"]
 [ext_resource type="Script" uid="uid://jrdt74am74k0" path="res://Scripts/Characters/StateMachine.cs" id="5_rh62s"]
 [ext_resource type="Script" uid="uid://dgfo6uo64fm8g" path="res://Scripts/Characters/NPCs/Slime/SlimeIdleState.cs" id="6_n4i4n"]
 [ext_resource type="Script" uid="uid://cqxqe8eig3sv7" path="res://Scripts/Characters/NPCs/Slime/SlimeChaseState.cs" id="7_ld0qu"]
@@ -12,22 +14,30 @@
 [ext_resource type="Script" uid="uid://c8pcsw7ush4sf" path="res://Scripts/Characters/NPCs/Slime/SlimeDeathState.cs" id="10_2tcdh"]
 [ext_resource type="Script" uid="uid://cptbeya2fr3a" path="res://Scripts/Characters/NPCs/Slime/SlimeWanderState.cs" id="11_nqitv"]
 
-[sub_resource type="Resource" id="Resource_rh62s"]
+[sub_resource type="Resource" id="Resource_1xypq"]
 script = ExtResource("2_jwhlm")
 StatValue = 2.0
 metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
 
-[sub_resource type="Resource" id="Resource_1u7tg"]
+[sub_resource type="Resource" id="Resource_n2bhi"]
 script = ExtResource("2_jwhlm")
-StatType = 3
+StatType = 2
 StatValue = 30.0
 metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
 
-[sub_resource type="Resource" id="Resource_jwhlm"]
+[sub_resource type="Resource" id="Resource_33pvu"]
 script = ExtResource("2_jwhlm")
-StatType = 4
+StatType = 3
 StatValue = 15.0
 metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
+
+[sub_resource type="Resource" id="Resource_gf5l7"]
+script = ExtResource("4_n2bhi")
+ClassType = 3
+Class = ExtResource("3_1xypq")
+ClassLevel = 2
+ExperiancePoints = 10
+metadata/_custom_type_script = "uid://c4rfh7oyeho44"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uyk1"]
 radius = 8.0
@@ -547,8 +557,10 @@ motion_mode = 1
 script = ExtResource("1_1u7tg")
 GPUParticles2DNode = NodePath("GPUParticles2D")
 AnimatedSprite2DNode = NodePath("AnimatedSprite2D")
+npc_name = "Slime"
 hp = 2
-stats = Array[Object]([SubResource("Resource_rh62s"), SubResource("Resource_1u7tg"), SubResource("Resource_jwhlm")])
+Stats = Array[Object]([SubResource("Resource_1xypq"), SubResource("Resource_n2bhi"), SubResource("Resource_33pvu")])
+Classes = Array[Object]([SubResource("Resource_gf5l7")])
 AnimationPlayerNode = NodePath("AnimationPlayer")
 StateMachineNode = NodePath("StateMachine")
 HurtBoxNode = NodePath("HurtBoxArea")

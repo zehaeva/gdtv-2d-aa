@@ -3,7 +3,9 @@ using System.Linq;
 
 public abstract partial class Character : CharacterBody2D
 {
-    [Export] private StatResource[] stats;
+    [Export] public StatResource[] Stats { get; set; }
+    [Export] public ClassesResource[] Classes { get; set; }
+    [Export] public AchievementResource[] Achievements { get; set; }
 
     [ExportGroup("RequiredNodes")]
     [Export] public AnimationPlayer AnimationPlayerNode { get; private set; }
@@ -20,9 +22,13 @@ public abstract partial class Character : CharacterBody2D
 
     [ExportGroup("AINodes")]
     [Export] public Path2D PathNode { get; private set; }
+    [Export] public Area2D WanderAreaNode { get; private set; }
     [Export] public NavigationAgent2D AgentNode { get; private set; }
     [Export] public Area2D ChaseAreaNode { get; private set; }
     [Export] public Area2D AttackAreaNode { get; private set; }
+
+    [ExportGroup("CharacterNodes")]
+    [Export] public Inventory Inventory { get; private set; }
 
     public Vector2 direction = new();
     public Vector2 lastDirection;
@@ -95,7 +101,33 @@ public abstract partial class Character : CharacterBody2D
 
     public StatResource GetStatResource(Stat stat)
     {
-        StatResource result = stats.Where((element) => element.StatType == stat).FirstOrDefault();
+        StatResource result = null;
+        if (Stats != null)
+        {
+            result = Stats.Where((element) => element.StatType == stat).FirstOrDefault();
+        }
+
+        return result;
+    }
+
+    public ClassesResource GetClassesResource(Classes stat)
+    {
+        ClassesResource result = null;
+        if (Classes != null)
+        {
+            result = Classes.Where((element) => element.ClassType == stat).FirstOrDefault();
+        }
+
+        return result;
+    }
+
+    public AchievementResource GetAchievementResource(Achievement achievement)
+    {
+        AchievementResource result = null;
+        if (Achievements != null)
+        {
+            result = Achievements.Where((element) => element.AchievementType == achievement).FirstOrDefault();
+        }
 
         return result;
     }
