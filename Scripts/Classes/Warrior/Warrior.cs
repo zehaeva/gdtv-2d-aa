@@ -1,14 +1,14 @@
 ﻿using Godot;
 
-public partial class Warrior : ICharacterClass
+public partial class Warrior : CharacterClass, ICharacterClass
 {
-    public string ClassName => GameConstants.CLASS_WARRIOR;
+    public override string ClassName => GameConstants.CLASS_WARRIOR;
 
-    public Stat[] PrimaryStats { get { return new Stat[] { Stat.Strength }; } set { } }
+    public override Stat[] PrimaryStats { get { return new Stat[] { Stat.Strength }; } set { } }
 
-    public string Description { get; set; }
+    public override string Description { get; set; }
 
-    public int MaxLevel { get; set; }
+    public override int MaxLevel { get; set; }
 
     [Export] public ClassConstraint[] classConstraints { get; set; }
 }

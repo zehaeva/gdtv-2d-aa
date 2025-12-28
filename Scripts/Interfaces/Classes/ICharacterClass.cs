@@ -7,5 +7,5 @@ public interface ICharacterClass
     [Export] public Stat[] PrimaryStats { get; protected set; }
     [Export] public int MaxLevel { get; protected set; }
 
-    public bool CheckForLevelUp(Character character);
+    //public bool CheckForLevelUp(Character character);
 }

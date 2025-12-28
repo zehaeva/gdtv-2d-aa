@@ -1,13 +1,13 @@
 ﻿using Godot;
 
-public partial class Thief : ICharacterClass
+public partial class Thief : CharacterClass, ICharacterClass
 {
-    public string ClassName => GameConstants.CLASS_THIEF;
+    public override string ClassName => GameConstants.CLASS_THIEF;
 
-    public Stat[] PrimaryStats { get { return new Stat[] { Stat.Dexterity }; } set { }  }
+    public override Stat[] PrimaryStats { get { return new Stat[] { Stat.Dexterity }; } set { }  }
 
-    public string Description { get; set; }
+    public override string Description { get; set; }
 
-    public int MaxLevel { get; set; }
+    public override int MaxLevel { get; set; }
 }
 

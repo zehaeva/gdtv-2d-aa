@@ -1,13 +1,13 @@
 ﻿using Godot;
 
-public partial class Cleric : ICharacterClass
+public partial class Cleric : CharacterClass, ICharacterClass
 {
-    public string ClassName => GameConstants.CLASS_CLERIC;
+    public override string ClassName => GameConstants.CLASS_CLERIC;
 
-    public Stat[] PrimaryStats { get { return new Stat[] { Stat.Wisdom }; } set { } }
+    public override Stat[] PrimaryStats { get { return new Stat[] { Stat.Wisdom }; } set { } }
 
-    public string Description { get; set; }
+    public override string Description { get; set; }
 
-    public int MaxLevel { get; set; }
+    public override int MaxLevel { get; set; }
 }
 

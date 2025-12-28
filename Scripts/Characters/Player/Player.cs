@@ -212,6 +212,12 @@ public partial class Player : Character
                 foreach (ClassesResource item in Classes)
                 {
                     item.ExperiancePoints += xp;
+
+                    // if you now qualify for a level up go get it!
+                    if(item.CharacterClass.CheckForLevelUp(this))
+                    {
+                        item.ClassLevel++;
+                    }
                 }
             }
         }

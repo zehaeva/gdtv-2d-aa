@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=4 uid="uid://du4ovd7otudde"]
+[gd_scene load_steps=31 format=4 uid="uid://du4ovd7otudde"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://buitco15uc5x5" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -16,6 +16,7 @@
 [ext_resource type="AudioStream" uid="uid://ddxokq4oym3xf" path="res://assets/Ninja Adventure - Asset Pack/Musics/11 - Clearing.ogg" id="13_njm7v"]
 [ext_resource type="PackedScene" uid="uid://pg8me1r73klb" path="res://Scenes/Enemies/slime_enemy.tscn" id="14_bkvnf"]
 [ext_resource type="PackedScene" uid="uid://bk3i3nq8xjsdr" path="res://Scenes/TreasureChestScene/treasure_chest.tscn" id="15_rpdpv"]
+[ext_resource type="Script" uid="uid://d1ws7vug23pau" path="res://Scripts/General/GameClock.cs" id="17_jaj74"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("1_l6yvh")
@@ -1022,6 +1023,15 @@ ChestName = "chest3"
 visible = false
 navigation_polygon = SubResource("NavigationPolygon_6dkqd")
 navigation_layers = 31
+
+[node name="GameClock" type="Node" parent="." node_paths=PackedStringArray("GlobalClock")]
+script = ExtResource("17_jaj74")
+SecondsPerHour = 5
+HoursPerDay = 24
+GlobalClock = NodePath("Timer")
+
+[node name="Timer" type="Timer" parent="GameClock"]
+autostart = true
 
 [editable path="ObsticleLayer/Slimes/Path2D/SlimeEnemy"]
 [editable path="ObsticleLayer/NPC"]

@@ -23,7 +23,7 @@ metadata/_custom_type_script = "uid://be7nr10eaogdi"
 
 [resource]
 script = ExtResource("4_gc8di")
+ClassConstraints = Array[Object]([SubResource("Resource_fm68c")])
 Description = "A magic using class"
 MaxLevel = 10
-ClassConstraints = Array[Object]([SubResource("Resource_fm68c")])
 XPTable = PackedInt32Array(10, 20, 40, 80, 160, 320, 640, 1280, 2560, 5120)
