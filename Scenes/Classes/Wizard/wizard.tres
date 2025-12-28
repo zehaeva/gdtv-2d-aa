@@ -1,0 +1,29 @@
+[gd_resource type="Resource" script_class="Wizard" load_steps=8 format=3 uid="uid://bvlmysysmgiue"]
+
+[ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="1_wfdni"]
+[ext_resource type="Script" uid="uid://bdt7b00830gci" path="res://Scripts/General/Constraints/GreaterThanOrEqualsConstraint.cs" id="2_ig1o5"]
+[ext_resource type="Script" uid="uid://be7nr10eaogdi" path="res://Scripts/Classes/ClassConstraint.cs" id="3_cn8ce"]
+[ext_resource type="Script" uid="uid://bbno4yktlmmh" path="res://Scripts/Classes/Wizard/Wizard.cs" id="4_gc8di"]
+
+[sub_resource type="Resource" id="Resource_d1o2u"]
+script = ExtResource("1_wfdni")
+StatType = 5
+metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
+
+[sub_resource type="Resource" id="Resource_syab4"]
+script = ExtResource("2_ig1o5")
+MinValue = 5
+Resource = SubResource("Resource_d1o2u")
+metadata/_custom_type_script = "uid://bdt7b00830gci"
+
+[sub_resource type="Resource" id="Resource_fm68c"]
+script = ExtResource("3_cn8ce")
+Constraint = SubResource("Resource_syab4")
+metadata/_custom_type_script = "uid://be7nr10eaogdi"
+
+[resource]
+script = ExtResource("4_gc8di")
+Description = "A magic using class"
+MaxLevel = 10
+ClassConstraints = Array[Object]([SubResource("Resource_fm68c")])
+XPTable = PackedInt32Array(10, 20, 40, 80, 160, 320, 640, 1280, 2560, 5120)

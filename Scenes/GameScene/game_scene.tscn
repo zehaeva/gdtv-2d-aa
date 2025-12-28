@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=4 uid="uid://du4ovd7otudde"]
+[gd_scene load_steps=30 format=4 uid="uid://du4ovd7otudde"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://buitco15uc5x5" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -13,8 +13,6 @@
 [ext_resource type="PackedScene" uid="uid://dhyujutqn8wlw" path="res://Scenes/LockedDoor/locked_door.tscn" id="7_elpgg"]
 [ext_resource type="PackedScene" uid="uid://dgmrljrjthh1a" path="res://Scenes/SwitchScene/switch.tscn" id="9_6qy3m"]
 [ext_resource type="Texture2D" uid="uid://cikp7a380mmdi" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/SeparateAnim/Idle.png" id="9_jaj74"]
-[ext_resource type="PackedScene" uid="uid://dsgi0dcf6pox0" path="res://Scenes/Classes/Wizard/wizard.tscn" id="11_pyj2o"]
-[ext_resource type="Script" uid="uid://c4rfh7oyeho44" path="res://Scripts/Resources/ClassesResource.cs" id="12_coono"]
 [ext_resource type="AudioStream" uid="uid://ddxokq4oym3xf" path="res://assets/Ninja Adventure - Asset Pack/Musics/11 - Clearing.ogg" id="13_njm7v"]
 [ext_resource type="PackedScene" uid="uid://pg8me1r73klb" path="res://Scenes/Enemies/slime_enemy.tscn" id="14_bkvnf"]
 [ext_resource type="PackedScene" uid="uid://bk3i3nq8xjsdr" path="res://Scenes/TreasureChestScene/treasure_chest.tscn" id="15_rpdpv"]
@@ -830,13 +828,6 @@ animations = [{
 [sub_resource type="AtlasTexture" id="AtlasTexture_6qy3m"]
 atlas = ExtResource("7_dc78n")
 
-[sub_resource type="Resource" id="Resource_auf0h"]
-script = ExtResource("12_coono")
-ClassType = 3
-Class = ExtResource("11_pyj2o")
-ClassLevel = 1
-metadata/_custom_type_script = "uid://c4rfh7oyeho44"
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_elpgg"]
 size = Vector2(105, 20)
 
@@ -965,7 +956,6 @@ sprite_frames = SubResource("SpriteFrames_coono")
 texture = SubResource("AtlasTexture_6qy3m")
 
 [node name="Player" parent="ObsticleLayer" instance=ExtResource("1_2p8i2")]
-Classes = Array[Object]([SubResource("Resource_auf0h")])
 
 [node name="Camera2D" type="Camera2D" parent="ObsticleLayer/Player"]
 zoom = Vector2(5, 5)

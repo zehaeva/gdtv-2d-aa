@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://cj05hnkpukkm0" path="res://Scripts/Characters/NPCs/Slime/Slime.cs" id="1_1u7tg"]
 [ext_resource type="Texture2D" uid="uid://6qi75vsaoxpj" path="res://assets/Ninja Adventure - Asset Pack/Actor/Monsters/Slime3/Slime3.png" id="1_p6sbt"]
 [ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="2_jwhlm"]
-[ext_resource type="PackedScene" uid="uid://dsgi0dcf6pox0" path="res://Scenes/Classes/Wizard/wizard.tscn" id="3_1xypq"]
+[ext_resource type="Resource" uid="uid://bvlmysysmgiue" path="res://Scenes/Classes/Wizard/wizard.tres" id="3_1xypq"]
 [ext_resource type="AudioStream" uid="uid://dg4gva61tmtv3" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Hit1.wav" id="3_sv1en"]
 [ext_resource type="Script" uid="uid://c4rfh7oyeho44" path="res://Scripts/Resources/ClassesResource.cs" id="4_n2bhi"]
 [ext_resource type="Script" uid="uid://jrdt74am74k0" path="res://Scripts/Characters/StateMachine.cs" id="5_rh62s"]
@@ -31,12 +31,12 @@ StatType = 3
 StatValue = 15.0
 metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
 
-[sub_resource type="Resource" id="Resource_gf5l7"]
+[sub_resource type="Resource" id="Resource_hiyn6"]
 script = ExtResource("4_n2bhi")
 ClassType = 3
-Class = ExtResource("3_1xypq")
+CharacterClass = ExtResource("3_1xypq")
 ClassLevel = 2
-ExperiancePoints = 10
+ExperiancePoints = 20
 metadata/_custom_type_script = "uid://c4rfh7oyeho44"
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uyk1"]
@@ -560,7 +560,7 @@ AnimatedSprite2DNode = NodePath("AnimatedSprite2D")
 npc_name = "Slime"
 hp = 2
 Stats = Array[Object]([SubResource("Resource_1xypq"), SubResource("Resource_n2bhi"), SubResource("Resource_33pvu")])
-Classes = Array[Object]([SubResource("Resource_gf5l7")])
+Classes = Array[Object]([SubResource("Resource_hiyn6")])
 AnimationPlayerNode = NodePath("AnimationPlayer")
 StateMachineNode = NodePath("StateMachine")
 HurtBoxNode = NodePath("HurtBoxArea")

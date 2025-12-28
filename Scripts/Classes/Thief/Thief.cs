@@ -4,10 +4,10 @@ public partial class Thief : ICharacterClass
 {
     public string ClassName => GameConstants.CLASS_THIEF;
 
-    public Stat[] PrimaryStats { get { return new Stat[] { Stat.Dexterity }; } }
+    public Stat[] PrimaryStats { get { return new Stat[] { Stat.Dexterity }; } set { }  }
 
-    public string Description => throw new System.NotImplementedException();
+    public string Description { get; set; }
 
-    public int MaxLevel => throw new System.NotImplementedException();
+    public int MaxLevel { get; set; }
 }
 

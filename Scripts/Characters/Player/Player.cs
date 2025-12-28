@@ -1,5 +1,6 @@
 ﻿using Godot;
 using System;
+using System.Linq;
 using System.Text.RegularExpressions;
 
 public partial class Player : Character
@@ -32,7 +33,16 @@ public partial class Player : Character
 
         ToggleHitBox(true);
 
+        // link listeners
         GameEvents.NPCDied += HandleNPCDied;
+        GameEvents.NPCKilled += HandleNPCKilled;
+
+        GD.Print("start loading classes");
+        foreach (ClassesResource cr in this.Classes)
+        {
+            cr.LoadClass();
+        }
+        GD.Print("finished loading classes");
     }
 
     // Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -72,38 +82,38 @@ public partial class Player : Character
 
     private void move_player()
     {
-        var move_vector = Input.GetVector(GameConstants.ANIM_MOVE_LEFT, 
-                                          GameConstants.ANIM_MOVE_RIGHT, 
-                                          GameConstants.ANIM_MOVE_UP, 
-                                          GameConstants.ANIM_MOVE_DOWN);
+        //var move_vector = Input.GetVector(GameConstants.ANIM_MOVE_LEFT, 
+        //                                  GameConstants.ANIM_MOVE_RIGHT, 
+        //                                  GameConstants.ANIM_MOVE_UP, 
+        //                                  GameConstants.ANIM_MOVE_DOWN);
 
 
-        Velocity = Velocity.MoveToward(move_vector * move_speed, acceleration);
+        //Velocity = Velocity.MoveToward(move_vector * move_speed, acceleration);
 
-        if (Velocity.Y > 0)
-        {
-            base.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE_DOWN);
-            InteractArea2D.Position = new Vector2(0, 8);
-        }
-        else if (Velocity.Y < 0)
-        {
-            base.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE_UP);
-            InteractArea2D.Position = new Vector2(0, -4);
-        }
-        else if (Velocity.X > 0)
-        {
-            base.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE_RIGHT);
-            InteractArea2D.Position = new Vector2(5, 2);
-        }
-        else if (Velocity.X < 0)
-        {
-            base.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE_LEFT);
-            InteractArea2D.Position = new Vector2(-5, 2);
-        }
-        else
-        {
-            base.AnimationPlayerNode.Stop();
-        }
+        //if (Velocity.Y > 0)
+        //{
+        //    base.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE_DOWN);
+        //    InteractArea2D.Position = new Vector2(0, 8);
+        //}
+        //else if (Velocity.Y < 0)
+        //{
+        //    base.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE_UP);
+        //    InteractArea2D.Position = new Vector2(0, -4);
+        //}
+        //else if (Velocity.X > 0)
+        //{
+        //    base.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE_RIGHT);
+        //    InteractArea2D.Position = new Vector2(5, 2);
+        //}
+        //else if (Velocity.X < 0)
+        //{
+        //    base.AnimationPlayerNode.Play(GameConstants.ANIM_MOVE_LEFT);
+        //    InteractArea2D.Position = new Vector2(-5, 2);
+        //}
+        //else
+        //{
+        //    base.AnimationPlayerNode.Stop();
+        //}
     }
 
     private void push_blocks()
@@ -128,22 +138,22 @@ public partial class Player : Character
 
     private void _on_area_2d_body_exited(Node2D body)
     {
-        if (body.IsInGroup("interactable"))
-        {
-            //body.can_interact = false;
-        }
+        //if (body.IsInGroup("interactable"))
+        //{
+        //    //body.can_interact = false;
+        //}
 
-        //can_attack = true;
+        ////can_attack = true;
     }
 
     private void _on_area_2d_body_entered(Node2D body)
     {
-        if (body.IsInGroup("interactable"))
-        {
-            //body.can_interact = true;
-        }
+        //if (body.IsInGroup("interactable"))
+        //{
+        //    //body.can_interact = true;
+        //}
 
-        //can_attack = false;
+        ////can_attack = false;
     }
 
     private void update_treasure_label()
@@ -153,58 +163,75 @@ public partial class Player : Character
 
     private void _on_hitbox_area_2d_body_entered(Node2D body)
     {
-        DamageSFX.Play();
+        //DamageSFX.Play();
 
-        //SceneManager.player_hp -= 1;
-        GetStatResource(Stat.HP).StatValue -= 1;
+        ////SceneManager.player_hp -= 1;
+        //GetStatResource(Stat.HP).StatValue -= 1;
 
-        update_hp_bar();
+        //update_hp_bar();
 
-        //if (SceneManager.player_hp <= 0)
-        if (GetStatResource(Stat.HP).StatValue <= 0)
-        {
-            die();
-        }
+        ////if (SceneManager.player_hp <= 0)
+        //if (GetStatResource(Stat.HP).StatValue <= 0)
+        //{
+        //    die();
+        //}
 
-        Vector2 distance_to_enemy = GlobalPosition - body.GlobalPosition;
+        //Vector2 distance_to_enemy = GlobalPosition - body.GlobalPosition;
 
-        Vector2 distance_normalized = distance_to_enemy.Normalized();
+        //Vector2 distance_normalized = distance_to_enemy.Normalized();
 
-        float knockback_strength = 150;
+        //float knockback_strength = 150;
 
-        Velocity += distance_normalized * knockback_strength;
+        //Velocity += distance_normalized * knockback_strength;
 
-        Color flash_white_color = new Color(50, 50, 50);
+        //Color flash_white_color = new Color(50, 50, 50);
 
-        Modulate = flash_white_color;
+        //Modulate = flash_white_color;
 
-        GetTree().CreateTimer(0.2);
+        //GetTree().CreateTimer(0.2);
 
-        Color original_color = new Color(1, 1, 1);
+        //Color original_color = new Color(1, 1, 1);
 
-        Modulate = original_color;
+        //Modulate = original_color;
     }
 
     private void HandleNPCDied(NPC npc)
     {
-        
+
+    }
+    private void HandleNPCKilled(Character killed, Character killer)
+    {
+        if (killer.Name == Name)
+        {
+            if (Classes != null)
+            {            
+                // don't count the classes that are maxxed out for purposes of xp splitting
+                int classSplitCount = Classes.Where(x => x.ClassLevel < x.CharacterClass.MaxLevel).Count();
+                int xp = (int)Mathf.Floor(killed.XPReward() / classSplitCount);
+
+                foreach (ClassesResource item in Classes)
+                {
+                    item.ExperiancePoints += xp;
+                }
+            }
+        }
     }
 
     private void die()
     {
-        if (!DeathTimer.IsStopped())
-        { return; }
+        //if (!DeathTimer.IsStopped())
+        //{ return; }
 
-        base.AnimationPlayerNode.Play(GameConstants.ANIM_DEATH);
+        //base.AnimationPlayerNode.Play(GameConstants.ANIM_DEATH);
 
-        DeathTimer.Start();
+        //DeathTimer.Start();
     }
 
     private void update_hp_bar()
     {
         switch (GetStatResource(Stat.HP).StatValue)
         {
-            case >=3:
+            case >= 3:
                 HPBar.Play("3_hp");
                 break;
             case 2:
@@ -254,18 +281,18 @@ public partial class Player : Character
 
     private void _on_sword_area_2d_body_entered(Node2D body)
     {
-        if (attack_hit)
-        { return; }
+        //if (attack_hit)
+        //{ return; }
 
-        attack_hit = true;
+        //attack_hit = true;
 
-        Vector2 distance_to_enemy = body.GlobalPosition - GlobalPosition;
+        //Vector2 distance_to_enemy = body.GlobalPosition - GlobalPosition;
 
-        Vector2 knockback_direction = distance_to_enemy.Normalized();
+        //Vector2 knockback_direction = distance_to_enemy.Normalized();
 
-        float knockback_strength = 150;
+        //float knockback_strength = 150;
 
-        //body.take_hit(1, knockback_direction * knockback_strength);
+        ////body.take_hit(1, knockback_direction * knockback_strength);
     }
 
     private void _on_attack_duration_timer_timeout()

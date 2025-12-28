@@ -1,15 +1,16 @@
-﻿using Godot;
+using Godot;
 using System.Linq;
 
-public partial class Wizard : Node, ICharacterClass
+[GlobalClass]
+public partial class Wizard : CharacterClass, ICharacterClass
 {
-    public string ClassName => GameConstants.CLASS_WIZARD;
+    public override string ClassName => GameConstants.CLASS_WIZARD;
 
-    public Stat[] PrimaryStats { get { return new Stat[] { Stat.Intellect }; } }
+    public override Stat[] PrimaryStats { get { return new Stat[] { Stat.Intellect }; } }
 
-    [Export] public string Description { get; set; }
+    [Export] override public string Description { get; set; }
 
-    [Export] public int MaxLevel { get; set; }
+    [Export] override public int MaxLevel { get; set; }
 
     [Export] public ClassConstraint[] ClassConstraints { get; set; }
 

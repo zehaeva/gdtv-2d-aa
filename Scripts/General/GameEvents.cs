@@ -22,4 +22,6 @@ public class GameEvents
 
     public static event Action<NPC> NPCDied;
     public static void RaiseNPCDied(NPC npc) => NPCDied?.Invoke(npc);
+    public static event Action<Character, Character> NPCKilled;
+    public static void RaiseNPCKilled(Character npc, Character killer) => NPCKilled?.Invoke(npc, killer);
 }

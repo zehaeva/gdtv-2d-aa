@@ -75,6 +75,7 @@ public abstract partial class Character : CharacterBody2D
 
         if (GetStatResource(Stat.HP).StatValue <= 0)
         {
+            GameEvents.RaiseNPCKilled(this, area.GetOwner<Character>());
             StateMachineNode.SwitchState<IDeathState>();
         }
 
@@ -97,6 +98,11 @@ public abstract partial class Character : CharacterBody2D
 
         Modulate = original_color;
         #endregion
+    }
+
+    public int XPReward()
+    {
+        return this.Classes.Select(x => x.ClassLevel).Sum() * 5;
     }
 
     public StatResource GetStatResource(Stat stat)

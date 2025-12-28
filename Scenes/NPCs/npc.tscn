@@ -1,8 +1,9 @@
 [gd_scene load_steps=24 format=3 uid="uid://cgrlvp725savl"]
 
 [ext_resource type="Script" uid="uid://cnu4jofv4ajh5" path="res://Scripts/Characters/NPCs/Villager/Villager.cs" id="1_8207q"]
-[ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="2_wwphw"]
+[ext_resource type="PackedScene" uid="uid://dsgi0dcf6pox0" path="res://Scenes/Classes/Wizard/wizard.tscn" id="2_tdvfv"]
 [ext_resource type="Texture2D" uid="uid://dd1f2ganqdhom" path="res://assets/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_7vx50"]
+[ext_resource type="Script" uid="uid://c4rfh7oyeho44" path="res://Scripts/Resources/ClassesResource.cs" id="3_ji4qt"]
 [ext_resource type="Texture2D" uid="uid://cxc85372k8p2y" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaGray/SpriteSheet.png" id="3_vk7so"]
 [ext_resource type="Texture2D" uid="uid://cyiatxd8uwulf" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaDark/Faceset.png" id="4_6wj7b"]
 [ext_resource type="AudioStream" uid="uid://cw3on7ulqn2rn" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/MiniImpact.wav" id="5_8207q"]
@@ -10,14 +11,11 @@
 [ext_resource type="Script" uid="uid://cumbuh7owdoxe" path="res://Scripts/Characters/NPCs/Villager/VillagerIdleState.cs" id="8_vk7so"]
 [ext_resource type="Script" uid="uid://c6xjupy7dcxsm" path="res://Scripts/Characters/NPCs/Villager/VillagerInteractState.cs" id="9_dr070"]
 
-[sub_resource type="Resource" id="Resource_w84jp"]
-script = ExtResource("2_wwphw")
-metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
-
-[sub_resource type="Resource" id="Resource_vk7so"]
-script = ExtResource("2_wwphw")
-StatType = 1
-metadata/_custom_type_script = "uid://ckn31hq1xuf2m"
+[sub_resource type="Resource" id="Resource_iwfgo"]
+script = ExtResource("3_ji4qt")
+ClassScene = ExtResource("2_tdvfv")
+ClassLevel = 1
+metadata/_custom_type_script = "uid://c4rfh7oyeho44"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53m4h"]
 size = Vector2(13, 13)
@@ -84,7 +82,7 @@ script = ExtResource("1_8207q")
 DialogueLabel = NodePath("CanvasLayer/DialogueBoxTexture/DialogueLabel")
 DialogueLayer = NodePath("CanvasLayer")
 NameLabel = NodePath("CanvasLayer/DialogueBoxTexture/NameLabel")
-stats = Array[Object]([SubResource("Resource_w84jp"), SubResource("Resource_vk7so")])
+Classes = Array[Object]([SubResource("Resource_iwfgo")])
 AnimationPlayerNode = NodePath("AnimationPlayer")
 StateMachineNode = NodePath("StateMachine")
 HurtBoxNode = NodePath("HurtBoxArea")

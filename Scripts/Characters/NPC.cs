@@ -13,9 +13,4 @@ public partial class NPC : Character
 
     public int dialogue_index { get; private set; } = 0;
     public bool can_interact { get; private set; } = false;
-
-    public int XPReward()
-    {
-        return this.Classes.Select(x => x.ClassLevel).Sum() * 5;
-    }
 }

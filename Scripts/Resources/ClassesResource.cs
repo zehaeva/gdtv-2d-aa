@@ -12,8 +12,9 @@ public partial class ClassesResource : GameResource
     public new string ResourceType { get => GameConstants.RESOURCE_CLASS; }
 
     [Export] public Classes ClassType { get; private set; }
+    [Export] public CharacterClass CharacterClass { get; private set; }
 
-    [Export] public PackedScene Class { get; private set; }
+    //public CharacterClass CharacterClass { get; private set; }
 
     private int _ClassLevel;
     private int _ExperiancePoints;
@@ -56,5 +57,24 @@ public partial class ClassesResource : GameResource
         }
     }
 
+    
+    public void LoadClass()
+    {
+        //if (ClassScene == null) { return; }
 
+        GD.Print("loading class step 1");
+        //Node _class = ClassScene.Instantiate();
+        GD.Print("loading class step 2");
+
+        //switch (_class.)
+        //{
+        //    case GameConstants.CLASS_WIZARD:
+        //        GD.Print("loading class step 3");
+        //        CharacterClass = _class as Wizard;
+        //        GD.Print("loading class step 4");
+        //        break;
+        //}
+        GD.Print("loading class step 5");
+
+    }
 }
