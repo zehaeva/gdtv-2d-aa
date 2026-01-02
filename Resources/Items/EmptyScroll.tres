@@ -1,0 +1,14 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=4 format=3 uid="uid://cosrkkavm7rix"]
+
+[ext_resource type="Texture2D" uid="uid://f1tepvhwxc7a" path="res://assets/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="1_nueha"]
+[ext_resource type="PackedScene" uid="uid://dgk76biht53po" path="res://Scenes/Items/world_item.tscn" id="2_3urpt"]
+[ext_resource type="Script" uid="uid://dhharpswye7lp" path="res://Scripts/Items/BaseItem.cs" id="2_mhad3"]
+
+[resource]
+script = ExtResource("2_mhad3")
+ItemName = "Empty Scroll"
+Description = "This is an Empty Scroll!"
+Scene = ExtResource("2_3urpt")
+Icon = ExtResource("1_nueha")
+IsStackable = true
+metadata/_custom_type_script = "uid://dhharpswye7lp"

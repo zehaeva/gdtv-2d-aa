@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=2 format=3 uid="uid://0il6o8jy0vny"]
+
+[ext_resource type="Script" uid="uid://dkna8nk8ah8aq" path="res://Scripts/Abilities/Spell.cs" id="1_r7aou"]
+
+[resource]
+script = ExtResource("1_r7aou")
+AbilityName = "Water Spell"
+Description = "Throws Water"
+metadata/_custom_type_script = "uid://dkna8nk8ah8aq"

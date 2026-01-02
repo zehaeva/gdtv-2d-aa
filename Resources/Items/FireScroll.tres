@@ -1,0 +1,12 @@
+[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://dxflmwqwxtfv5"]
+
+[ext_resource type="Texture2D" uid="uid://oupehox8s8vd" path="res://assets/Ninja Adventure - Asset Pack/Items/Scroll/ScrollFire.png" id="1_5c247"]
+[ext_resource type="Script" uid="uid://dhharpswye7lp" path="res://Scripts/Items/BaseItem.cs" id="2_mxpu7"]
+
+[resource]
+script = ExtResource("2_mxpu7")
+ItemName = "Fire Scroll"
+Description = "This is an Fire Scroll!"
+Icon = ExtResource("1_5c247")
+IsStackable = true
+metadata/_custom_type_script = "uid://dhharpswye7lp"

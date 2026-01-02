@@ -1,4 +1,5 @@
 ﻿using Godot;
+using System.Collections.Generic;
 using System.Linq;
 
 public abstract partial class Character : CharacterBody2D
@@ -28,7 +29,10 @@ public abstract partial class Character : CharacterBody2D
     [Export] public Area2D AttackAreaNode { get; private set; }
 
     [ExportGroup("CharacterNodes")]
-    [Export] public Inventory Inventory { get; private set; }
+    [Export] public Inventory Inventory { get; protected set; } = new Inventory();
+    [Export] public CharacterAbilities[] CharacterAbilities { get { return characterAbilities.ToArray(); } protected set { } }
+
+    protected List<CharacterAbilities> characterAbilities = new List<CharacterAbilities>();
 
     public Vector2 direction = new();
     public Vector2 lastDirection;

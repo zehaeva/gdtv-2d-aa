@@ -1,4 +1,4 @@
-[gd_scene load_steps=31 format=4 uid="uid://du4ovd7otudde"]
+[gd_scene load_steps=39 format=4 uid="uid://du4ovd7otudde"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://buitco15uc5x5" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://cgrlvp725savl" path="res://Scenes/NPCs/npc.tscn" id="5_nr542"]
 [ext_resource type="PackedScene" uid="uid://b03ugi404sju5" path="res://Scenes/SceneEntrance/cave_entrance.tscn" id="5_oi8ly"]
 [ext_resource type="PackedScene" uid="uid://ct2bphudyuta4" path="res://Scenes/Block/block.tscn" id="6_12ovb"]
+[ext_resource type="Script" uid="uid://cf7m7ewkudn5w" path="res://Scripts/Characters/Inventory.cs" id="7_cxqrt"]
 [ext_resource type="Texture2D" uid="uid://cf2bv3pbv32hr" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/Faceset.png" id="7_dc78n"]
 [ext_resource type="PackedScene" uid="uid://dhyujutqn8wlw" path="res://Scenes/LockedDoor/locked_door.tscn" id="7_elpgg"]
 [ext_resource type="PackedScene" uid="uid://dgmrljrjthh1a" path="res://Scenes/SwitchScene/switch.tscn" id="9_6qy3m"]
@@ -17,6 +18,12 @@
 [ext_resource type="PackedScene" uid="uid://pg8me1r73klb" path="res://Scenes/Enemies/slime_enemy.tscn" id="14_bkvnf"]
 [ext_resource type="PackedScene" uid="uid://bk3i3nq8xjsdr" path="res://Scenes/TreasureChestScene/treasure_chest.tscn" id="15_rpdpv"]
 [ext_resource type="Script" uid="uid://d1ws7vug23pau" path="res://Scripts/General/GameClock.cs" id="17_jaj74"]
+[ext_resource type="PackedScene" uid="uid://dgk76biht53po" path="res://Scenes/Items/world_item.tscn" id="18_pyj2o"]
+[ext_resource type="Resource" uid="uid://cosrkkavm7rix" path="res://Resources/Items/EmptyScroll.tres" id="19_oieme"]
+[ext_resource type="Resource" uid="uid://dxflmwqwxtfv5" path="res://Resources/Items/FireScroll.tres" id="20_cxqrt"]
+[ext_resource type="Resource" uid="uid://jytnvdimkf4f" path="res://Resources/Items/Sword.tres" id="21_6at6t"]
+[ext_resource type="PackedScene" uid="uid://dllh5045hsi5p" path="res://Scenes/UI/Inventory/inventory_dialog.tscn" id="23_6at6t"]
+[ext_resource type="Script" uid="uid://brdtk5jmjmjqr" path="res://Scripts/General/UiRoot.cs" id="23_pwwki"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("1_l6yvh")
@@ -811,6 +818,9 @@ _data = {
 }
 point_count = 1
 
+[sub_resource type="Resource" id="Resource_6at6t"]
+script = ExtResource("7_cxqrt")
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_pyj2o"]
 atlas = ExtResource("9_jaj74")
 region = Rect2(0, 0, 16, 16)
@@ -870,85 +880,110 @@ curve = SubResource("Curve2D_6dkqd")
 [node name="SlimeEnemy" parent="ObsticleLayer/Slimes/Path2D" node_paths=PackedStringArray("PathNode") instance=ExtResource("14_bkvnf")]
 position = Vector2(-62, -79)
 PathNode = NodePath("..")
+Inventory = SubResource("Resource_6at6t")
 
 [node name="StateMachine" parent="ObsticleLayer/Slimes/Path2D/SlimeEnemy" index="8"]
 DebugState = true
 
 [node name="SlimeEnemy2" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-172, -106)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy3" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-265, -28)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy4" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-260, 82)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy5" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-328, 32)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy6" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-311, -130)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy7" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-428, -83)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy8" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-329, 110)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy9" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-376, 78)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy10" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(238, -200)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy11" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(362, -175)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy12" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(387, -284)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy13" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-42, -362)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy14" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-79, -367)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy15" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(526, 14)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy16" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(521, 242)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy17" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(492, 294)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy18" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(344, 55)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy19" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-515, -381)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy20" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-539, -353)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy21" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-533, -301)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy22" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-477, -320)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="SlimeEnemy23" parent="ObsticleLayer/Slimes" instance=ExtResource("14_bkvnf")]
 position = Vector2(-529, 290)
+Inventory = SubResource("Resource_6at6t")
 
 [node name="NinjaDarkNPC" parent="ObsticleLayer" instance=ExtResource("5_nr542")]
 position = Vector2(-10, -56)
 npc_name = "Dark Ninja"
 dialogue_lines = PackedStringArray("I was here before time", "and then time forgot me", "there is nothing here", "just some slimes")
+Inventory = SubResource("Resource_6at6t")
 
 [node name="NPC" parent="ObsticleLayer" instance=ExtResource("5_nr542")]
 position = Vector2(39, -56)
 npc_name = "Cave Girl"
 dialogue_lines = PackedStringArray("There is a case to the West!")
+Inventory = SubResource("Resource_6at6t")
 
 [node name="Sprite2D" parent="ObsticleLayer/NPC" index="1"]
 sprite_frames = SubResource("SpriteFrames_coono")
@@ -957,6 +992,7 @@ sprite_frames = SubResource("SpriteFrames_coono")
 texture = SubResource("AtlasTexture_6qy3m")
 
 [node name="Player" parent="ObsticleLayer" instance=ExtResource("1_2p8i2")]
+unique_name_in_owner = true
 
 [node name="Camera2D" type="Camera2D" parent="ObsticleLayer/Player"]
 zoom = Vector2(5, 5)
@@ -1032,6 +1068,34 @@ GlobalClock = NodePath("Timer")
 
 [node name="Timer" type="Timer" parent="GameClock"]
 autostart = true
+
+[node name="WorldItem" parent="." instance=ExtResource("18_pyj2o")]
+position = Vector2(15, -50)
+Item = ExtResource("19_oieme")
+
+[node name="WorldItem2" parent="." instance=ExtResource("18_pyj2o")]
+position = Vector2(26, -90)
+Item = ExtResource("20_cxqrt")
+
+[node name="WorldItem3" parent="." instance=ExtResource("18_pyj2o")]
+position = Vector2(71, -91)
+Item = ExtResource("21_6at6t")
+
+[node name="UIRoot" type="CanvasLayer" parent="."]
+script = ExtResource("23_pwwki")
+
+[node name="InventoryDialog" parent="UIRoot" instance=ExtResource("23_6at6t")]
+unique_name_in_owner = true
+visible = false
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -48.0
+offset_top = -17.5
+offset_right = 48.0
+offset_bottom = 17.5
 
 [editable path="ObsticleLayer/Slimes/Path2D/SlimeEnemy"]
 [editable path="ObsticleLayer/NPC"]

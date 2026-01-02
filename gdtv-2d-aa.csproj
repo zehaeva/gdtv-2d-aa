@@ -8,5 +8,6 @@
   <ItemGroup>
     <Folder Include="Scripts\Characters\CharacterStates\" />
     <Folder Include="Scripts\Achivements\" />
+    <Folder Include="Scripts\General\ElementalTypes\" />
   </ItemGroup>
 </Project>

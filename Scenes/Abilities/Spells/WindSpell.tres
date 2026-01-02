@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="Spell" load_steps=2 format=3 uid="uid://dg0ofem27e228"]
+
+[ext_resource type="Script" uid="uid://dkna8nk8ah8aq" path="res://Scripts/Abilities/Spell.cs" id="1_funop"]
+
+[resource]
+script = ExtResource("1_funop")
+AbilityName = "Wind Spell"
+Description = "Throws a gust of wind"
+metadata/_custom_type_script = "uid://dkna8nk8ah8aq"

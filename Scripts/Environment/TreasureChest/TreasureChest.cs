@@ -14,7 +14,7 @@ public partial class TreasureChest : EnvironmentInteractable
         base._Ready();
         if (SceneManager.OpenedChests.Contains(ChestName))
         {
-            GD.Print(ChestName + " chest was opened earlier");
+            //GD.Print(ChestName + " chest was opened earlier");
             isOpen = true;
             GetNode<AnimatedSprite2D>("AnimatedSprite2D").Play(GameConstants.ANIM_OPEN);
         }
@@ -29,10 +29,12 @@ public partial class TreasureChest : EnvironmentInteractable
             {
                 open_chest();
             }
-            else { GD.Print(ChestName + " chest was already opened"); }
+            //else { GD.Print(ChestName + " chest was already opened"); }
         }
         else if(Input.IsActionJustPressed(GameConstants.INPUT_INTERACT))
-         { GD.Print(ChestName + " chest can't interact " + canInteract); }
+        { 
+            //GD.Print(ChestName + " chest can't interact " + canInteract); 
+        }
     }
 
     protected void open_chest()
@@ -47,7 +49,7 @@ public partial class TreasureChest : EnvironmentInteractable
             GetNode<Timer>("Timer").Start();
             SceneManager.OpenedChests.Append(ChestName);
         }
-        else { GD.Print(ChestName + " chest was already opened"); }
+        //else { GD.Print(ChestName + " chest was already opened"); }
     }
 
     protected void _on_timer_timeout()

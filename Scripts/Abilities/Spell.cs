@@ -1,7 +1,8 @@
 ﻿using Godot;
 using System;
 
-public partial class Spell : Resource
+[GlobalClass]
+public partial class Spell : Ability
 {
     public void Cast()
     {

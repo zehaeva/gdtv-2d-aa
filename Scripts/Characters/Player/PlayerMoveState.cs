@@ -88,10 +88,10 @@ public partial class PlayerMoveState : PlayerState
         {
             characterNode.StateMachineNode.SwitchState<PlayerInteractState>();
         }
-        else if (Input.IsActionJustPressed(GameConstants.INPUT_INVENTORY))
-        {
-            characterNode.StateMachineNode.SwitchState<PlayerInventoryState>();
-        }
+        //else if (Input.IsActionJustPressed(GameConstants.INPUT_INVENTORY))
+        //{
+        //    characterNode.StateMachineNode.SwitchState<PlayerInventoryState>();
+        //}
     }
 
     protected override void EnterState()

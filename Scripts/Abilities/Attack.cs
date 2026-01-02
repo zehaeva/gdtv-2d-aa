@@ -1,4 +1,7 @@
-﻿public partial class Attack : Ability
+﻿using Godot;
+
+[GlobalClass]
+public partial class Attack : Ability
 {
 
 }

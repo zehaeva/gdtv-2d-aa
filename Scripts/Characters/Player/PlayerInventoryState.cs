@@ -17,13 +17,13 @@ public partial class PlayerInventoryState : PlayerState
     protected override void EnterState()
     {
         base.EnterState();
-        characterNode.Inventory.Visible = true;
+        //characterNode.Inventory.Visible = true;
     }
 
     protected override void ExitState() 
     { 
         base.ExitState();
-        characterNode.Inventory.Visible = false;
+        //characterNode.Inventory.Visible = false;
     }
     #endregion
 }

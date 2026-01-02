@@ -27,4 +27,7 @@ public class GameEvents
 
     public static event Action<int> OnNextHour;
     public static void RaiseNextHour(int hour) => OnNextHour?.Invoke(hour);
+
+    public static event Action<BaseItem> OnItemPickup;
+    public static void RaiseItemPickup(BaseItem item) => OnItemPickup?.Invoke(item);
 }

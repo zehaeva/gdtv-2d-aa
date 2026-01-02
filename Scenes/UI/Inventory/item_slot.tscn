@@ -1,0 +1,11 @@
+[gd_scene load_steps=2 format=3 uid="uid://dcuxojuu44dmy"]
+
+[ext_resource type="Script" uid="uid://24b178rtsbjm" path="res://Scripts/UI/Inventory/ItemSlot.cs" id="1_incig"]
+
+[node name="ItemSlot" type="PanelContainer"]
+script = ExtResource("1_incig")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(64, 64)
+layout_mode = 2

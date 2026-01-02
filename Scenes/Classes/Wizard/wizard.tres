@@ -1,9 +1,42 @@
-[gd_resource type="Resource" script_class="Wizard" load_steps=8 format=3 uid="uid://bvlmysysmgiue"]
+[gd_resource type="Resource" script_class="Wizard" load_steps=18 format=3 uid="uid://bvlmysysmgiue"]
 
+[ext_resource type="Script" uid="uid://bkgqyclbobbvo" path="res://Scripts/Abilities/Attack.cs" id="1_gc8di"]
 [ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="1_wfdni"]
+[ext_resource type="Script" uid="uid://won65hqnqc2d" path="res://Scripts/Abilities/ClassAbility.cs" id="2_fcht5"]
 [ext_resource type="Script" uid="uid://bdt7b00830gci" path="res://Scripts/General/Constraints/GreaterThanOrEqualsConstraint.cs" id="2_ig1o5"]
 [ext_resource type="Script" uid="uid://be7nr10eaogdi" path="res://Scripts/Classes/ClassConstraint.cs" id="3_cn8ce"]
+[ext_resource type="Resource" uid="uid://b2xy2osvt3s84" path="res://Scenes/Abilities/Spells/FireSpell.tres" id="3_rl3mt"]
+[ext_resource type="Resource" uid="uid://dg0ofem27e228" path="res://Scenes/Abilities/Spells/WindSpell.tres" id="4_1xh1k"]
 [ext_resource type="Script" uid="uid://bbno4yktlmmh" path="res://Scripts/Classes/Wizard/Wizard.cs" id="4_gc8di"]
+[ext_resource type="Resource" uid="uid://0il6o8jy0vny" path="res://Scenes/Abilities/Spells/WaterSpell.tres" id="5_ebhv0"]
+
+[sub_resource type="Resource" id="Resource_1xh1k"]
+script = ExtResource("1_gc8di")
+metadata/_custom_type_script = "uid://bkgqyclbobbvo"
+
+[sub_resource type="Resource" id="Resource_ebhv0"]
+script = ExtResource("2_fcht5")
+ClassLevel = 1
+Ability = SubResource("Resource_1xh1k")
+metadata/_custom_type_script = "uid://won65hqnqc2d"
+
+[sub_resource type="Resource" id="Resource_saejh"]
+script = ExtResource("2_fcht5")
+ClassLevel = 1
+Ability = ExtResource("3_rl3mt")
+metadata/_custom_type_script = "uid://won65hqnqc2d"
+
+[sub_resource type="Resource" id="Resource_12kia"]
+script = ExtResource("2_fcht5")
+ClassLevel = 2
+Ability = ExtResource("4_1xh1k")
+metadata/_custom_type_script = "uid://won65hqnqc2d"
+
+[sub_resource type="Resource" id="Resource_nko18"]
+script = ExtResource("2_fcht5")
+ClassLevel = 2
+Ability = ExtResource("5_ebhv0")
+metadata/_custom_type_script = "uid://won65hqnqc2d"
 
 [sub_resource type="Resource" id="Resource_d1o2u"]
 script = ExtResource("1_wfdni")
@@ -27,3 +60,4 @@ ClassConstraints = Array[Object]([SubResource("Resource_fm68c")])
 Description = "A magic using class"
 MaxLevel = 10
 XPTable = PackedInt32Array(10, 20, 40, 80, 160, 320, 640, 1280, 2560, 5120)
+Abilities = Array[Object]([SubResource("Resource_ebhv0"), SubResource("Resource_saejh"), SubResource("Resource_12kia"), SubResource("Resource_nko18")])
