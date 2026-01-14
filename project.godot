@@ -31,6 +31,7 @@ config/icon="uid://ej2cl5oehe7n"
 [autoload]
 
 SceneManager="*res://Scenes/SceneManager/scene_manager.tscn"
+DayNightControl="*res://Scripts/UI/DayNightControl.cs"
 
 [display]
 

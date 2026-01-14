@@ -25,6 +25,10 @@ public class GameEvents
     public static event Action<Character, Character> NPCKilled;
     public static void RaiseNPCKilled(Character npc, Character killer) => NPCKilled?.Invoke(npc, killer);
 
+    public static event Action<int> OnNextQuarterHour;
+    public static void RaiseNextQuarterHour(int hour) => OnNextQuarterHour?.Invoke(hour);
+    public static event Action<int> OnNextHalfHour;
+    public static void RaiseNextHalfHour(int hour) => OnNextHalfHour?.Invoke(hour);
     public static event Action<int> OnNextHour;
     public static void RaiseNextHour(int hour) => OnNextHour?.Invoke(hour);
 

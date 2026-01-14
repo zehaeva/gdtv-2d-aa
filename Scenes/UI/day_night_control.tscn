@@ -1,0 +1,36 @@
+[gd_scene load_steps=4 format=3 uid="uid://ccx38p8y2d7vd"]
+
+[ext_resource type="Script" uid="uid://pc6uf75iikgh" path="res://Scripts/UI/DayNightControl.cs" id="1_otlc4"]
+[ext_resource type="Texture2D" uid="uid://t8rtgoll5yfr" path="res://assets/UI/DayNight.png" id="1_u2pyt"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_otlc4"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[node name="DayNightControl" type="PanelContainer" node_paths=PackedStringArray("DialContainer", "AnimPlayer")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -168.0
+offset_bottom = 168.0
+grow_horizontal = 0
+pivot_offset = Vector2(84, 84)
+size_flags_horizontal = 4
+size_flags_vertical = 4
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_otlc4")
+script = ExtResource("1_otlc4")
+DialContainer = NodePath("MarginContainer")
+AnimPlayer = NodePath("")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="TextureRect" type="TextureRect" parent="MarginContainer"]
+layout_mode = 2
+texture = ExtResource("1_u2pyt")

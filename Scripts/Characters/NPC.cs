@@ -11,7 +11,7 @@ public partial class NPC : Character
     [Export] public CanvasLayer DialogueLayer { get; private set; }
     [Export] public Label NameLabel { get; private set; }
 
-    [Export] public NPCSchedule Schedule { get; private set; }
+    [Export] public new NPCStateMachine StateMachineNode { get; private set; }
 
     public int dialogue_index { get; private set; } = 0;
     public bool can_interact { get; private set; } = false;

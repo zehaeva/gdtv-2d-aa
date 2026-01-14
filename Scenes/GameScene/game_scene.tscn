@@ -1,4 +1,4 @@
-[gd_scene load_steps=39 format=4 uid="uid://du4ovd7otudde"]
+[gd_scene load_steps=40 format=4 uid="uid://du4ovd7otudde"]
 
 [ext_resource type="PackedScene" uid="uid://dujoynrn0xsex" path="res://Scenes/Player/player.tscn" id="1_2p8i2"]
 [ext_resource type="Texture2D" uid="uid://buitco15uc5x5" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetFloor.png" id="1_l6yvh"]
@@ -24,6 +24,7 @@
 [ext_resource type="Resource" uid="uid://jytnvdimkf4f" path="res://Resources/Items/Sword.tres" id="21_6at6t"]
 [ext_resource type="PackedScene" uid="uid://dllh5045hsi5p" path="res://Scenes/UI/Inventory/inventory_dialog.tscn" id="23_6at6t"]
 [ext_resource type="Script" uid="uid://brdtk5jmjmjqr" path="res://Scripts/General/UiRoot.cs" id="23_pwwki"]
+[ext_resource type="PackedScene" uid="uid://ccx38p8y2d7vd" path="res://Scenes/UI/day_night_control.tscn" id="25_ipjqc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_04h35"]
 texture = ExtResource("1_l6yvh")
@@ -1062,7 +1063,7 @@ navigation_layers = 31
 
 [node name="GameClock" type="Node" parent="." node_paths=PackedStringArray("GlobalClock")]
 script = ExtResource("17_jaj74")
-SecondsPerHour = 5
+SecondsPerHour = 6
 HoursPerDay = 24
 GlobalClock = NodePath("Timer")
 
@@ -1096,6 +1097,8 @@ offset_left = -48.0
 offset_top = -17.5
 offset_right = 48.0
 offset_bottom = 17.5
+
+[node name="DayNightControl" parent="UIRoot" instance=ExtResource("25_ipjqc")]
 
 [editable path="ObsticleLayer/Slimes/Path2D/SlimeEnemy"]
 [editable path="ObsticleLayer/NPC"]
