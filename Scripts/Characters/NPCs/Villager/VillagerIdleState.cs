@@ -1,7 +1,7 @@
 using Godot;
 using System;
 
-public partial class VillagerIdleState : NPCState
+public partial class VillagerIdleState : NPCIdleState
 {
     public override void _PhysicsProcess(double delta)
     {

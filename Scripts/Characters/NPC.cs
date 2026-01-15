@@ -13,6 +13,8 @@ public partial class NPC : Character
 
     [Export] public new NPCStateMachine StateMachineNode { get; private set; }
 
+    [Export] public NPCBlackboard Blackboard { get; private set; }
+
     public int dialogue_index { get; private set; } = 0;
     public bool can_interact { get; private set; } = false;
 }

@@ -2,7 +2,7 @@
 using System;
 using System.Linq;
 
-public partial class VillagerInteractState : NPCState
+public partial class VillagerInteractState : NPCInteractState
 {
     private int dialogue_index = 0;
 
