@@ -1,7 +1,7 @@
 ﻿using Godot;
 using System;
 
-public class NPCBlackboard
+public partial class NPCBlackboard : Node
 {
     // Movement Data
     public Vector2 WorkLocation { get; set; }
