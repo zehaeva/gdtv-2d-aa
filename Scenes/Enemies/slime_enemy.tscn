@@ -1,4 +1,4 @@
-[gd_scene load_steps=54 format=3 uid="uid://pg8me1r73klb"]
+[gd_scene format=3 uid="uid://pg8me1r73klb"]
 
 [ext_resource type="Script" uid="uid://cj05hnkpukkm0" path="res://Scripts/Characters/NPCs/Slime/Slime.cs" id="1_1u7tg"]
 [ext_resource type="Texture2D" uid="uid://6qi75vsaoxpj" path="res://assets/Ninja Adventure - Asset Pack/Actor/Monsters/Slime3/Slime3.png" id="1_p6sbt"]
@@ -6,6 +6,7 @@
 [ext_resource type="Resource" uid="uid://bvlmysysmgiue" path="res://Scenes/Classes/Wizard/wizard.tres" id="3_1xypq"]
 [ext_resource type="AudioStream" uid="uid://dg4gva61tmtv3" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/Hit1.wav" id="3_sv1en"]
 [ext_resource type="Script" uid="uid://c4rfh7oyeho44" path="res://Scripts/Resources/ClassesResource.cs" id="4_n2bhi"]
+[ext_resource type="Script" uid="uid://cf7m7ewkudn5w" path="res://Scripts/Characters/Inventory.cs" id="5_n2bhi"]
 [ext_resource type="Script" uid="uid://jrdt74am74k0" path="res://Scripts/Characters/StateMachine.cs" id="5_rh62s"]
 [ext_resource type="Script" uid="uid://dgfo6uo64fm8g" path="res://Scripts/Characters/NPCs/Slime/SlimeIdleState.cs" id="6_n4i4n"]
 [ext_resource type="Script" uid="uid://cqxqe8eig3sv7" path="res://Scripts/Characters/NPCs/Slime/SlimeChaseState.cs" id="7_ld0qu"]
@@ -38,6 +39,9 @@ CharacterClass = ExtResource("3_1xypq")
 ClassLevel = 2
 ExperiancePoints = 20
 metadata/_custom_type_script = "uid://c4rfh7oyeho44"
+
+[sub_resource type="Resource" id="Resource_mek6i"]
+script = ExtResource("5_n2bhi")
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_5uyk1"]
 radius = 8.0
@@ -551,7 +555,7 @@ _data = {
 &"RESET": SubResource("Animation_lvc1q")
 }
 
-[node name="SlimeEnemy" type="CharacterBody2D" node_paths=PackedStringArray("GPUParticles2DNode", "AnimatedSprite2DNode", "AnimationPlayerNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
+[node name="SlimeEnemy" type="CharacterBody2D" unique_id=331096547 node_paths=PackedStringArray("GPUParticles2DNode", "AnimatedSprite2DNode", "AnimationPlayerNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX", "AgentNode", "ChaseAreaNode", "AttackAreaNode")]
 collision_layer = 16
 motion_mode = 1
 script = ExtResource("1_1u7tg")
@@ -572,47 +576,48 @@ DamageSFX = NodePath("DamageSFX")
 AgentNode = NodePath("NavigationAgent2D")
 ChaseAreaNode = NodePath("PlayerDetectArea2D")
 AttackAreaNode = NodePath("HitBoxArea")
+Inventory = SubResource("Resource_mek6i")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=586507136]
 shape = SubResource("CapsuleShape2D_5uyk1")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=1605778222]
 sprite_frames = SubResource("SpriteFrames_1u7tg")
 animation = &"Death"
 
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="." unique_id=964287237]
 
-[node name="PlayerDetectArea2D" type="Area2D" parent="."]
+[node name="PlayerDetectArea2D" type="Area2D" parent="." unique_id=1607277434]
 collision_layer = 16
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PlayerDetectArea2D" unique_id=314662406]
 shape = SubResource("CircleShape2D_p6sbt")
 debug_color = Color(0.2784314, 0.92941177, 0, 0.2784314)
 
-[node name="HitBoxArea" type="Area2D" parent="."]
+[node name="HitBoxArea" type="Area2D" parent="." unique_id=1243828916]
 collision_layer = 16
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxArea" unique_id=1965990058]
 shape = SubResource("CircleShape2D_1u7tg")
 debug_color = Color(0.2784314, 0.92941177, 0, 0.2784314)
 
-[node name="HitFlashTimer" type="Timer" parent="HitBoxArea"]
+[node name="HitFlashTimer" type="Timer" parent="HitBoxArea" unique_id=1400377353]
 
-[node name="HurtBoxArea" type="Area2D" parent="."]
+[node name="HurtBoxArea" type="Area2D" parent="." unique_id=1142067424]
 collision_layer = 16
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxArea" unique_id=623669737]
 shape = SubResource("CircleShape2D_jwhlm")
 debug_color = Color(0.2784314, 0.92941177, 0, 0.2784314)
 
-[node name="DamageSFX" type="AudioStreamPlayer2D" parent="."]
+[node name="DamageSFX" type="AudioStreamPlayer2D" parent="." unique_id=1428659289]
 stream = ExtResource("3_sv1en")
 volume_db = 10.0
 
-[node name="GPUParticles2D" type="GPUParticles2D" parent="."]
+[node name="GPUParticles2D" type="GPUParticles2D" parent="." unique_id=1789350773]
 emitting = false
 amount = 60
 lifetime = 0.5
@@ -620,40 +625,38 @@ one_shot = true
 explosiveness = 0.8
 process_material = SubResource("ParticleProcessMaterial_sv1en")
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState", "states")]
+[node name="StateMachine" type="Node" parent="." unique_id=927743439 node_paths=PackedStringArray("currentState", "states")]
 script = ExtResource("5_rh62s")
 currentState = NodePath("IdleState")
 states = [NodePath("IdleState"), NodePath("ChaseState"), NodePath("AttackState"), NodePath("ReturnState"), NodePath("DeathState"), NodePath("WanderState")]
 
-[node name="IdleState" type="Node" parent="StateMachine"]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=728417182]
 script = ExtResource("6_n4i4n")
 
-[node name="ChaseState" type="Node" parent="StateMachine" node_paths=PackedStringArray("ChaseTimerNode")]
+[node name="ChaseState" type="Node" parent="StateMachine" unique_id=26574128 node_paths=PackedStringArray("ChaseTimerNode")]
 script = ExtResource("7_ld0qu")
 ChaseTimerNode = NodePath("ChaseTimer")
 
-[node name="ChaseTimer" type="Timer" parent="StateMachine/ChaseState"]
+[node name="ChaseTimer" type="Timer" parent="StateMachine/ChaseState" unique_id=1279880231]
 wait_time = 0.2
 autostart = true
 
-[node name="AttackState" type="Node" parent="StateMachine"]
+[node name="AttackState" type="Node" parent="StateMachine" unique_id=1950426910]
 script = ExtResource("8_cmhxm")
 
-[node name="ReturnState" type="Node" parent="StateMachine"]
+[node name="ReturnState" type="Node" parent="StateMachine" unique_id=1385997071]
 script = ExtResource("9_cmhxm")
 
-[node name="DeathState" type="Node" parent="StateMachine"]
+[node name="DeathState" type="Node" parent="StateMachine" unique_id=2117044946]
 script = ExtResource("10_2tcdh")
 
-[node name="WanderState" type="Node" parent="StateMachine" node_paths=PackedStringArray("idleTimerNode")]
+[node name="WanderState" type="Node" parent="StateMachine" unique_id=530943361 node_paths=PackedStringArray("idleTimerNode")]
 script = ExtResource("11_nqitv")
 idleTimerNode = NodePath("Timer")
 maxIdleTime = 0.5
 
-[node name="Timer" type="Timer" parent="StateMachine/WanderState"]
+[node name="Timer" type="Timer" parent="StateMachine/WanderState" unique_id=742239707]
 wait_time = 0.5
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_bnysn")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1731507408]
+libraries/ = SubResource("AnimationLibrary_bnysn")

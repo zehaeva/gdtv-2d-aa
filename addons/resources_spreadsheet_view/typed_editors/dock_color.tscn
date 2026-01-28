@@ -1,274 +1,274 @@
-[gd_scene load_steps=2 format=3 uid="uid://b3a3bo6cfyh5t"]
+[gd_scene format=3 uid="uid://b3a3bo6cfyh5t"]
 
 [ext_resource type="Script" uid="uid://dfppy02g553ys" path="res://addons/resources_spreadsheet_view/typed_editors/dock_color.gd" id="1"]
 
-[node name="EditColor" type="VBoxContainer"]
+[node name="EditColor" type="VBoxContainer" unique_id=1162804320]
 offset_bottom = 131.0
 grow_horizontal = 2
 mouse_filter = 0
 script = ExtResource("1")
 
-[node name="Header" type="HBoxContainer" parent="."]
+[node name="Header" type="HBoxContainer" parent="." unique_id=1813366569]
 layout_mode = 2
 mouse_filter = 0
 mouse_default_cursor_shape = 9
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Header"]
+[node name="HBoxContainer" type="HBoxContainer" parent="Header" unique_id=906885280]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Label" type="Label" parent="Header/HBoxContainer"]
+[node name="Label" type="Label" parent="Header/HBoxContainer" unique_id=2084180740]
 layout_mode = 2
 text = "EDIT: Color"
 
-[node name="HSeparator" type="HSeparator" parent="Header/HBoxContainer"]
+[node name="HSeparator" type="HSeparator" parent="Header/HBoxContainer" unique_id=96150667]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="Label" type="Label" parent="Header"]
+[node name="Label" type="Label" parent="Header" unique_id=441869791]
 layout_mode = 2
 text = "PROPERTY NAME"
 
-[node name="HSeparator2" type="HSeparator" parent="Header"]
+[node name="HSeparator2" type="HSeparator" parent="Header" unique_id=1667350594]
 layout_mode = 2
 size_flags_horizontal = 3
 mouse_filter = 2
 
-[node name="EditColor" type="HBoxContainer" parent="."]
+[node name="EditColor" type="HBoxContainer" parent="." unique_id=922355987]
 layout_mode = 2
 size_flags_vertical = 3
 alignment = 1
 
-[node name="VSeparator7" type="Control" parent="EditColor"]
+[node name="VSeparator7" type="Control" parent="EditColor" unique_id=501369531]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="VSeparator3" type="Control" parent="EditColor"]
+[node name="VSeparator3" type="Control" parent="EditColor" unique_id=1988420698]
 visible = false
 layout_mode = 2
 
-[node name="ButtonRowTemplate" type="Control" parent="EditColor"]
+[node name="ButtonRowTemplate" type="Control" parent="EditColor" unique_id=190260572]
 visible = false
 layout_mode = 2
 
-[node name="Button3" type="Button" parent="EditColor/ButtonRowTemplate"]
+[node name="Button3" type="Button" parent="EditColor/ButtonRowTemplate" unique_id=333332919]
 layout_mode = 0
 text = "-X"
 
-[node name="Button2" type="Button" parent="EditColor/ButtonRowTemplate"]
+[node name="Button2" type="Button" parent="EditColor/ButtonRowTemplate" unique_id=398157234]
 layout_mode = 0
 text = "-5"
 
-[node name="Label" type="Label" parent="EditColor/ButtonRowTemplate"]
+[node name="Label" type="Label" parent="EditColor/ButtonRowTemplate" unique_id=635360591]
 layout_mode = 0
 text = "Red"
 
-[node name="Button5" type="Button" parent="EditColor/ButtonRowTemplate"]
+[node name="Button5" type="Button" parent="EditColor/ButtonRowTemplate" unique_id=416367500]
 layout_mode = 0
 text = "+5"
 
-[node name="Button6" type="Button" parent="EditColor/ButtonRowTemplate"]
+[node name="Button6" type="Button" parent="EditColor/ButtonRowTemplate" unique_id=1446138113]
 layout_mode = 0
 text = "+X"
 
-[node name="RGBGrid" type="GridContainer" parent="EditColor"]
+[node name="RGBGrid" type="GridContainer" parent="EditColor" unique_id=1117666975]
 layout_mode = 2
 columns = 5
 
-[node name="Button3" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button3" type="Button" parent="EditColor/RGBGrid" unique_id=547880231]
 modulate = Color(1, 0.780392, 0.780392, 1)
 layout_mode = 2
 text = "-X"
 
-[node name="Button2" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button2" type="Button" parent="EditColor/RGBGrid" unique_id=480555427]
 modulate = Color(1, 0.780392, 0.780392, 1)
 layout_mode = 2
 text = "-10"
 
-[node name="Label" type="Label" parent="EditColor/RGBGrid"]
+[node name="Label" type="Label" parent="EditColor/RGBGrid" unique_id=135704326]
 layout_mode = 2
 text = "Red"
 horizontal_alignment = 1
 
-[node name="Button5" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button5" type="Button" parent="EditColor/RGBGrid" unique_id=840194698]
 modulate = Color(1, 0.780392, 0.780392, 1)
 layout_mode = 2
 text = "+10"
 
-[node name="Button6" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button6" type="Button" parent="EditColor/RGBGrid" unique_id=1959332525]
 modulate = Color(1, 0.780392, 0.780392, 1)
 layout_mode = 2
 text = "+X"
 
-[node name="Button7" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button7" type="Button" parent="EditColor/RGBGrid" unique_id=1961416680]
 modulate = Color(0.666667, 1, 0.745098, 1)
 layout_mode = 2
 text = "-X"
 
-[node name="Button8" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button8" type="Button" parent="EditColor/RGBGrid" unique_id=2012184270]
 modulate = Color(0.666667, 1, 0.745098, 1)
 layout_mode = 2
 text = "-10"
 
-[node name="Label2" type="Label" parent="EditColor/RGBGrid"]
+[node name="Label2" type="Label" parent="EditColor/RGBGrid" unique_id=526316660]
 layout_mode = 2
 text = "Green"
 horizontal_alignment = 1
 
-[node name="Button11" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button11" type="Button" parent="EditColor/RGBGrid" unique_id=880976394]
 modulate = Color(0.666667, 1, 0.745098, 1)
 layout_mode = 2
 text = "+10"
 
-[node name="Button12" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button12" type="Button" parent="EditColor/RGBGrid" unique_id=568063210]
 modulate = Color(0.666667, 1, 0.745098, 1)
 layout_mode = 2
 text = "+X"
 
-[node name="Button13" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button13" type="Button" parent="EditColor/RGBGrid" unique_id=1419766837]
 modulate = Color(0.772549, 0.792157, 1, 1)
 layout_mode = 2
 text = "-X"
 
-[node name="Button14" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button14" type="Button" parent="EditColor/RGBGrid" unique_id=1499164425]
 modulate = Color(0.772549, 0.792157, 1, 1)
 layout_mode = 2
 text = "-10"
 
-[node name="Label3" type="Label" parent="EditColor/RGBGrid"]
+[node name="Label3" type="Label" parent="EditColor/RGBGrid" unique_id=351781757]
 layout_mode = 2
 text = "Blue"
 horizontal_alignment = 1
 
-[node name="Button17" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button17" type="Button" parent="EditColor/RGBGrid" unique_id=2052325798]
 modulate = Color(0.772549, 0.792157, 1, 1)
 layout_mode = 2
 text = "+10"
 
-[node name="Button18" type="Button" parent="EditColor/RGBGrid"]
+[node name="Button18" type="Button" parent="EditColor/RGBGrid" unique_id=599793286]
 modulate = Color(0.772549, 0.792157, 1, 1)
 layout_mode = 2
 text = "+X"
 
-[node name="VSeparator" type="VSeparator" parent="EditColor"]
+[node name="VSeparator" type="VSeparator" parent="EditColor" unique_id=1462517598]
 layout_mode = 2
 
-[node name="ColorProper" type="VBoxContainer" parent="EditColor"]
+[node name="ColorProper" type="VBoxContainer" parent="EditColor" unique_id=1309626781]
 layout_mode = 2
 
-[node name="ColorRect" type="ColorRect" parent="EditColor/ColorProper"]
+[node name="ColorRect" type="ColorRect" parent="EditColor/ColorProper" unique_id=1729236835]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Button" type="Button" parent="EditColor/ColorProper"]
+[node name="Button" type="Button" parent="EditColor/ColorProper" unique_id=1876346839]
 layout_mode = 2
 text = "Choose Color"
 
-[node name="VSeparator2" type="VSeparator" parent="EditColor"]
+[node name="VSeparator2" type="VSeparator" parent="EditColor" unique_id=119367911]
 layout_mode = 2
 
-[node name="HSVGrid" type="GridContainer" parent="EditColor"]
+[node name="HSVGrid" type="GridContainer" parent="EditColor" unique_id=661264272]
 layout_mode = 2
 columns = 5
 
-[node name="Button3" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button3" type="Button" parent="EditColor/HSVGrid" unique_id=416706871]
 modulate = Color(1, 0.913725, 0.776471, 1)
 layout_mode = 2
 text = "-X"
 
-[node name="Button2" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button2" type="Button" parent="EditColor/HSVGrid" unique_id=1510506042]
 modulate = Color(0.898039, 1, 0.698039, 1)
 layout_mode = 2
 text = "-10"
 
-[node name="Label" type="Label" parent="EditColor/HSVGrid"]
+[node name="Label" type="Label" parent="EditColor/HSVGrid" unique_id=1537102621]
 layout_mode = 2
 text = "Hue"
 horizontal_alignment = 1
 
-[node name="Button5" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button5" type="Button" parent="EditColor/HSVGrid" unique_id=772631153]
 modulate = Color(0.717647, 1, 0.980392, 1)
 layout_mode = 2
 text = "+10"
 
-[node name="Button6" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button6" type="Button" parent="EditColor/HSVGrid" unique_id=1270132411]
 modulate = Color(0.74902, 0.729412, 1, 1)
 layout_mode = 2
 text = "+X"
 
-[node name="Button7" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button7" type="Button" parent="EditColor/HSVGrid" unique_id=349246407]
 layout_mode = 2
 text = "-X"
 
-[node name="Button8" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button8" type="Button" parent="EditColor/HSVGrid" unique_id=1510993940]
 layout_mode = 2
 text = "-5"
 
-[node name="Label2" type="Label" parent="EditColor/HSVGrid"]
+[node name="Label2" type="Label" parent="EditColor/HSVGrid" unique_id=698523089]
 layout_mode = 2
 text = "Sat"
 horizontal_alignment = 1
 
-[node name="Button11" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button11" type="Button" parent="EditColor/HSVGrid" unique_id=953619701]
 layout_mode = 2
 text = "+5"
 
-[node name="Button12" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button12" type="Button" parent="EditColor/HSVGrid" unique_id=876460563]
 layout_mode = 2
 text = "+X"
 
-[node name="Button13" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button13" type="Button" parent="EditColor/HSVGrid" unique_id=153581661]
 layout_mode = 2
 text = "-X"
 
-[node name="Button14" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button14" type="Button" parent="EditColor/HSVGrid" unique_id=1922358476]
 layout_mode = 2
 text = "-5"
 
-[node name="Label3" type="Label" parent="EditColor/HSVGrid"]
+[node name="Label3" type="Label" parent="EditColor/HSVGrid" unique_id=286816384]
 layout_mode = 2
 text = "Value"
 horizontal_alignment = 1
 
-[node name="Button17" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button17" type="Button" parent="EditColor/HSVGrid" unique_id=1874097728]
 layout_mode = 2
 text = "+5"
 
-[node name="Button18" type="Button" parent="EditColor/HSVGrid"]
+[node name="Button18" type="Button" parent="EditColor/HSVGrid" unique_id=1729849705]
 layout_mode = 2
 text = "+X"
 
-[node name="VSeparator4" type="VSeparator" parent="EditColor"]
+[node name="VSeparator4" type="VSeparator" parent="EditColor" unique_id=988884363]
 layout_mode = 2
 
-[node name="CustomX" type="VBoxContainer" parent="EditColor"]
+[node name="CustomX" type="VBoxContainer" parent="EditColor" unique_id=313454857]
 layout_mode = 2
 
-[node name="Label" type="Label" parent="EditColor/CustomX"]
+[node name="Label" type="Label" parent="EditColor/CustomX" unique_id=1150206232]
 layout_mode = 2
 size_flags_vertical = 6
 text = "Custom Value"
 horizontal_alignment = 1
 
-[node name="Box" type="HBoxContainer" parent="EditColor/CustomX"]
+[node name="Box" type="HBoxContainer" parent="EditColor/CustomX" unique_id=1704993032]
 layout_mode = 2
 
-[node name="Label2" type="Label" parent="EditColor/CustomX/Box"]
+[node name="Label2" type="Label" parent="EditColor/CustomX/Box" unique_id=710293791]
 layout_mode = 2
 size_flags_vertical = 6
 text = "X ="
 
-[node name="LineEdit" type="LineEdit" parent="EditColor/CustomX/Box"]
+[node name="LineEdit" type="LineEdit" parent="EditColor/CustomX/Box" unique_id=2000522010]
 layout_mode = 2
 size_flags_horizontal = 3
 text = "20"
 
-[node name="VSeparator6" type="Control" parent="EditColor"]
+[node name="VSeparator6" type="Control" parent="EditColor" unique_id=2084438376]
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="Panel" type="PanelContainer" parent="EditColor/VSeparator6"]
+[node name="Panel" type="PanelContainer" parent="EditColor/VSeparator6" unique_id=1019618093]
 visible = false
 layout_mode = 1
 anchors_preset = 2
@@ -276,17 +276,17 @@ anchor_top = 1.0
 anchor_bottom = 1.0
 grow_vertical = 0
 
-[node name="Panel2" type="Panel" parent="EditColor/VSeparator6/Panel"]
+[node name="Panel2" type="Panel" parent="EditColor/VSeparator6/Panel" unique_id=1192291964]
 self_modulate = Color(1.5, 1.5, 1.5, 1)
 layout_mode = 2
 
-[node name="MarginContainer" type="MarginContainer" parent="EditColor/VSeparator6/Panel"]
+[node name="MarginContainer" type="MarginContainer" parent="EditColor/VSeparator6/Panel" unique_id=1887899267]
 layout_mode = 2
 
-[node name="ColorPicker" type="ColorPicker" parent="EditColor/VSeparator6/Panel/MarginContainer"]
+[node name="ColorPicker" type="ColorPicker" parent="EditColor/VSeparator6/Panel/MarginContainer" unique_id=553926745]
 layout_mode = 2
 
-[node name="Button" type="Button" parent="EditColor/VSeparator6/Panel/MarginContainer/ColorPicker"]
+[node name="Button" type="Button" parent="EditColor/VSeparator6/Panel/MarginContainer/ColorPicker" unique_id=2029406335]
 layout_mode = 2
 text = "OK"
 

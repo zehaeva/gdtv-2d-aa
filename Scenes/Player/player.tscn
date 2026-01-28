@@ -1,4 +1,4 @@
-[gd_scene load_steps=107 format=3 uid="uid://dujoynrn0xsex"]
+[gd_scene format=3 uid="uid://dujoynrn0xsex"]
 
 [ext_resource type="Script" uid="uid://cj4usr2jdsc2l" path="res://Scripts/Characters/Player/Player.cs" id="1_74mp2"]
 [ext_resource type="Texture2D" uid="uid://pgk7kgglxt83" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Boy/SeparateAnim/Walk.png" id="2_a3d8c"]
@@ -1037,7 +1037,7 @@ _data = {
 &"RESET": SubResource("Animation_0u5uq")
 }
 
-[node name="Player" type="CharacterBody2D" node_paths=PackedStringArray("DeathTimer", "AttackDurationTimer", "Sword", "TreasureLabel", "HPBar", "AnimationPlayerNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX", "InteractArea2D")]
+[node name="Player" type="CharacterBody2D" unique_id=993868272 node_paths=PackedStringArray("DeathTimer", "AttackDurationTimer", "Sword", "TreasureLabel", "HPBar", "AnimationPlayerNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX", "InteractArea2D")]
 collision_layer = 2
 collision_mask = 7
 motion_mode = 1
@@ -1061,63 +1061,63 @@ DamageSFX = NodePath("DamageSFX")
 InteractArea2D = NodePath("InteractArea2D")
 Inventory = SubResource("Resource_bmb2s")
 
-[node name="Sword" type="Sprite2D" parent="."]
+[node name="Sword" type="Sprite2D" parent="." unique_id=394610229]
 visible = false
 position = Vector2(-3, -9)
 texture = ExtResource("5_htcer")
 offset = Vector2(0, -5)
 
-[node name="SwordArea2D" type="Area2D" parent="Sword"]
+[node name="SwordArea2D" type="Area2D" parent="Sword" unique_id=1810086522]
 collision_layer = 2
 collision_mask = 16
 script = ExtResource("4_ks1b7")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/SwordArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Sword/SwordArea2D" unique_id=2066163448]
 position = Vector2(0, -5)
 shape = SubResource("RectangleShape2D_htcer")
 
-[node name="SwordSFX" type="AudioStreamPlayer" parent="Sword"]
+[node name="SwordSFX" type="AudioStreamPlayer" parent="Sword" unique_id=1158565367]
 stream = ExtResource("3_gk6dx")
 volume_db = 5.0
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="." unique_id=984509843]
 visible = false
 sprite_frames = SubResource("SpriteFrames_74mp2")
 animation = &"IdleLeft"
 autoplay = "MoveDown"
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=771791078]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=666254164]
 shape = SubResource("CapsuleShape2D_a3d8c")
 
-[node name="InteractArea2D" type="Area2D" parent="."]
+[node name="InteractArea2D" type="Area2D" parent="." unique_id=937278886]
 collision_layer = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D" unique_id=802821911]
 light_mask = 2
 shape = SubResource("RectangleShape2D_a3d8c")
 debug_color = Color(1.9974261e-06, 0.64872324, 0.18153256, 0.41960785)
 
-[node name="HitboxArea2D" type="Area2D" parent="."]
+[node name="HitboxArea2D" type="Area2D" parent="." unique_id=1427104644]
 collision_layer = 2
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitboxArea2D" unique_id=1523734551]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_xpcdj")
 
-[node name="HurtboxArea" type="Area2D" parent="."]
+[node name="HurtboxArea" type="Area2D" parent="." unique_id=1452458010]
 collision_layer = 2
 collision_mask = 16
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxArea"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HurtboxArea" unique_id=970421848]
 position = Vector2(0, 2)
 shape = SubResource("CircleShape2D_xpcdj")
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="CanvasLayer" type="CanvasLayer" parent="." unique_id=967818541]
 
-[node name="Panel" type="Panel" parent="CanvasLayer"]
+[node name="Panel" type="Panel" parent="CanvasLayer" unique_id=806763593]
 anchors_preset = -1
 anchor_right = 0.279
 anchor_bottom = 0.20400001
@@ -1126,7 +1126,7 @@ offset_top = 39.0
 offset_right = -292.68005
 offset_bottom = -106.32001
 
-[node name="TreasureLabel" type="Label" parent="CanvasLayer/Panel"]
+[node name="TreasureLabel" type="Label" parent="CanvasLayer/Panel" unique_id=2041560581]
 unique_name_in_owner = true
 layout_mode = 0
 offset_left = 2.0645142
@@ -1137,7 +1137,7 @@ label_settings = SubResource("LabelSettings_mtuoh")
 horizontal_alignment = 1
 vertical_alignment = 1
 
-[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel"]
+[node name="TextureRect" type="TextureRect" parent="CanvasLayer/Panel" unique_id=118674680]
 layout_mode = 0
 offset_left = 63.064514
 offset_top = 1.0
@@ -1145,51 +1145,49 @@ offset_right = 130.06451
 offset_bottom = 68.0
 texture = ExtResource("3_xpcdj")
 
-[node name="HPBar" type="AnimatedSprite2D" parent="CanvasLayer"]
+[node name="HPBar" type="AnimatedSprite2D" parent="CanvasLayer" unique_id=1322735682]
 unique_name_in_owner = true
 position = Vector2(51, 72)
 scale = Vector2(3.75, 3.75)
 sprite_frames = SubResource("SpriteFrames_eksi1")
 animation = &"0_hp"
 
-[node name="AttackDurationTimer" type="Timer" parent="."]
+[node name="AttackDurationTimer" type="Timer" parent="." unique_id=1078459861]
 wait_time = 0.4
 one_shot = true
 
-[node name="DeathTimer" type="Timer" parent="."]
+[node name="DeathTimer" type="Timer" parent="." unique_id=2026910673]
 one_shot = true
 
-[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-libraries = {
-&"": SubResource("AnimationLibrary_jlvik")
-}
+[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1242698665]
+libraries/ = SubResource("AnimationLibrary_jlvik")
 
-[node name="DamageSFX" type="AudioStreamPlayer2D" parent="."]
+[node name="DamageSFX" type="AudioStreamPlayer2D" parent="." unique_id=2097260520]
 stream = ExtResource("8_jlvik")
 volume_db = 10.0
 
-[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("currentState", "states")]
+[node name="StateMachine" type="Node" parent="." unique_id=1093574699 node_paths=PackedStringArray("currentState", "states")]
 script = ExtResource("12_06tpx")
 currentState = NodePath("IdleState")
 states = [NodePath("AttackState"), NodePath("IdleState"), NodePath("MoveState"), NodePath("DeathState"), NodePath("InteractState"), NodePath("InventoryState")]
 DebugState = true
 
-[node name="AttackState" type="Node" parent="StateMachine"]
+[node name="AttackState" type="Node" parent="StateMachine" unique_id=1386226165]
 script = ExtResource("13_7g0yx")
 
-[node name="IdleState" type="Node" parent="StateMachine"]
+[node name="IdleState" type="Node" parent="StateMachine" unique_id=646438456]
 script = ExtResource("14_7g0yx")
 
-[node name="MoveState" type="Node" parent="StateMachine"]
+[node name="MoveState" type="Node" parent="StateMachine" unique_id=1941008024]
 script = ExtResource("16_r5xpd")
 
-[node name="DeathState" type="Node" parent="StateMachine"]
+[node name="DeathState" type="Node" parent="StateMachine" unique_id=1318745880]
 script = ExtResource("17_ks1b7")
 
-[node name="InteractState" type="Node" parent="StateMachine"]
+[node name="InteractState" type="Node" parent="StateMachine" unique_id=2094413680]
 script = ExtResource("18_hnuln")
 
-[node name="InventoryState" type="Node" parent="StateMachine"]
+[node name="InventoryState" type="Node" parent="StateMachine" unique_id=1635395736]
 script = ExtResource("19_rcvs5")
 
-[node name="HitFlashTimer" type="Timer" parent="."]
+[node name="HitFlashTimer" type="Timer" parent="." unique_id=1025625544]

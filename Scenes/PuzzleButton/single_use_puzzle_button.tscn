@@ -1,4 +1,4 @@
-[gd_scene load_steps=7 format=3 uid="uid://b1mwmwh3s7vo8"]
+[gd_scene format=3 uid="uid://b1mwmwh3s7vo8"]
 
 [ext_resource type="PackedScene" uid="uid://dyequxxr6p4cy" path="res://Scenes/PuzzleButton/puzzle_button.tscn" id="1_ifhfw"]
 [ext_resource type="Texture2D" uid="uid://did8fvkj36spw" path="res://assets/Ninja Adventure - Asset Pack/Backgrounds/Tilesets/TilesetDungeon.png" id="2_b63pp"]
@@ -31,8 +31,8 @@ animations = [{
 "speed": 5.0
 }]
 
-[node name="SingleUsePuzzleButton" instance=ExtResource("1_ifhfw")]
+[node name="SingleUsePuzzleButton" unique_id=1290033065 instance=ExtResource("1_ifhfw")]
 script = ExtResource("2_wo7tx")
 
-[node name="AnimatedSprite2D" parent="." index="1"]
+[node name="AnimatedSprite2D" parent="." index="1" unique_id=2039336007]
 sprite_frames = SubResource("SpriteFrames_abj6e")

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseItem" load_steps=4 format=3 uid="uid://cosrkkavm7rix"]
+[gd_resource type="Resource" script_class="BaseItem" format=3 uid="uid://cosrkkavm7rix"]
 
 [ext_resource type="Texture2D" uid="uid://f1tepvhwxc7a" path="res://assets/Ninja Adventure - Asset Pack/Items/Scroll/ScrollEmpty.png" id="1_nueha"]
 [ext_resource type="PackedScene" uid="uid://dgk76biht53po" path="res://Scenes/Items/world_item.tscn" id="2_3urpt"]

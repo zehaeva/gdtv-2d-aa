@@ -10,10 +10,10 @@ public partial class Villager : NPC
         NameLabel.Text = npc_name;
 
         //if we have a schedule we need to listen to the clock
-        if (Schedule != null)
-        {
-            GameEvents.OnNextHour += GameEvents_OnNextHour;
-        }
+        //if (Schedule != null)
+        //{
+        //    GameEvents.OnNextHour += GameEvents_OnNextHour;
+        //}
     }
 
     private void GameEvents_OnNextHour(int obj)

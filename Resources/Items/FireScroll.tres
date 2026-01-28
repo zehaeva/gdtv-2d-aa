@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://dxflmwqwxtfv5"]
+[gd_resource type="Resource" script_class="BaseItem" format=3 uid="uid://dxflmwqwxtfv5"]
 
 [ext_resource type="Texture2D" uid="uid://oupehox8s8vd" path="res://assets/Ninja Adventure - Asset Pack/Items/Scroll/ScrollFire.png" id="1_5c247"]
 [ext_resource type="Script" uid="uid://dhharpswye7lp" path="res://Scripts/Items/BaseItem.cs" id="2_mxpu7"]

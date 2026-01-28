@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="BaseItem" load_steps=3 format=3 uid="uid://jytnvdimkf4f"]
+[gd_resource type="Resource" script_class="BaseItem" format=3 uid="uid://jytnvdimkf4f"]
 
 [ext_resource type="Script" uid="uid://dhharpswye7lp" path="res://Scripts/Items/BaseItem.cs" id="1_bn40t"]
 [ext_resource type="Texture2D" uid="uid://o4rr73ikpk18" path="res://assets/Ninja Adventure - Asset Pack/Items/Weapons/Sword2/Sprite.png" id="1_qvvkx"]

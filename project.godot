@@ -25,7 +25,7 @@ resources_spreadsheet_view/freeze_first_column=true
 
 config/name="gdtv-2d-aa"
 run/main_scene="uid://du4ovd7otudde"
-config/features=PackedStringArray("4.5", "C#", "Forward Plus")
+config/features=PackedStringArray("4.6", "C#", "Forward Plus")
 config/icon="uid://ej2cl5oehe7n"
 
 [autoload]

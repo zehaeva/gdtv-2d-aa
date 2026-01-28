@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Spell" load_steps=2 format=3 uid="uid://b2xy2osvt3s84"]
+[gd_resource type="Resource" script_class="Spell" format=3 uid="uid://b2xy2osvt3s84"]
 
 [ext_resource type="Script" uid="uid://dkna8nk8ah8aq" path="res://Scripts/Abilities/Spell.cs" id="1_3kq1d"]
 

@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://dsgi0dcf6pox0"]
+[gd_scene format=3 uid="uid://dsgi0dcf6pox0"]
 
 [ext_resource type="Script" uid="uid://bbno4yktlmmh" path="res://Scripts/Classes/Wizard/Wizard.cs" id="1_s3u00"]
 [ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="2_1nhtt"]
@@ -21,9 +21,9 @@ script = ExtResource("4_2opih")
 Constraint = SubResource("Resource_yd2fd")
 metadata/_custom_type_script = "uid://be7nr10eaogdi"
 
-[node name="Wizard" type="Node"]
+[node name="Wizard" type="Node" unique_id=1192294791]
 script = ExtResource("1_s3u00")
+ClassConstraints = Array[Object]([SubResource("Resource_j7e2m")])
 Description = "A magic based class"
 MaxLevel = 10
-ClassConstraints = Array[Object]([SubResource("Resource_j7e2m")])
 XPTable = PackedInt32Array(10, 20, 40, 80, 160, 320, 640, 1280, 2560, 5120)

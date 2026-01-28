@@ -1,12 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://bvadja867gcf"]
+[gd_scene format=3 uid="uid://bvadja867gcf"]
 
-[ext_resource type="Script" uid="uid://j2krwk5wosn5" path="res://Scripts/Characters/NPCs/NPCSchedule.cs" id="1_23j0x"]
+[ext_resource type="Script" uid="uid://dgv68lc68eiyi" path="res://Scripts/Characters/NPCs/NPCScheduleManager.cs" id="1_23j0x"]
 [ext_resource type="Script" uid="uid://cumbuh7owdoxe" path="res://Scripts/Characters/NPCs/Villager/VillagerIdleState.cs" id="2_f4d5t"]
 
-[node name="NPCSchedule" type="Node" node_paths=PackedStringArray("Schedule")]
+[node name="NPCSchedule" type="Node" unique_id=644584841]
 script = ExtResource("1_23j0x")
-Schedule = {}
-metadata/_custom_type_script = "uid://j2krwk5wosn5"
 
-[node name="IdleState" type="Node" parent="."]
+[node name="IdleState" type="Node" parent="." unique_id=2079243270]
 script = ExtResource("2_f4d5t")

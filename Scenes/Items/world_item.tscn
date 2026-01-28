@@ -1,16 +1,16 @@
-[gd_scene load_steps=3 format=3 uid="uid://dgk76biht53po"]
+[gd_scene format=3 uid="uid://dgk76biht53po"]
 
 [ext_resource type="Script" uid="uid://c4t4mpoie0ha5" path="res://Scenes/GameScene/WorldItem.cs" id="1_mio1j"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_coono"]
 
-[node name="WorldItem" type="Node2D" groups=["interactable"]]
+[node name="WorldItem" type="Node2D" unique_id=1067619196 groups=["interactable"]]
 script = ExtResource("1_mio1j")
 
-[node name="Sprite2D" type="Sprite2D" parent="."]
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1328919041]
 
-[node name="Area2D" type="Area2D" parent="." groups=["interactable"]]
+[node name="Area2D" type="Area2D" parent="." unique_id=1493784400 groups=["interactable"]]
 collision_mask = 2
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D" unique_id=1808327773]
 shape = SubResource("RectangleShape2D_coono")

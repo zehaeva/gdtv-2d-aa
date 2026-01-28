@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="Wizard" load_steps=18 format=3 uid="uid://bvlmysysmgiue"]
+[gd_resource type="Resource" script_class="Wizard" format=3 uid="uid://bvlmysysmgiue"]
 
 [ext_resource type="Script" uid="uid://bkgqyclbobbvo" path="res://Scripts/Abilities/Attack.cs" id="1_gc8di"]
 [ext_resource type="Script" uid="uid://ckn31hq1xuf2m" path="res://Scripts/Resources/StatResource.cs" id="1_wfdni"]
