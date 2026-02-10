@@ -4,7 +4,10 @@ using System;
 public partial class NPCWorkStationState : NPCState
 {
     public new StateType StateType = StateType.WORK;
+    // need workstation area
     [Export] public Area2D WorkArea;
+    // list of materials needed for work
+    [Export] public InventoryItem[] RequiredMaterials;
 
     protected override void EnterState()
     {
@@ -16,5 +19,16 @@ public partial class NPCWorkStationState : NPCState
         // talked to?
 
         // suddenly died?
+
+        // Check for requirements
+        foreach (var item in RequiredMaterials)
+        {
+            if (!characterNode.Inventory.HasItem(item, item.Amount))
+            {
+                GD.Print("Missing required material: " + item.ItemName);
+                // maybe switch to a different state or just stop working
+                return;
+            }
+        }
     }                                                                                                                                                                                                                                                                                                                                                                                                              
 }

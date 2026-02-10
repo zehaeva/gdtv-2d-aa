@@ -6,8 +6,12 @@
     <RootNamespace>gdtv2daa</RootNamespace>
   </PropertyGroup>
   <ItemGroup>
-    <Folder Include="Scripts\Characters\CharacterStates\" />
-    <Folder Include="Scripts\Achivements\" />
+    <Compile Remove="Scripts\Achivements\**" />
+    <Compile Remove="Scripts\Characters\CharacterStates\**" />
+    <EmbeddedResource Remove="Scripts\Achivements\**" />
+    <EmbeddedResource Remove="Scripts\Characters\CharacterStates\**" />
+  </ItemGroup>
+  <ItemGroup>
     <Folder Include="Scripts\General\ElementalTypes\" />
   </ItemGroup>
 </Project>

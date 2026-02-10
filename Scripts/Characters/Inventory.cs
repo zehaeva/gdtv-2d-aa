@@ -1,5 +1,6 @@
 ﻿using Godot;
 using System.Collections.Generic;
+using System.Linq;
 
 public partial class Inventory : Resource
 {
@@ -14,4 +15,16 @@ public partial class Inventory : Resource
     {
         InventoryItems.Remove(item);
     }
+
+    public bool HasItem(InventoryItem item)
+    {
+        return InventoryItems.Contains(item);
+    }
+
+    public bool HasItem(InventoryItem item, int amount)
+    {
+        return InventoryItems.
+                    Where(invItem => invItem.ItemName == item.ItemName && invItem.Amount >= amount).
+                    FirstOrDefault() != null;
+    }   
 }
