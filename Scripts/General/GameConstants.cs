@@ -27,6 +27,7 @@
     public const string ANIM_CLOSED = "Closed";
     public const string ANIM_PRESSED = "Pressed";
     public const string ANIM_UNPRESSED = "Unpressed";
+    public const string ANIM_WORKING = "Working";
 
 
     public const string INPUT_MOVE_UP = "MoveUp";

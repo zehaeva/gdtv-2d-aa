@@ -14,8 +14,15 @@
 [ext_resource type="PackedScene" uid="uid://dhyujutqn8wlw" path="res://Scenes/LockedDoor/locked_door.tscn" id="7_elpgg"]
 [ext_resource type="PackedScene" uid="uid://dgmrljrjthh1a" path="res://Scenes/SwitchScene/switch.tscn" id="9_6qy3m"]
 [ext_resource type="Texture2D" uid="uid://cikp7a380mmdi" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/Cavegirl/SeparateAnim/Idle.png" id="9_jaj74"]
+[ext_resource type="Script" uid="uid://cpfexel0dac6n" path="res://Scripts/Characters/NPCs/States/NPCWorkState.cs" id="11_egwpe"]
+[ext_resource type="Script" uid="uid://dgv68lc68eiyi" path="res://Scripts/Characters/NPCs/NPCScheduleManager.cs" id="11_up7ow"]
+[ext_resource type="Script" uid="uid://bbv374gide7ra" path="res://Scripts/Characters/NPCs/States/NPCSocializeState.cs" id="12_cachg"]
+[ext_resource type="Script" uid="uid://cjm4h0sbigf11" path="res://Scripts/Characters/NPCs/States/NPCMoveToAreaState.cs" id="12_n4yq7"]
+[ext_resource type="Script" uid="uid://cdh7236gl4ilc" path="res://Scripts/Characters/NPCs/States/NPCHomeState.cs" id="13_n4yq7"]
 [ext_resource type="AudioStream" uid="uid://ddxokq4oym3xf" path="res://assets/Ninja Adventure - Asset Pack/Musics/11 - Clearing.ogg" id="13_njm7v"]
+[ext_resource type="Script" uid="uid://csqisnjkd3mak" path="res://Scripts/Characters/NPCs/States/NPCWorkStationState.cs" id="13_y3e6d"]
 [ext_resource type="PackedScene" uid="uid://pg8me1r73klb" path="res://Scenes/Enemies/slime_enemy.tscn" id="14_bkvnf"]
+[ext_resource type="Script" uid="uid://xaqy83flr4yl" path="res://Scripts/Characters/NPCs/States/NPCSleepState.cs" id="14_y3e6d"]
 [ext_resource type="PackedScene" uid="uid://bk3i3nq8xjsdr" path="res://Scenes/TreasureChestScene/treasure_chest.tscn" id="15_rpdpv"]
 [ext_resource type="Script" uid="uid://d1ws7vug23pau" path="res://Scripts/General/GameClock.cs" id="17_jaj74"]
 [ext_resource type="PackedScene" uid="uid://dgk76biht53po" path="res://Scenes/Items/world_item.tscn" id="18_pyj2o"]
@@ -978,6 +985,7 @@ Inventory = SubResource("Resource_6at6t")
 position = Vector2(-10, -56)
 npc_name = "Dark Ninja"
 dialogue_lines = PackedStringArray("I was here before time", "and then time forgot me", "there is nothing here", "just some slimes")
+Stats = Array[Object]([])
 Inventory = SubResource("Resource_6at6t")
 
 [node name="NPC" parent="ObsticleLayer" unique_id=564825202 instance=ExtResource("5_nr542")]
@@ -986,11 +994,50 @@ npc_name = "Cave Girl"
 dialogue_lines = PackedStringArray("There is a case to the West!")
 Inventory = SubResource("Resource_6at6t")
 
-[node name="Sprite2D" parent="ObsticleLayer/NPC" index="1"]
+[node name="Sprite2D" parent="ObsticleLayer/NPC" index="1" unique_id=1486854821]
 sprite_frames = SubResource("SpriteFrames_coono")
 
-[node name="NPCIcon" parent="ObsticleLayer/NPC/CanvasLayer/DialogueBoxTexture" index="0"]
+[node name="NPCIcon" parent="ObsticleLayer/NPC/CanvasLayer/DialogueBoxTexture" parent_id_path=PackedInt32Array(564825202, 1596354563) index="0" unique_id=1271819393]
 texture = SubResource("AtlasTexture_6qy3m")
+
+[node name="WorkState" type="Node" parent="ObsticleLayer/NPC/StateMachine" parent_id_path=PackedInt32Array(564825202, 396874469) index="2" unique_id=673298853 node_paths=PackedStringArray("SubStates")]
+script = ExtResource("11_egwpe")
+SubStates = [NodePath("GotoWorkState"), NodePath("KneedBread"), NodePath("BakeBread")]
+
+[node name="GotoWorkState" type="Node" parent="ObsticleLayer/NPC/StateMachine/WorkState" unique_id=1122016747]
+script = ExtResource("12_n4yq7")
+
+[node name="KneedBread" type="Node" parent="ObsticleLayer/NPC/StateMachine/WorkState" unique_id=1686020287]
+script = ExtResource("13_y3e6d")
+
+[node name="BakeBread" type="Node" parent="ObsticleLayer/NPC/StateMachine/WorkState" unique_id=878479213]
+script = ExtResource("13_y3e6d")
+
+[node name="StoreBread" type="Node" parent="ObsticleLayer/NPC/StateMachine/WorkState" unique_id=1002536486]
+script = ExtResource("13_y3e6d")
+
+[node name="SocializeState" type="Node" parent="ObsticleLayer/NPC/StateMachine" parent_id_path=PackedInt32Array(564825202, 396874469) index="3" unique_id=1666926957 node_paths=PackedStringArray("SubStates")]
+script = ExtResource("12_cachg")
+SubStates = Array[Object]([])
+
+[node name="HomeState" type="Node" parent="ObsticleLayer/NPC/StateMachine" parent_id_path=PackedInt32Array(564825202, 396874469) index="4" unique_id=270706888 node_paths=PackedStringArray("SubStates")]
+script = ExtResource("13_n4yq7")
+SubStates = Array[Object]([])
+
+[node name="SleepState" type="Node" parent="ObsticleLayer/NPC/StateMachine" parent_id_path=PackedInt32Array(564825202, 396874469) index="5" unique_id=1800724388 node_paths=PackedStringArray("SubStates")]
+script = ExtResource("14_y3e6d")
+SubStates = Array[Object]([])
+
+[node name="NPCScheduleManager" type="Node" parent="ObsticleLayer/NPC" unique_id=1975008447 node_paths=PackedStringArray("_stateMachine")]
+script = ExtResource("11_up7ow")
+Schedule = Dictionary[int, int]({
+1: 0,
+2: 3,
+3: 2,
+4: 1
+})
+_stateMachine = NodePath("../StateMachine")
+metadata/_custom_type_script = "uid://dgv68lc68eiyi"
 
 [node name="Player" parent="ObsticleLayer" unique_id=1619158033 instance=ExtResource("1_2p8i2")]
 unique_name_in_owner = true

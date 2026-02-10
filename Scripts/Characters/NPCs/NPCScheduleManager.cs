@@ -21,6 +21,15 @@ public partial class NPCScheduleManager : Node
 
     };
 
+    public override void _Ready()
+    {
+        GameEvents.OnNextHour += CheckSchedule;
+    }
+    public override void _ExitTree()
+    {
+        GameEvents.OnNextHour -= CheckSchedule;
+    }
+
     public void CheckSchedule(int currentHour)
     {
         if (Schedule.ContainsKey(currentHour))

@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://dyhtax7w4tbx3"]
+
+[ext_resource type="Script" uid="uid://dgv68lc68eiyi" path="res://Scripts/Characters/NPCs/NPCScheduleManager.cs" id="1_hkkp7"]
+
+[node name="ScheduleManager" type="Node" unique_id=1169849812]
+script = ExtResource("1_hkkp7")

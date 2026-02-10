@@ -5,6 +5,7 @@ public abstract partial class NPCState : CharacterState
 {
     protected new NPC characterNode;
     protected Vector2 destination;
+    public StateType StateType;
 
     public override void _Ready()
     {
@@ -24,6 +25,7 @@ public abstract partial class NPCState : CharacterState
         characterNode.StateMachineNode.SwitchState<NPCDeathState>();
     }
 
+    // get the specific V2 of a step in the current patrol path
     protected Vector2 GetPointGlobalPosition(int index)
     {
         Vector2 localPosition = Vector2.Zero;
