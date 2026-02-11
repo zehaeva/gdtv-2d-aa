@@ -41,7 +41,7 @@ public partial class NPCScheduleManager : Node
             _stateMachine.SwitchState(typeToSwitchTo);
             if (Debug)
             {
-                GD.Print(String.Format("Changing state to {} at Hour {}", state, currentHour));
+                GD.Print(String.Format("Changing state to {0} at Hour {1}", state, currentHour));
             }
         }
     }

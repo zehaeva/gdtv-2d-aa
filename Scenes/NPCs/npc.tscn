@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cnu4jofv4ajh5" path="res://Scripts/Characters/NPCs/Villager/Villager.cs" id="1_8207q"]
 [ext_resource type="Texture2D" uid="uid://dd1f2ganqdhom" path="res://assets/Ninja Adventure - Asset Pack/Ui/Dialog/DialogBoxFaceset.png" id="3_7vx50"]
 [ext_resource type="Script" uid="uid://cf7m7ewkudn5w" path="res://Scripts/Characters/Inventory.cs" id="3_iwfgo"]
-[ext_resource type="Script" uid="uid://c4rfh7oyeho44" path="res://Scripts/Resources/ClassesResource.cs" id="3_ji4qt"]
 [ext_resource type="Texture2D" uid="uid://cxc85372k8p2y" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaGray/SpriteSheet.png" id="3_vk7so"]
 [ext_resource type="Texture2D" uid="uid://cyiatxd8uwulf" path="res://assets/Ninja Adventure - Asset Pack/Actor/Characters/NinjaDark/Faceset.png" id="4_6wj7b"]
 [ext_resource type="AudioStream" uid="uid://cw3on7ulqn2rn" path="res://assets/Ninja Adventure - Asset Pack/Sounds/Game/MiniImpact.wav" id="5_8207q"]
@@ -12,12 +11,7 @@
 [ext_resource type="Script" uid="uid://cumbuh7owdoxe" path="res://Scripts/Characters/NPCs/Villager/VillagerIdleState.cs" id="8_vk7so"]
 [ext_resource type="Script" uid="uid://c6xjupy7dcxsm" path="res://Scripts/Characters/NPCs/Villager/VillagerInteractState.cs" id="9_dr070"]
 
-[sub_resource type="Resource" id="Resource_iwfgo"]
-script = ExtResource("3_ji4qt")
-ClassLevel = 1
-metadata/_custom_type_script = "uid://c4rfh7oyeho44"
-
-[sub_resource type="Resource" id="Resource_ki3bk"]
+[sub_resource type="Resource" id="Resource_tdvfv"]
 script = ExtResource("3_iwfgo")
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_53m4h"]
@@ -51,6 +45,8 @@ font_color = Color(0, 0, 0, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w84jp"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vk7so"]
+
 [sub_resource type="Animation" id="Animation_vk7so"]
 resource_name = "Idle"
 step = 0.2
@@ -78,15 +74,12 @@ _data = {
 &"RESET": SubResource("Animation_dr070")
 }
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vk7so"]
-
 [node name="NPC" type="CharacterBody2D" unique_id=1200513744 node_paths=PackedStringArray("DialogueLabel", "DialogueLayer", "NameLabel", "AnimationPlayerNode", "StateMachineNode", "HurtBoxNode", "HitBoxNode", "CollisionShape2DNode", "HitBoxShapeNode", "HitFlashTimer", "DamageSFX", "InteractArea2D") groups=["interactable"]]
 script = ExtResource("1_8207q")
 DialogueLabel = NodePath("CanvasLayer/DialogueBoxTexture/DialogueLabel")
 DialogueLayer = NodePath("CanvasLayer")
 NameLabel = NodePath("CanvasLayer/DialogueBoxTexture/NameLabel")
-Classes = Array[Object]([SubResource("Resource_iwfgo")])
-AnimationPlayerNode = NodePath("AnimationPlayer")
+AnimationPlayerNode = NodePath("InteractArea2D/AnimationPlayer")
 StateMachineNode = NodePath("StateMachine")
 HurtBoxNode = NodePath("HurtBoxArea")
 HitBoxNode = NodePath("HitBoxArea")
@@ -95,7 +88,7 @@ HitBoxShapeNode = NodePath("HitBoxArea/CollisionShape2D")
 HitFlashTimer = NodePath("HitBoxArea/HitFlashTimer")
 DamageSFX = NodePath("AudioStreamPlayer2D")
 InteractArea2D = NodePath("InteractArea2D")
-Inventory = SubResource("Resource_ki3bk")
+Inventory = SubResource("Resource_tdvfv")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1727075262]
 position = Vector2(-0.5, 0.5)
@@ -167,6 +160,16 @@ shape = SubResource("RectangleShape2D_wwphw")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBoxArea" unique_id=1468523562]
 shape = SubResource("RectangleShape2D_w84jp")
 
+[node name="InteractArea2D" type="Area2D" parent="." unique_id=1917719264]
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D" unique_id=195921739]
+shape = SubResource("CircleShape2D_vk7so")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="InteractArea2D" unique_id=1805845656]
+root_node = NodePath("../..")
+libraries/ = SubResource("AnimationLibrary_tdvfv")
+
 [node name="NPCSchedule" type="Node" parent="." unique_id=2061348509 node_paths=PackedStringArray("_stateMachine")]
 script = ExtResource("8_4nesf")
 Schedule = Dictionary[int, int]({
@@ -185,12 +188,3 @@ script = ExtResource("8_vk7so")
 
 [node name="InteractionState" type="Node" parent="StateMachine" unique_id=44831542]
 script = ExtResource("9_dr070")
-
-[node name="AnimationPlayer" type="AnimationPlayer" parent="." unique_id=1805845656]
-libraries/ = SubResource("AnimationLibrary_tdvfv")
-
-[node name="InteractArea2D" type="Area2D" parent="." unique_id=1917719264]
-collision_mask = 2
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="InteractArea2D" unique_id=195921739]
-shape = SubResource("CircleShape2D_vk7so")
