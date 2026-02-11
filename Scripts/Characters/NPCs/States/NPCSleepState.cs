@@ -11,6 +11,6 @@ public partial class NPCSleepState : HeirarchicalState
 
     public override void InitSubStates()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
     }
 }

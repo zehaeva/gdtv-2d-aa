@@ -7,6 +7,6 @@ public partial class NPCMoveToAreaState : NPCState
 
     protected override void EnterState()
     {
-
+        GD.Print("Move to area state?!?");
     }
 }

@@ -14,7 +14,7 @@ public partial class NPCWorkState : HeirarchicalState
         this._stateType = StateType.WORK;
 
         // if not in work area go to work area
-        if (!WorkArea.OverlapsBody(characterNode))
+        if (WorkArea != null && !WorkArea.OverlapsBody(characterNode))
         {
             SwitchSubState<NPCMoveToAreaState>();
         }
@@ -24,6 +24,5 @@ public partial class NPCWorkState : HeirarchicalState
             SwitchSubState<NPCWorkStationState>();
         }
         // start work step 2 ...
-        throw new NotImplementedException();
     }
 }

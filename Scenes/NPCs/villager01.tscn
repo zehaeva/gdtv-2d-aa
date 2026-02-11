@@ -1,0 +1,51 @@
+[gd_scene format=3 uid="uid://5ohe7xnv2xdl"]
+
+[ext_resource type="PackedScene" uid="uid://cgrlvp725savl" path="res://Scenes/NPCs/npc.tscn" id="1_3undd"]
+[ext_resource type="Script" uid="uid://cpfexel0dac6n" path="res://Scripts/Characters/NPCs/States/NPCWorkState.cs" id="2_h6jx5"]
+[ext_resource type="Script" uid="uid://cjm4h0sbigf11" path="res://Scripts/Characters/NPCs/States/NPCMoveToAreaState.cs" id="3_b3t15"]
+[ext_resource type="Script" uid="uid://csqisnjkd3mak" path="res://Scripts/Characters/NPCs/States/NPCWorkStationState.cs" id="4_1yfx1"]
+[ext_resource type="Script" uid="uid://bbv374gide7ra" path="res://Scripts/Characters/NPCs/States/NPCSocializeState.cs" id="5_brran"]
+[ext_resource type="Script" uid="uid://cdh7236gl4ilc" path="res://Scripts/Characters/NPCs/States/NPCHomeState.cs" id="6_hdm44"]
+[ext_resource type="Script" uid="uid://xaqy83flr4yl" path="res://Scripts/Characters/NPCs/States/NPCSleepState.cs" id="7_db5o7"]
+[ext_resource type="Script" uid="uid://dgv68lc68eiyi" path="res://Scripts/Characters/NPCs/NPCScheduleManager.cs" id="8_b3t15"]
+
+[node name="NPC" unique_id=1200513744 instance=ExtResource("1_3undd")]
+
+[node name="WorkState" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(396874469) index="2" unique_id=512891112 node_paths=PackedStringArray("SubStates")]
+script = ExtResource("2_h6jx5")
+SubStates = [NodePath("GotoWorkState"), NodePath("KneedBread"), NodePath("BakeBread"), NodePath("StoreBread")]
+
+[node name="GotoWorkState" type="Node" parent="StateMachine/WorkState" index="0" unique_id=680720996]
+script = ExtResource("3_b3t15")
+
+[node name="KneedBread" type="Node" parent="StateMachine/WorkState" index="1" unique_id=2068687501]
+script = ExtResource("4_1yfx1")
+
+[node name="BakeBread" type="Node" parent="StateMachine/WorkState" index="2" unique_id=277546464]
+script = ExtResource("4_1yfx1")
+
+[node name="StoreBread" type="Node" parent="StateMachine/WorkState" index="3" unique_id=1286927264]
+script = ExtResource("4_1yfx1")
+
+[node name="SocializeState" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(396874469) index="3" unique_id=1147337223 node_paths=PackedStringArray("SubStates")]
+script = ExtResource("5_brran")
+SubStates = []
+
+[node name="HomeState" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(396874469) index="4" unique_id=1875339339 node_paths=PackedStringArray("SubStates")]
+script = ExtResource("6_hdm44")
+SubStates = []
+
+[node name="SleepState" type="Node" parent="StateMachine" parent_id_path=PackedInt32Array(396874469) index="5" unique_id=629676394 node_paths=PackedStringArray("SubStates")]
+script = ExtResource("7_db5o7")
+SubStates = []
+
+[node name="NPCScheduleManager" type="Node" parent="." index="10" unique_id=1269381742 node_paths=PackedStringArray("_stateMachine")]
+script = ExtResource("8_b3t15")
+Schedule = Dictionary[int, int]({
+1: 0,
+2: 3,
+3: 2,
+4: 1
+})
+_stateMachine = NodePath("../StateMachine")
+metadata/_custom_type_script = "uid://dgv68lc68eiyi"

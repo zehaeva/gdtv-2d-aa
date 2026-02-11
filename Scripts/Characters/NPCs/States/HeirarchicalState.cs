@@ -29,7 +29,7 @@ public abstract partial class HeirarchicalState : NPCState
     public void SwitchSubState<T>() where T : NPCState
     {
         Type type = typeof(T);
-        NPCState newState = SubStates.Where((state) => state is T).FirstOrDefault();
+        NPCState newState = SubStates?.Where((state) => state is T).FirstOrDefault();
 
         if (newState == null) { return; }
         if (_currentSubState is T) { return; }

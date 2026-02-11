@@ -11,6 +11,7 @@ public partial class NPCSocializeState : HeirarchicalState
 
     public override void InitSubStates()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        GD.Print("NPC Socialize State");
     }
 }

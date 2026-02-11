@@ -11,6 +11,7 @@ public partial class NPCHomeState : HeirarchicalState
 
     public override void InitSubStates()
     {
-        throw new NotImplementedException();
+        //throw new NotImplementedException();
+        GD.Print("NPC Home State");
     }
 }
